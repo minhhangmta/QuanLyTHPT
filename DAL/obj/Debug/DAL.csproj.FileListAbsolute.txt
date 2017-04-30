@@ -1,0 +1,14 @@
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\SchoolManagement\DAL\bin\Debug\DAL.dll
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\SchoolManagement\DAL\bin\Debug\DAL.pdb
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\SchoolManagement\DAL\bin\Debug\DTO.dll
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\SchoolManagement\DAL\bin\Debug\DTO.pdb
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\SchoolManagement\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\SchoolManagement\DAL\obj\Debug\DAL.dll
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\SchoolManagement\DAL\obj\Debug\DAL.pdb
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\QuanLyTHPT\DAL\bin\Debug\DAL.dll
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\QuanLyTHPT\DAL\bin\Debug\DAL.pdb
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\QuanLyTHPT\DAL\bin\Debug\DTO.dll
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\QuanLyTHPT\DAL\bin\Debug\DTO.pdb
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\QuanLyTHPT\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\QuanLyTHPT\DAL\obj\Debug\DAL.dll
+E:\INFORMATION TECHNOLOGY\Nam 3 - Ki 2\ky 6\Thuc tap nhom\2017\Project 2017\Hang\QuanLyTHPT\DAL\obj\Debug\DAL.pdb
