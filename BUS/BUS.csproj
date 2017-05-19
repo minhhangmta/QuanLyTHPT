@@ -40,13 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS_Lop.cs" />
+    <Compile Include="HocSinhBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
+    <ProjectReference Include="..\DAL\DAO.csproj">
       <Project>{ebc4f134-22de-43ee-a9dc-60cab6872349}</Project>
-      <Name>DAL</Name>
+      <Name>DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{7fca68a3-c4fb-427d-ac56-3f46c2dcfc80}</Project>

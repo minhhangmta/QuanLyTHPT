@@ -60,6 +60,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucGiaoVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGiaoVien.Designer.cs">
+      <DependentUpon>ucGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucHocSinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucHocSinh.Designer.cs">
+      <DependentUpon>ucHocSinh.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +87,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucGiaoVien.resx">
+      <DependentUpon>ucGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucHocSinh.resx">
+      <DependentUpon>ucHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,10 +110,6 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{28bf6ac6-85d3-4a81-9605-fb5038d583d7}</Project>
       <Name>BUS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{7fca68a3-c4fb-427d-ac56-3f46c2dcfc80}</Project>
-      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
