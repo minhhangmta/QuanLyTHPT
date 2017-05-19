@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmDangNhap : Form
+    public partial class ucGiaoVien : UserControl
     {
-        public frmDangNhap()
+        public ucGiaoVien()
         {
             InitializeComponent();
-        }
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -21,5 +21,17 @@ namespace GUI
         {
 
         }
+
+        private void btn_HocSinh_Click(object sender, EventArgs e)
+        {
+            if (!panel.Controls.Contains(ucHocSinh.Instance))
+            {
+                panel.Controls.Add(ucHocSinh.Instance);
+                ucHocSinh.Instance.Dock = DockStyle.Fill;
+                ucHocSinh.Instance.BringToFront();
+            }
+            else
+                ucHocSinh.Instance.BringToFront();
+        }
     }
 }

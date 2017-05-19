@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 
-namespace BUS
+namespace DAL
 {
-    //Điều khiển DAL
-    //Xử lý logic
-    //Demo 
-    class BUS_Lop
+    class HocSinhDAO
     {
     }
 }
