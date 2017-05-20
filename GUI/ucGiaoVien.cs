@@ -96,25 +96,6 @@ namespace GUI
             LoadDB();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            status = "Them";
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnCapNhat.Enabled = false;
-            tool_Enabled();
-            clearText();
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            status = "Sua";
-            btnThem.Enabled = false;
-            btnXoa.Enabled = false;
-            btnCapNhat.Enabled = false;
-            tool_Enabled();
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Xóa giáo viên " + txtHoTen.Text, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
