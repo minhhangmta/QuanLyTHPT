@@ -43,17 +43,7 @@ namespace GUI
             LoadDB();
         }
 
-        public BangDiem getBangDiem()
-        {
-            BangDiem bangdiem = new BangDiem();
-            bangdiem.maHS = int.Parse(cmbHoTen.SelectedValue.ToString());
-            bangdiem.maMH = int.Parse(cmbMonHoc.SelectedValue.ToString());
-            bangdiem.namHoc= cmbNamHoc.SelectedItem.ToString();
-            bangdiem.tbHocKy1 = decimal.Parse(txtHK1.Text);
-            bangdiem.tbHocKy2 = decimal.Parse(txtHK2.Text);
-            bangdiem.tbNamHoc = decimal.Parse(txtCaNam.Text);
-            return bangdiem;
-        }
+        
 
         public void tool_Enabled()
         {
