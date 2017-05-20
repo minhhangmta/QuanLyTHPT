@@ -64,25 +64,7 @@ namespace GUI
             btnHuy.Enabled = true;
         }
 
-        public void tool_Disenabled()
-        {
-            txtSiSo.Enabled = false;
-            txtTenLop.Enabled = false;
-            cmbGVCN.Enabled = false;
-            cmbPhanBan.Enabled = false;
-            cmbTenKhoi.Enabled = false;
-            btnLuu.Enabled = false;
-            btnHuy.Enabled = false;
-        }
 
-        public void clearText()
-        {
-            txtSiSo.Clear();
-            txtTenLop.Clear();
-            cmbGVCN.Text = "";
-            cmbPhanBan.Text = "";
-            cmbTenKhoi.Text = "";
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
