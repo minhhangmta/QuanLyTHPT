@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO
+namespace DAO
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -33,9 +33,9 @@ namespace DTO
     partial void InsertBangDiem(BangDiem instance);
     partial void UpdateBangDiem(BangDiem instance);
     partial void DeleteBangDiem(BangDiem instance);
-    partial void InsertPhanBan(PhanBan instance);
-    partial void UpdatePhanBan(PhanBan instance);
-    partial void DeletePhanBan(PhanBan instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     partial void InsertChucVu(ChucVu instance);
     partial void UpdateChucVu(ChucVu instance);
     partial void DeleteChucVu(ChucVu instance);
@@ -57,13 +57,13 @@ namespace DTO
     partial void InsertMonHoc(MonHoc instance);
     partial void UpdateMonHoc(MonHoc instance);
     partial void DeleteMonHoc(MonHoc instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
+    partial void InsertPhanBan(PhanBan instance);
+    partial void UpdatePhanBan(PhanBan instance);
+    partial void DeletePhanBan(PhanBan instance);
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyTHPTConnectionString, mappingSource)
+				base(global::DAO.Properties.Settings.Default.QuanLyTHPTConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -100,11 +100,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<PhanBan> PhanBans
+		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
-				return this.GetTable<PhanBan>();
+				return this.GetTable<User>();
 			}
 		}
 		
@@ -164,11 +164,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
+		public System.Data.Linq.Table<PhanBan> PhanBans
 		{
 			get
 			{
-				return this.GetTable<User>();
+				return this.GetTable<PhanBan>();
 			}
 		}
 	}
@@ -179,9 +179,9 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maHS;
+		private int _maHS;
 		
-		private string _maMH;
+		private int _maMH;
 		
 		private string _namHoc;
 		
@@ -199,9 +199,9 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaHSChanging(string value);
+    partial void OnmaHSChanging(int value);
     partial void OnmaHSChanged();
-    partial void OnmaMHChanging(string value);
+    partial void OnmaMHChanging(int value);
     partial void OnmaMHChanged();
     partial void OnnamHocChanging(string value);
     partial void OnnamHocChanged();
@@ -220,8 +220,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maHS", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maHS
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maHS", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int maHS
 		{
 			get
 			{
@@ -244,8 +244,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maMH", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maMH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maMH", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int maMH
 		{
 			get
 			{
@@ -375,7 +375,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maHS = default(string);
+						this._maHS = default(int);
 					}
 					this.SendPropertyChanged("HocSinh");
 				}
@@ -409,7 +409,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maMH = default(string);
+						this._maMH = default(int);
 					}
 					this.SendPropertyChanged("MonHoc");
 				}
@@ -437,84 +437,92 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhanBan")]
-	public partial class PhanBan : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maBan;
+		private int _maUser;
 		
-		private string _tenBan;
+		private string _tenDangNhap;
 		
-		private EntitySet<Lop> _Lops;
+		private string _matKhau;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaBanChanging(string value);
-    partial void OnmaBanChanged();
-    partial void OntenBanChanging(string value);
-    partial void OntenBanChanged();
+    partial void OnmaUserChanging(int value);
+    partial void OnmaUserChanged();
+    partial void OntenDangNhapChanging(string value);
+    partial void OntenDangNhapChanged();
+    partial void OnmatKhauChanging(string value);
+    partial void OnmatKhauChanged();
     #endregion
 		
-		public PhanBan()
+		public User()
 		{
-			this._Lops = new EntitySet<Lop>(new Action<Lop>(this.attach_Lops), new Action<Lop>(this.detach_Lops));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maBan", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maBan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maUser", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maUser
 		{
 			get
 			{
-				return this._maBan;
+				return this._maUser;
 			}
 			set
 			{
-				if ((this._maBan != value))
+				if ((this._maUser != value))
 				{
-					this.OnmaBanChanging(value);
+					this.OnmaUserChanging(value);
 					this.SendPropertyChanging();
-					this._maBan = value;
-					this.SendPropertyChanged("maBan");
-					this.OnmaBanChanged();
+					this._maUser = value;
+					this.SendPropertyChanged("maUser");
+					this.OnmaUserChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBan", DbType="NVarChar(20)")]
-		public string tenBan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenDangNhap", DbType="VarChar(50)")]
+		public string tenDangNhap
 		{
 			get
 			{
-				return this._tenBan;
+				return this._tenDangNhap;
 			}
 			set
 			{
-				if ((this._tenBan != value))
+				if ((this._tenDangNhap != value))
 				{
-					this.OntenBanChanging(value);
+					this.OntenDangNhapChanging(value);
 					this.SendPropertyChanging();
-					this._tenBan = value;
-					this.SendPropertyChanged("tenBan");
-					this.OntenBanChanged();
+					this._tenDangNhap = value;
+					this.SendPropertyChanged("tenDangNhap");
+					this.OntenDangNhapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhanBan_Lop", Storage="_Lops", ThisKey="maBan", OtherKey="maBan")]
-		public EntitySet<Lop> Lops
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matKhau", DbType="VarChar(15)")]
+		public string matKhau
 		{
 			get
 			{
-				return this._Lops;
+				return this._matKhau;
 			}
 			set
 			{
-				this._Lops.Assign(value);
+				if ((this._matKhau != value))
+				{
+					this.OnmatKhauChanging(value);
+					this.SendPropertyChanging();
+					this._matKhau = value;
+					this.SendPropertyChanged("matKhau");
+					this.OnmatKhauChanged();
+				}
 			}
 		}
 		
@@ -537,18 +545,6 @@ namespace DTO
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_Lops(Lop entity)
-		{
-			this.SendPropertyChanging();
-			entity.PhanBan = this;
-		}
-		
-		private void detach_Lops(Lop entity)
-		{
-			this.SendPropertyChanging();
-			entity.PhanBan = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ChucVu")]
@@ -557,7 +553,7 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maCV;
+		private int _maCV;
 		
 		private string _chucVu1;
 		
@@ -573,7 +569,7 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaCVChanging(string value);
+    partial void OnmaCVChanging(int value);
     partial void OnmaCVChanged();
     partial void OnchucVu1Changing(string value);
     partial void OnchucVu1Changed();
@@ -591,8 +587,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maCV", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maCV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maCV", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maCV
 		{
 			get
 			{
@@ -743,7 +739,7 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maGV;
+		private int _maGV;
 		
 		private string _hoTenGV;
 		
@@ -765,11 +761,11 @@ namespace DTO
 		
 		private System.Nullable<int> _trangThai;
 		
-		private string _maMH;
+		private System.Nullable<int> _maMH;
 		
-		private string _maCV;
+		private System.Nullable<int> _maCV;
 		
-		private string _maLuong;
+		private System.Nullable<int> _maLuong;
 		
 		private EntitySet<Lop> _Lops;
 		
@@ -783,7 +779,7 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaGVChanging(string value);
+    partial void OnmaGVChanging(int value);
     partial void OnmaGVChanged();
     partial void OnhoTenGVChanging(string value);
     partial void OnhoTenGVChanged();
@@ -805,11 +801,11 @@ namespace DTO
     partial void OnxepLoaiChanged();
     partial void OntrangThaiChanging(System.Nullable<int> value);
     partial void OntrangThaiChanged();
-    partial void OnmaMHChanging(string value);
+    partial void OnmaMHChanging(System.Nullable<int> value);
     partial void OnmaMHChanged();
-    partial void OnmaCVChanging(string value);
+    partial void OnmaCVChanging(System.Nullable<int> value);
     partial void OnmaCVChanged();
-    partial void OnmaLuongChanging(string value);
+    partial void OnmaLuongChanging(System.Nullable<int> value);
     partial void OnmaLuongChanged();
     #endregion
 		
@@ -822,8 +818,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maGV", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maGV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maGV", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maGV
 		{
 			get
 			{
@@ -1042,8 +1038,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maMH", DbType="VarChar(10)")]
-		public string maMH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maMH", DbType="Int")]
+		public System.Nullable<int> maMH
 		{
 			get
 			{
@@ -1066,8 +1062,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maCV", DbType="VarChar(10)")]
-		public string maCV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maCV", DbType="Int")]
+		public System.Nullable<int> maCV
 		{
 			get
 			{
@@ -1090,8 +1086,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLuong", DbType="VarChar(10)")]
-		public string maLuong
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLuong", DbType="Int")]
+		public System.Nullable<int> maLuong
 		{
 			get
 			{
@@ -1154,7 +1150,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maCV = default(string);
+						this._maCV = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("ChucVu");
 				}
@@ -1188,7 +1184,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maLuong = default(string);
+						this._maLuong = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Luong");
 				}
@@ -1222,7 +1218,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maMH = default(string);
+						this._maMH = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("MonHoc");
 				}
@@ -1263,12 +1259,12 @@ namespace DTO
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HocSinh")]
-	public partial class HocSinh : INotifyPropertyChanging, INotifyPropertyChanged, IDisposable
+	public partial class HocSinh : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maHS;
+		private int _maHS;
 		
 		private string _hoTenHS;
 		
@@ -1296,7 +1292,7 @@ namespace DTO
 		
 		private System.Nullable<int> _trangThai;
 		
-		private string _maLop;
+		private System.Nullable<int> _maLop;
 		
 		private EntitySet<BangDiem> _BangDiems;
 		
@@ -1306,7 +1302,7 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaHSChanging(string value);
+    partial void OnmaHSChanging(int value);
     partial void OnmaHSChanged();
     partial void OnhoTenHSChanging(string value);
     partial void OnhoTenHSChanged();
@@ -1334,7 +1330,7 @@ namespace DTO
     partial void OnchucVuChanged();
     partial void OntrangThaiChanging(System.Nullable<int> value);
     partial void OntrangThaiChanged();
-    partial void OnmaLopChanging(string value);
+    partial void OnmaLopChanging(System.Nullable<int> value);
     partial void OnmaLopChanged();
     #endregion
 		
@@ -1345,8 +1341,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maHS", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maHS
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maHS", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maHS
 		{
 			get
 			{
@@ -1625,8 +1621,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLop", DbType="VarChar(10)")]
-		public string maLop
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLop", DbType="Int")]
+		public System.Nullable<int> maLop
 		{
 			get
 			{
@@ -1689,7 +1685,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maLop = default(string);
+						this._maLop = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Lop");
 				}
@@ -1727,12 +1723,7 @@ namespace DTO
 			this.SendPropertyChanging();
 			entity.HocSinh = null;
 		}
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-    }
+	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KhoiLop")]
 	public partial class KhoiLop : INotifyPropertyChanging, INotifyPropertyChanged
@@ -1740,7 +1731,7 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maKhoi;
+		private int _maKhoi;
 		
 		private string _tenKhoi;
 		
@@ -1752,7 +1743,7 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaKhoiChanging(string value);
+    partial void OnmaKhoiChanging(int value);
     partial void OnmaKhoiChanged();
     partial void OntenKhoiChanging(string value);
     partial void OntenKhoiChanged();
@@ -1766,8 +1757,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maKhoi", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maKhoi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maKhoi", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maKhoi
 		{
 			get
 			{
@@ -1878,7 +1869,7 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maLop;
+		private int _maLop;
 		
 		private string _tenLop;
 		
@@ -1886,11 +1877,11 @@ namespace DTO
 		
 		private string _xepLoai;
 		
-		private string _maKhoi;
+		private System.Nullable<int> _maKhoi;
 		
-		private string _maBan;
+		private System.Nullable<int> _maBan;
 		
-		private string _maGVCN;
+		private System.Nullable<int> _maGVCN;
 		
 		private EntitySet<HocSinh> _HocSinhs;
 		
@@ -1904,7 +1895,7 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaLopChanging(string value);
+    partial void OnmaLopChanging(int value);
     partial void OnmaLopChanged();
     partial void OntenLopChanging(string value);
     partial void OntenLopChanged();
@@ -1912,11 +1903,11 @@ namespace DTO
     partial void OnsiSoChanged();
     partial void OnxepLoaiChanging(string value);
     partial void OnxepLoaiChanged();
-    partial void OnmaKhoiChanging(string value);
+    partial void OnmaKhoiChanging(System.Nullable<int> value);
     partial void OnmaKhoiChanged();
-    partial void OnmaBanChanging(string value);
+    partial void OnmaBanChanging(System.Nullable<int> value);
     partial void OnmaBanChanged();
-    partial void OnmaGVCNChanging(string value);
+    partial void OnmaGVCNChanging(System.Nullable<int> value);
     partial void OnmaGVCNChanged();
     #endregion
 		
@@ -1929,8 +1920,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLop", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maLop
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLop", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maLop
 		{
 			get
 			{
@@ -2009,8 +2000,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maKhoi", DbType="VarChar(10)")]
-		public string maKhoi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maKhoi", DbType="Int")]
+		public System.Nullable<int> maKhoi
 		{
 			get
 			{
@@ -2033,8 +2024,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maBan", DbType="VarChar(10)")]
-		public string maBan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maBan", DbType="Int")]
+		public System.Nullable<int> maBan
 		{
 			get
 			{
@@ -2057,8 +2048,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maGVCN", DbType="VarChar(10)")]
-		public string maGVCN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maGVCN", DbType="Int")]
+		public System.Nullable<int> maGVCN
 		{
 			get
 			{
@@ -2121,7 +2112,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maGVCN = default(string);
+						this._maGVCN = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("GiaoVien");
 				}
@@ -2155,7 +2146,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maKhoi = default(string);
+						this._maKhoi = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("KhoiLop");
 				}
@@ -2189,7 +2180,7 @@ namespace DTO
 					}
 					else
 					{
-						this._maBan = default(string);
+						this._maBan = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("PhanBan");
 				}
@@ -2235,7 +2226,7 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maLuong;
+		private int _maLuong;
 		
 		private System.Nullable<decimal> _luongCB;
 		
@@ -2251,7 +2242,7 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaLuongChanging(string value);
+    partial void OnmaLuongChanging(int value);
     partial void OnmaLuongChanged();
     partial void OnluongCBChanging(System.Nullable<decimal> value);
     partial void OnluongCBChanged();
@@ -2269,8 +2260,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLuong", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maLuong
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLuong", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maLuong
 		{
 			get
 			{
@@ -2421,7 +2412,7 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maMH;
+		private int _maMH;
 		
 		private string _tenMH;
 		
@@ -2437,7 +2428,7 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaMHChanging(string value);
+    partial void OnmaMHChanging(int value);
     partial void OnmaMHChanged();
     partial void OntenMHChanging(string value);
     partial void OntenMHChanged();
@@ -2454,8 +2445,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maMH", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maMH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maMH", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maMH
 		{
 			get
 			{
@@ -2605,92 +2596,84 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhanBan")]
+	public partial class PhanBan : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _maUser;
+		private int _maBan;
 		
-		private string _tenDangNhap;
+		private string _tenBan;
 		
-		private string _matKhau;
+		private EntitySet<Lop> _Lops;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnmaUserChanging(string value);
-    partial void OnmaUserChanged();
-    partial void OntenDangNhapChanging(string value);
-    partial void OntenDangNhapChanged();
-    partial void OnmatKhauChanging(string value);
-    partial void OnmatKhauChanged();
+    partial void OnmaBanChanging(int value);
+    partial void OnmaBanChanged();
+    partial void OntenBanChanging(string value);
+    partial void OntenBanChanged();
     #endregion
 		
-		public User()
+		public PhanBan()
 		{
+			this._Lops = new EntitySet<Lop>(new Action<Lop>(this.attach_Lops), new Action<Lop>(this.detach_Lops));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maUser", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maUser
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maBan", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maBan
 		{
 			get
 			{
-				return this._maUser;
+				return this._maBan;
 			}
 			set
 			{
-				if ((this._maUser != value))
+				if ((this._maBan != value))
 				{
-					this.OnmaUserChanging(value);
+					this.OnmaBanChanging(value);
 					this.SendPropertyChanging();
-					this._maUser = value;
-					this.SendPropertyChanged("maUser");
-					this.OnmaUserChanged();
+					this._maBan = value;
+					this.SendPropertyChanged("maBan");
+					this.OnmaBanChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenDangNhap", DbType="VarChar(15)")]
-		public string tenDangNhap
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenBan", DbType="NVarChar(20)")]
+		public string tenBan
 		{
 			get
 			{
-				return this._tenDangNhap;
+				return this._tenBan;
 			}
 			set
 			{
-				if ((this._tenDangNhap != value))
+				if ((this._tenBan != value))
 				{
-					this.OntenDangNhapChanging(value);
+					this.OntenBanChanging(value);
 					this.SendPropertyChanging();
-					this._tenDangNhap = value;
-					this.SendPropertyChanged("tenDangNhap");
-					this.OntenDangNhapChanged();
+					this._tenBan = value;
+					this.SendPropertyChanged("tenBan");
+					this.OntenBanChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matKhau", DbType="VarChar(15)")]
-		public string matKhau
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhanBan_Lop", Storage="_Lops", ThisKey="maBan", OtherKey="maBan")]
+		public EntitySet<Lop> Lops
 		{
 			get
 			{
-				return this._matKhau;
+				return this._Lops;
 			}
 			set
 			{
-				if ((this._matKhau != value))
-				{
-					this.OnmatKhauChanging(value);
-					this.SendPropertyChanging();
-					this._matKhau = value;
-					this.SendPropertyChanged("matKhau");
-					this.OnmatKhauChanged();
-				}
+				this._Lops.Assign(value);
 			}
 		}
 		
@@ -2712,6 +2695,18 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Lops(Lop entity)
+		{
+			this.SendPropertyChanging();
+			entity.PhanBan = this;
+		}
+		
+		private void detach_Lops(Lop entity)
+		{
+			this.SendPropertyChanging();
+			entity.PhanBan = null;
 		}
 	}
 }
