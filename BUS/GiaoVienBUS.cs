@@ -23,12 +23,28 @@ namespace BUS
         }
 
         public GiaoVienBUS() { }
-        public List<GiaoVien> GetList()
-        {
-            return DB.GiaoViens.ToList();
-        }
 
         DataClassesDataContext DB = new DataClassesDataContext();
 
+        public List<GiaoVien> GetList()
+        {
+            List<GiaoVien> lst = new List<GiaoVien>();
+            DB.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, DB.GiaoViens.ToList());
+            return DB.GiaoViens.ToList();
+        }
+
+        public void GetMonHoc(ComboBox cmb)
+        {
+            cmb.DataSource = DB.MonHocs.ToList();
+            cmb.DisplayMember = "tenMH";
+            cmb.ValueMember = "maMH";
+        }
+
+        public void GetChucVu(ComboBox cmb)
+        {
+            cmb.DataSource = DB.ChucVus.ToList();
+            cmb.DisplayMember = "tenCV";
+            cmb.ValueMember = "maCV";
+        }
     }
 }

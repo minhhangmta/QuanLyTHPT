@@ -31,8 +31,9 @@ namespace GUI
         GiaoVienBUS GVBUS = new GiaoVienBUS();
         public void LoadDB()
         {
-            //GiaoVienBUS.Instance.GetListGiaoVien(dgvGiaoVien);
             dgvGiaoVien.DataSource = GVBUS.GetList();
+            GiaoVienBUS.Instance.GetMonHoc(cmbMonHoc);
+            GiaoVienBUS.Instance.GetChucVu(cmbChucVu);
         }
 
         private string status = "";
@@ -83,15 +84,15 @@ namespace GUI
             {
                 if (dgvGiaoVien.CurrentRow.Cells["maGV"].Value != null)
                 {
-                    txtMaGV.Text = dgvGiaoVien.CurrentRow.Cells["maGV"].Value.ToString();
+                    //txtMaGV.Text = dgvGiaoVien.CurrentRow.Cells["maGV"].Value.ToString();
                     txtHoTen.Text = dgvGiaoVien.CurrentRow.Cells["hoTenGV"].Value.ToString();
                     txtDiaChi.Text = dgvGiaoVien.CurrentRow.Cells["diaChi"].Value.ToString();
                     txtEmail.Text = dgvGiaoVien.CurrentRow.Cells["email"].Value.ToString();
                     txtSDT.Text = dgvGiaoVien.CurrentRow.Cells["sdt"].Value.ToString();
                     txtMaLuong.Text = dgvGiaoVien.CurrentRow.Cells["maLuong"].Value.ToString();
-                    txtMaMH.Text = dgvGiaoVien.CurrentRow.Cells["maMH"].Value.ToString();
+                  //  txtMaMH.Text = dgvGiaoVien.CurrentRow.Cells["maMH"].Value.ToString();
                     txtTrinhDo.Text = dgvGiaoVien.CurrentRow.Cells["trinhDo"].Value.ToString();
-                    txtMaCV.Text = dgvGiaoVien.CurrentRow.Cells["maCV"].Value.ToString();
+                    //txtMaCV.Text = dgvGiaoVien.CurrentRow.Cells["maCV"].Value.ToString();
                     dtNgaySinh.Value = DateTime.Parse(dgvGiaoVien.CurrentRow.Cells["ngaySinh"].Value.ToString());
                     ////Gioi tinh
                     string GT = dgvGiaoVien.CurrentRow.Cells["gioiTinh"].Value.ToString();
@@ -99,9 +100,18 @@ namespace GUI
                         rdbNam.Checked = true;
                     if (GT == "Nữ")
                         rdbNu.Checked = true;
-                    //Chuc Vu
-                    
-
+                    //Xep loai
+                    string xl = dgvGiaoVien.CurrentRow.Cells["xepLoai"].Value.ToString();
+                    if (xl == "Xuất sắc")
+                        cmbXepLoai.SelectedItem = "Xuất sắc";
+                    else if (xl == "Giỏi")
+                        cmbXepLoai.SelectedItem = "Giỏi";
+                    else if (xl == "Khá")
+                        cmbXepLoai.SelectedItem = "Khá";
+                    else if (xl == "Trung bình")
+                        cmbXepLoai.SelectedItem = "Trung bình";
+                    else
+                        cmbXepLoai.SelectedItem = "Yếu";
                     //Trang thai
                     int stt = dgvGiaoVien.CurrentRow.Cells["trangThai"].Value.GetHashCode();
                     if (stt == 1)
@@ -110,8 +120,6 @@ namespace GUI
                         cmbTrangThai.SelectedItem = "Đình chỉ";
                     if (stt == 0)
                         cmbTrangThai.SelectedItem = "Đã nghỉ";
-                    //Lop hoc
-                    // cmbLopHoc.ValueMember = dgvGiaoVien.CurrentRow.Cells["maLop"].Value.ToString();
                    
                 }
             }
@@ -123,19 +131,18 @@ namespace GUI
 
         private void dgvGiaoVien_SelectionChanged(object sender, EventArgs e)
         {
-            /*try
+            try
             {
                 if (dgvGiaoVien.CurrentRow.Cells["maGV"].Value != null)
                 {
-                    txtMaGV.Text = dgvGiaoVien.CurrentRow.Cells["maGV"].Value.ToString();
                     txtHoTen.Text = dgvGiaoVien.CurrentRow.Cells["hoTenGV"].Value.ToString();
                     txtDiaChi.Text = dgvGiaoVien.CurrentRow.Cells["diaChi"].Value.ToString();
                     txtEmail.Text = dgvGiaoVien.CurrentRow.Cells["email"].Value.ToString();
                     txtSDT.Text = dgvGiaoVien.CurrentRow.Cells["SDT"].Value.ToString();
                     txtMaLuong.Text = dgvGiaoVien.CurrentRow.Cells["maLuong"].Value.ToString();
-                    txtMaMH.Text = dgvGiaoVien.CurrentRow.Cells["maMH"].Value.ToString();
+                 //   txtMaMH.Text = dgvGiaoVien.CurrentRow.Cells["maMH"].Value.ToString();
                     txtTrinhDo.Text = dgvGiaoVien.CurrentRow.Cells["trinhDo"].Value.ToString();
-                    txtMaCV.Text = dgvGiaoVien.CurrentRow.Cells["maCV"].Value.ToString();
+                   // txtMaCV.Text = dgvGiaoVien.CurrentRow.Cells["maCV"].Value.ToString();
                     dtNgaySinh.Value = DateTime.Parse(dgvGiaoVien.CurrentRow.Cells["ngaySinh"].Value.ToString());
                     ////Gioi tinh
                     string GT = dgvGiaoVien.CurrentRow.Cells["gioiTinh"].Value.ToString();
@@ -143,9 +150,18 @@ namespace GUI
                         rdbNam.Checked = true;
                     if (GT == "Nữ")
                         rdbNu.Checked = true;
-                    //Chuc Vu
-
-
+                    //Xep loai
+                    string xl = dgvGiaoVien.CurrentRow.Cells["xepLoai"].Value.ToString();
+                    if (xl == "Xuất sắc")
+                        cmbXepLoai.SelectedItem = "Xuất sắc";
+                    else if (xl == "Giỏi")
+                        cmbXepLoai.SelectedItem = "Giỏi";
+                    else if (xl == "Khá")
+                        cmbXepLoai.SelectedItem = "Khá";
+                    else if (xl == "Trung bình")
+                        cmbXepLoai.SelectedItem = "Trung bình";
+                    else
+                        cmbXepLoai.SelectedItem = "Yếu";
                     //Trang thai
                     int stt = dgvGiaoVien.CurrentRow.Cells["trangThai"].Value.GetHashCode();
                     if (stt == 1)
@@ -154,15 +170,14 @@ namespace GUI
                         cmbTrangThai.SelectedItem = "Đình chỉ";
                     if (stt == 0)
                         cmbTrangThai.SelectedItem = "Đã nghỉ";
-                    //Lop hoc
-                    // cmbLopHoc.ValueMember = dgvGiaoVien.CurrentRow.Cells["maLop"].Value.ToString();
+                    //Mon hoc
 
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
         }
     }
 }

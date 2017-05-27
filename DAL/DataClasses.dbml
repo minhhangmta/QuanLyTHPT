@@ -110,7 +110,6 @@
       <Column Name="maMH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tenMH" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
       <Column Name="soTiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="heSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="MonHoc_BangDiem" Member="BangDiems" ThisKey="maMH" OtherKey="maMH" Type="BangDiem" />
       <Association Name="MonHoc_GiaoVien" Member="GiaoViens" ThisKey="maMH" OtherKey="maMH" Type="GiaoVien" />
     </Type>

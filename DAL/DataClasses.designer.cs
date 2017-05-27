@@ -2418,8 +2418,6 @@ namespace DAO
 		
 		private System.Nullable<int> _soTiet;
 		
-		private System.Nullable<int> _heSo;
-		
 		private EntitySet<BangDiem> _BangDiems;
 		
 		private EntitySet<GiaoVien> _GiaoViens;
@@ -2434,8 +2432,6 @@ namespace DAO
     partial void OntenMHChanged();
     partial void OnsoTietChanging(System.Nullable<int> value);
     partial void OnsoTietChanged();
-    partial void OnheSoChanging(System.Nullable<int> value);
-    partial void OnheSoChanged();
     #endregion
 		
 		public MonHoc()
@@ -2501,26 +2497,6 @@ namespace DAO
 					this._soTiet = value;
 					this.SendPropertyChanged("soTiet");
 					this.OnsoTietChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_heSo", DbType="Int")]
-		public System.Nullable<int> heSo
-		{
-			get
-			{
-				return this._heSo;
-			}
-			set
-			{
-				if ((this._heSo != value))
-				{
-					this.OnheSoChanging(value);
-					this.SendPropertyChanging();
-					this._heSo = value;
-					this.SendPropertyChanged("heSo");
-					this.OnheSoChanged();
 				}
 			}
 		}

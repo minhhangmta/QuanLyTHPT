@@ -28,7 +28,8 @@ namespace BUS
 
         public List<HocSinh> GetList()
         {
-            DB.SubmitChanges();
+            List<HocSinh> lst = new List<HocSinh>();
+            DB.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, DB.HocSinhs.ToList());
             return DB.HocSinhs.ToList();
         }
 
@@ -85,6 +86,8 @@ namespace BUS
                 hocsinh.chucVu = hs.chucVu;
                 hocsinh.danToc = hs.danToc;
                 hocsinh.gioiTinh = hs.gioiTinh;
+                hocsinh.dcTamTru = hs.dcTamTru;
+                hocsinh.dcThuongTru = hs.dcThuongTru;
                 DB.SubmitChanges();
             }
             catch (Exception e)
