@@ -59,7 +59,17 @@ namespace GUI
 
         }
 
-
-
+        private void btnStatisticStudent_Click(object sender, EventArgs e)
+        {
+            ucStatisticStudents ucStatistic = new ucStatisticStudents();
+            if (!panel.Controls.Contains(ucStatistic))
+            {
+                panelStatistic.Controls.Add(ucStatistic);
+                ucStatistic.Dock = DockStyle.Fill;
+                ucStatistic.BringToFront();
+            }
+            else
+                ucStatistic.BringToFront();
+        }
     }
 }

@@ -78,6 +78,12 @@
     <Compile Include="ucLopHoc.Designer.cs">
       <DependentUpon>ucLopHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucStatisticStudents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucStatisticStudents.Designer.cs">
+      <DependentUpon>ucStatisticStudents.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +98,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ucGiaoVien.resx">
       <DependentUpon>ucGiaoVien.cs</DependentUpon>
@@ -101,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucLopHoc.resx">
       <DependentUpon>ucLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucStatisticStudents.resx">
+      <DependentUpon>ucStatisticStudents.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,6 +134,15 @@
       <Project>{ebc4f134-22de-43ee-a9dc-60cab6872349}</Project>
       <Name>DAO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics-market-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

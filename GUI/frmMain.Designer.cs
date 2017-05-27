@@ -35,16 +35,20 @@
             this.tabPage_QuanLy = new System.Windows.Forms.TabPage();
             this.panel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btn_GiaoVien = new System.Windows.Forms.Button();
             this.btn_LopHoc = new System.Windows.Forms.Button();
             this.btn_HocSinh = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnStatisticStudent = new System.Windows.Forms.Button();
             this.heThong_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doiMK_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dangXuat_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoat_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelStatistic = new System.Windows.Forms.Panel();
             this.tabPage_ThongKe.SuspendLayout();
+            this.grb_main_TK.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabPage_QuanLy.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -65,6 +69,7 @@
             // 
             // grb_main_TK
             // 
+            this.grb_main_TK.Controls.Add(this.panelStatistic);
             this.grb_main_TK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grb_main_TK.Location = new System.Drawing.Point(3, 82);
             this.grb_main_TK.Name = "grb_main_TK";
@@ -75,6 +80,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.Controls.Add(this.btnStatisticStudent);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
@@ -114,6 +120,27 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(957, 79);
             this.panel3.TabIndex = 2;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage_QuanLy);
+            this.tabControl1.Controls.Add(this.tabPage_ThongKe);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 24);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(971, 649);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.heThong_ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // btn_GiaoVien
             // 
@@ -157,26 +184,19 @@
             this.btn_HocSinh.UseVisualStyleBackColor = true;
             this.btn_HocSinh.Click += new System.EventHandler(this.btn_HocSinh_Click);
             // 
-            // tabControl1
+            // btnStatisticStudent
             // 
-            this.tabControl1.Controls.Add(this.tabPage_QuanLy);
-            this.tabControl1.Controls.Add(this.tabPage_ThongKe);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(971, 649);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.heThong_ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.btnStatisticStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatisticStudent.Image = global::GUI.Properties.Resources.statistics_market_icon;
+            this.btnStatisticStudent.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnStatisticStudent.Location = new System.Drawing.Point(3, 3);
+            this.btnStatisticStudent.Name = "btnStatisticStudent";
+            this.btnStatisticStudent.Size = new System.Drawing.Size(80, 73);
+            this.btnStatisticStudent.TabIndex = 1;
+            this.btnStatisticStudent.Text = "Học Sinh";
+            this.btnStatisticStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnStatisticStudent.UseVisualStyleBackColor = true;
+            this.btnStatisticStudent.Click += new System.EventHandler(this.btnStatisticStudent_Click);
             // 
             // heThong_ToolStripMenuItem
             // 
@@ -194,20 +214,28 @@
             // doiMK_ToolStripMenuItem
             // 
             this.doiMK_ToolStripMenuItem.Name = "doiMK_ToolStripMenuItem";
-            this.doiMK_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.doiMK_ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.doiMK_ToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // dangXuat_ToolStripMenuItem
             // 
             this.dangXuat_ToolStripMenuItem.Name = "dangXuat_ToolStripMenuItem";
-            this.dangXuat_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dangXuat_ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.dangXuat_ToolStripMenuItem.Text = "Đăng xuất";
             // 
             // thoat_ToolStripMenuItem
             // 
             this.thoat_ToolStripMenuItem.Name = "thoat_ToolStripMenuItem";
-            this.thoat_ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.thoat_ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.thoat_ToolStripMenuItem.Text = "Thoát";
+            // 
+            // panelStatistic
+            // 
+            this.panelStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStatistic.Location = new System.Drawing.Point(3, 16);
+            this.panelStatistic.Name = "panelStatistic";
+            this.panelStatistic.Size = new System.Drawing.Size(951, 519);
+            this.panelStatistic.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -224,6 +252,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabPage_ThongKe.ResumeLayout(false);
+            this.grb_main_TK.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tabPage_QuanLy.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
@@ -251,6 +281,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox grb_main_TK;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Button btnStatisticStudent;
+        private System.Windows.Forms.Panel panelStatistic;
     }
 }
 
