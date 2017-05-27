@@ -72,6 +72,12 @@
     <Compile Include="ucHocSinh.Designer.cs">
       <DependentUpon>ucHocSinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucLopHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLopHoc.Designer.cs">
+      <DependentUpon>ucLopHoc.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +99,9 @@
     <EmbeddedResource Include="ucHocSinh.resx">
       <DependentUpon>ucHocSinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucLopHoc.resx">
+      <DependentUpon>ucLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -110,6 +119,10 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{28bf6ac6-85d3-4a81-9605-fb5038d583d7}</Project>
       <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAO.csproj">
+      <Project>{ebc4f134-22de-43ee-a9dc-60cab6872349}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

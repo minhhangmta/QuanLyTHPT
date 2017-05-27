@@ -33,5 +33,33 @@ namespace GUI
             else
                 ucHocSinh.Instance.BringToFront();
         }
+
+        private void btn_GiaoVien_Click(object sender, EventArgs e)
+        {
+            if (!panel.Controls.Contains(ucGiaoVien.Instance))
+            {
+                panel.Controls.Add(ucGiaoVien.Instance);
+                ucGiaoVien.Instance.Dock = DockStyle.Fill;
+                ucGiaoVien.Instance.BringToFront();
+            }
+            else
+                ucGiaoVien.Instance.BringToFront();
+        }
+
+        private void btn_LopHoc_Click(object sender, EventArgs e)
+        {
+            if (!panel.Controls.Contains(ucLopHoc.Instance))
+            {
+                panel.Controls.Add(ucLopHoc.Instance);
+                ucLopHoc.Instance.Dock = DockStyle.Fill;
+                ucLopHoc.Instance.BringToFront();
+            }
+            else
+                ucLopHoc.Instance.BringToFront();
+
+        }
+
+
+
     }
 }
