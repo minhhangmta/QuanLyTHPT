@@ -33,9 +33,6 @@ namespace DAO
     partial void InsertBangDiem(BangDiem instance);
     partial void UpdateBangDiem(BangDiem instance);
     partial void DeleteBangDiem(BangDiem instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertChucVu(ChucVu instance);
     partial void UpdateChucVu(ChucVu instance);
     partial void DeleteChucVu(ChucVu instance);
@@ -60,10 +57,13 @@ namespace DAO
     partial void InsertPhanBan(PhanBan instance);
     partial void UpdatePhanBan(PhanBan instance);
     partial void DeletePhanBan(PhanBan instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::DAO.Properties.Settings.Default.QuanLyTHPTConnectionString, mappingSource)
+				base(global::DAO.Properties.Settings.Default.QuanLyTHPTConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -97,14 +97,6 @@ namespace DAO
 			get
 			{
 				return this.GetTable<BangDiem>();
-			}
-		}
-		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
 			}
 		}
 		
@@ -169,6 +161,14 @@ namespace DAO
 			get
 			{
 				return this.GetTable<PhanBan>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -437,116 +437,6 @@ namespace DAO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _maUser;
-		
-		private string _tenDangNhap;
-		
-		private string _matKhau;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnmaUserChanging(int value);
-    partial void OnmaUserChanged();
-    partial void OntenDangNhapChanging(string value);
-    partial void OntenDangNhapChanged();
-    partial void OnmatKhauChanging(string value);
-    partial void OnmatKhauChanged();
-    #endregion
-		
-		public User()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maUser", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int maUser
-		{
-			get
-			{
-				return this._maUser;
-			}
-			set
-			{
-				if ((this._maUser != value))
-				{
-					this.OnmaUserChanging(value);
-					this.SendPropertyChanging();
-					this._maUser = value;
-					this.SendPropertyChanged("maUser");
-					this.OnmaUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenDangNhap", DbType="VarChar(50)")]
-		public string tenDangNhap
-		{
-			get
-			{
-				return this._tenDangNhap;
-			}
-			set
-			{
-				if ((this._tenDangNhap != value))
-				{
-					this.OntenDangNhapChanging(value);
-					this.SendPropertyChanging();
-					this._tenDangNhap = value;
-					this.SendPropertyChanged("tenDangNhap");
-					this.OntenDangNhapChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matKhau", DbType="VarChar(15)")]
-		public string matKhau
-		{
-			get
-			{
-				return this._matKhau;
-			}
-			set
-			{
-				if ((this._matKhau != value))
-				{
-					this.OnmatKhauChanging(value);
-					this.SendPropertyChanging();
-					this._matKhau = value;
-					this.SendPropertyChanged("matKhau");
-					this.OnmatKhauChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ChucVu")]
 	public partial class ChucVu : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -755,8 +645,6 @@ namespace DAO
 		
 		private string _trinhDo;
 		
-		private string _loaiGV;
-		
 		private string _xepLoai;
 		
 		private System.Nullable<int> _trangThai;
@@ -795,8 +683,6 @@ namespace DAO
     partial void OnsdtChanged();
     partial void OntrinhDoChanging(string value);
     partial void OntrinhDoChanged();
-    partial void OnloaiGVChanging(string value);
-    partial void OnloaiGVChanged();
     partial void OnxepLoaiChanging(string value);
     partial void OnxepLoaiChanged();
     partial void OntrangThaiChanging(System.Nullable<int> value);
@@ -974,26 +860,6 @@ namespace DAO
 					this._trinhDo = value;
 					this.SendPropertyChanged("trinhDo");
 					this.OntrinhDoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loaiGV", DbType="NVarChar(20)")]
-		public string loaiGV
-		{
-			get
-			{
-				return this._loaiGV;
-			}
-			set
-			{
-				if ((this._loaiGV != value))
-				{
-					this.OnloaiGVChanging(value);
-					this.SendPropertyChanging();
-					this._loaiGV = value;
-					this.SendPropertyChanged("loaiGV");
-					this.OnloaiGVChanged();
 				}
 			}
 		}
@@ -1735,7 +1601,13 @@ namespace DAO
 		
 		private string _tenKhoi;
 		
-		private string _xepLoai;
+		private System.Nullable<int> _soHS;
+		
+		private System.Nullable<int> _soLopGioi;
+		
+		private System.Nullable<int> _soLopKha;
+		
+		private System.Nullable<int> _soLopTB;
 		
 		private EntitySet<Lop> _Lops;
 		
@@ -1747,8 +1619,14 @@ namespace DAO
     partial void OnmaKhoiChanged();
     partial void OntenKhoiChanging(string value);
     partial void OntenKhoiChanged();
-    partial void OnxepLoaiChanging(string value);
-    partial void OnxepLoaiChanged();
+    partial void OnsoHSChanging(System.Nullable<int> value);
+    partial void OnsoHSChanged();
+    partial void OnsoLopGioiChanging(System.Nullable<int> value);
+    partial void OnsoLopGioiChanged();
+    partial void OnsoLopKhaChanging(System.Nullable<int> value);
+    partial void OnsoLopKhaChanged();
+    partial void OnsoLopTBChanging(System.Nullable<int> value);
+    partial void OnsoLopTBChanged();
     #endregion
 		
 		public KhoiLop()
@@ -1797,22 +1675,82 @@ namespace DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xepLoai", DbType="NVarChar(20)")]
-		public string xepLoai
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soHS", DbType="Int")]
+		public System.Nullable<int> soHS
 		{
 			get
 			{
-				return this._xepLoai;
+				return this._soHS;
 			}
 			set
 			{
-				if ((this._xepLoai != value))
+				if ((this._soHS != value))
 				{
-					this.OnxepLoaiChanging(value);
+					this.OnsoHSChanging(value);
 					this.SendPropertyChanging();
-					this._xepLoai = value;
-					this.SendPropertyChanged("xepLoai");
-					this.OnxepLoaiChanged();
+					this._soHS = value;
+					this.SendPropertyChanged("soHS");
+					this.OnsoHSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soLopGioi", DbType="Int")]
+		public System.Nullable<int> soLopGioi
+		{
+			get
+			{
+				return this._soLopGioi;
+			}
+			set
+			{
+				if ((this._soLopGioi != value))
+				{
+					this.OnsoLopGioiChanging(value);
+					this.SendPropertyChanging();
+					this._soLopGioi = value;
+					this.SendPropertyChanged("soLopGioi");
+					this.OnsoLopGioiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soLopKha", DbType="Int")]
+		public System.Nullable<int> soLopKha
+		{
+			get
+			{
+				return this._soLopKha;
+			}
+			set
+			{
+				if ((this._soLopKha != value))
+				{
+					this.OnsoLopKhaChanging(value);
+					this.SendPropertyChanging();
+					this._soLopKha = value;
+					this.SendPropertyChanged("soLopKha");
+					this.OnsoLopKhaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soLopTB", DbType="Int")]
+		public System.Nullable<int> soLopTB
+		{
+			get
+			{
+				return this._soLopTB;
+			}
+			set
+			{
+				if ((this._soLopTB != value))
+				{
+					this.OnsoLopTBChanging(value);
+					this.SendPropertyChanging();
+					this._soLopTB = value;
+					this.SendPropertyChanged("soLopTB");
+					this.OnsoLopTBChanged();
 				}
 			}
 		}
@@ -2683,6 +2621,116 @@ namespace DAO
 		{
 			this.SendPropertyChanging();
 			entity.PhanBan = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _maUser;
+		
+		private string _tenDangNhap;
+		
+		private string _matKhau;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnmaUserChanging(int value);
+    partial void OnmaUserChanged();
+    partial void OntenDangNhapChanging(string value);
+    partial void OntenDangNhapChanged();
+    partial void OnmatKhauChanging(string value);
+    partial void OnmatKhauChanged();
+    #endregion
+		
+		public User()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maUser", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maUser
+		{
+			get
+			{
+				return this._maUser;
+			}
+			set
+			{
+				if ((this._maUser != value))
+				{
+					this.OnmaUserChanging(value);
+					this.SendPropertyChanging();
+					this._maUser = value;
+					this.SendPropertyChanged("maUser");
+					this.OnmaUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenDangNhap", DbType="VarChar(50)")]
+		public string tenDangNhap
+		{
+			get
+			{
+				return this._tenDangNhap;
+			}
+			set
+			{
+				if ((this._tenDangNhap != value))
+				{
+					this.OntenDangNhapChanging(value);
+					this.SendPropertyChanging();
+					this._tenDangNhap = value;
+					this.SendPropertyChanged("tenDangNhap");
+					this.OntenDangNhapChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matKhau", DbType="VarChar(15)")]
+		public string matKhau
+		{
+			get
+			{
+				return this._matKhau;
+			}
+			set
+			{
+				if ((this._matKhau != value))
+				{
+					this.OnmatKhauChanging(value);
+					this.SendPropertyChanging();
+					this._matKhau = value;
+					this.SendPropertyChanged("matKhau");
+					this.OnmatKhauChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
