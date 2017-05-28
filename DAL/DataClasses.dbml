@@ -61,6 +61,7 @@
       <Column Name="trangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="maLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="HocSinh_BangDiem" Member="BangDiems" ThisKey="maHS" OtherKey="maHS" Type="BangDiem" />
+      <Association Name="HocSinh_HanhKiem" Member="HanhKiems" ThisKey="maHS" OtherKey="maHS" Type="HanhKiem" />
       <Association Name="Lop_HocSinh" Member="Lop" ThisKey="maLop" OtherKey="maLop" Type="Lop" IsForeignKey="true" />
     </Type>
   </Table>
@@ -121,6 +122,16 @@
       <Column Name="maUser" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tenDangNhap" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="matKhau" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HanhKiem" Member="HanhKiems">
+    <Type Name="HanhKiem">
+      <Column Name="maHS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="namHoc" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="hocKy1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="hocKy2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="caNam" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HocSinh_HanhKiem" Member="HocSinh" ThisKey="maHS" OtherKey="maHS" Type="HocSinh" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
+using DAO;
+
 namespace GUI
 {
     public partial class ucStatisticStudents : UserControl
@@ -23,8 +25,35 @@ namespace GUI
 
         private void LoadData()
         {
-            dgvStatistic.DataSource = statisticBus.getListScore();
+            //dgvStatistic.DataSource = statisticBus.getListScoreByYear("2017");
+            //dgvStatistic.Columns["HocSinh"].Visible = false;
+            //dgvStatistic.Columns["MonHoc"].Visible = false;
+            //dgvStatistic.Columns["maHS"].HeaderText = "Học Sinh";
+            //dgvStatistic.Columns["maMH"].HeaderText = "Môn học";
+            dgvStatistic.DataSource = statisticBus.getDatatableStatistic("2017");
         }
 
+        private void dgvStatistic_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(dgvStatistic.Columns[e.ColumnIndex].Name == "maHS")
+            {
+                if (e.Value != null)
+                {
+                    int id = (int)e.Value;
+                    HocSinh st = statisticBus.getStudentByID(id);
+                    e.Value = st.hoTenHS;
+                }
+            }
+
+            if (dgvStatistic.Columns[e.ColumnIndex].Name == "maMH")
+            {
+                if (e.Value != null)
+                {
+                    int id = (int)e.Value;
+                    MonHoc subject = statisticBus.getSubjectByID(id);
+                    e.Value = subject.tenMH;
+                }
+            }
+        }
     }
 }

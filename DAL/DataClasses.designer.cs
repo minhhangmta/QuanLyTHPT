@@ -171,6 +171,14 @@ namespace DAO
 				return this.GetTable<User>();
 			}
 		}
+		
+		public System.Data.Linq.Table<HanhKiem> HanhKiems
+		{
+			get
+			{
+				return this.GetTable<HanhKiem>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BangDiem")]
@@ -2730,6 +2738,105 @@ namespace DAO
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HanhKiem")]
+	public partial class HanhKiem
+	{
+		
+		private int _maHS;
+		
+		private string _namHoc;
+		
+		private string _hocKy1;
+		
+		private string _hocKy2;
+		
+		private string _caNam;
+		
+		public HanhKiem()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maHS", DbType="Int NOT NULL")]
+		public int maHS
+		{
+			get
+			{
+				return this._maHS;
+			}
+			set
+			{
+				if ((this._maHS != value))
+				{
+					this._maHS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_namHoc", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string namHoc
+		{
+			get
+			{
+				return this._namHoc;
+			}
+			set
+			{
+				if ((this._namHoc != value))
+				{
+					this._namHoc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hocKy1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string hocKy1
+		{
+			get
+			{
+				return this._hocKy1;
+			}
+			set
+			{
+				if ((this._hocKy1 != value))
+				{
+					this._hocKy1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hocKy2", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string hocKy2
+		{
+			get
+			{
+				return this._hocKy2;
+			}
+			set
+			{
+				if ((this._hocKy2 != value))
+				{
+					this._hocKy2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_caNam", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string caNam
+		{
+			get
+			{
+				return this._caNam;
+			}
+			set
+			{
+				if ((this._caNam != value))
+				{
+					this._caNam = value;
+				}
 			}
 		}
 	}

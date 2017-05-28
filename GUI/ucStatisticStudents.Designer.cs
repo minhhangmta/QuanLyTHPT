@@ -54,11 +54,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvStatistic = new System.Windows.Forms.DataGridView();
+            this.cbbYear = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnYear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbConduct.SuspendLayout();
             this.grbCapacity.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatistic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -302,6 +306,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnYear);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.cbbYear);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(299, 0);
             this.panel2.Name = "panel2";
@@ -332,8 +339,37 @@
             this.dgvStatistic.Location = new System.Drawing.Point(299, 71);
             this.dgvStatistic.Name = "dgvStatistic";
             this.dgvStatistic.ReadOnly = true;
+            this.dgvStatistic.RowHeadersVisible = false;
             this.dgvStatistic.Size = new System.Drawing.Size(696, 409);
             this.dgvStatistic.TabIndex = 4;
+            this.dgvStatistic.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStatistic_CellFormatting);
+            // 
+            // cbbYear
+            // 
+            this.cbbYear.FormattingEnabled = true;
+            this.cbbYear.Location = new System.Drawing.Point(77, 44);
+            this.cbbYear.Name = "cbbYear";
+            this.cbbYear.Size = new System.Drawing.Size(60, 21);
+            this.cbbYear.TabIndex = 0;
+            this.cbbYear.Text = "2017";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Năm học :";
+            // 
+            // btnYear
+            // 
+            this.btnYear.Location = new System.Drawing.Point(143, 42);
+            this.btnYear.Name = "btnYear";
+            this.btnYear.Size = new System.Drawing.Size(44, 23);
+            this.btnYear.TabIndex = 2;
+            this.btnYear.Text = "Chọn";
+            this.btnYear.UseVisualStyleBackColor = true;
             // 
             // ucStatisticStudents
             // 
@@ -354,6 +390,8 @@
             this.grbCapacity.ResumeLayout(false);
             this.grbCapacity.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatistic)).EndInit();
             this.ResumeLayout(false);
 
@@ -387,5 +425,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvStatistic;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbbYear;
+        private System.Windows.Forms.Button btnYear;
     }
 }

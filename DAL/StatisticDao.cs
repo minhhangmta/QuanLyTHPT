@@ -34,6 +34,20 @@ namespace DAO
         {
             return dbContext.BangDiems.ToList();
         }
-        
+
+        public List<BangDiem> getListScoreByYear(string year)
+        {
+            return  dbContext.BangDiems.Where(m => m.namHoc == year).ToList();
+        }
+
+        public HocSinh getStudentByID(int id)
+        {
+            return dbContext.HocSinhs.Single(m => m.maHS == id);
+        }
+
+        public MonHoc getSubjectByID(int id)
+        {
+            return dbContext.MonHocs.Single(m => m.maMH == id);
+        }
     }
 }

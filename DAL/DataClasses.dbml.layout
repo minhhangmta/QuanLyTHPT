@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 12" name="DataClasses">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17.5, 12" name="DataClasses">
   <DataContextMoniker Name="/DataClassesDataContext" />
   <nestedChildShapes>
     <classShape Id="bb86912c-b4b3-45b9-9e68-15fd2427b308" absoluteBounds="3.5, 3.875, 2, 1.9631982421875005">
@@ -123,6 +123,19 @@
       <nodes>
         <classShapeMoniker Id="fbfed736-65bb-4f44-bc92-bb2f3d85efdd" />
         <classShapeMoniker Id="961860c9-1626-4ba4-add0-b6d7c5fa4f7b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="77cf5ba2-a093-4cb3-a91f-95a98cc7f529" absoluteBounds="15.25, 4.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassesDataContext/HanhKiem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0ef2446-8620-4ff2-bb3f-98d24984cd7a" absoluteBounds="15.265, 4.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14 : 5.13544840494792); (15.25 : 5.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/HocSinh/HocSinh_HanhKiem" />
+      <nodes>
+        <classShapeMoniker Id="7de9341b-f9bf-4f52-9503-827f315050de" />
+        <classShapeMoniker Id="77cf5ba2-a093-4cb3-a91f-95a98cc7f529" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
