@@ -58,9 +58,14 @@ namespace GUI
 
         private void btnStatisticByType_Click(object sender, EventArgs e)
         {
-            var checkedRadio = new[] { grbCapacity }
+            var checkedRadioCapacity = new[] { grbCapacity }
                    .SelectMany(g => g.Controls.OfType<RadioButton>()
                                             .Where(r => r.Checked));
+            Console.Write(checkedRadioCapacity.ToString());
+
+            var checkedRadioConduct = new[] { grbConduct }
+                  .SelectMany(g => g.Controls.OfType<RadioButton>()
+                                           .Where(r => r.Checked));
         }
     }
 }
