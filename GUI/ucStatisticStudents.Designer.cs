@@ -303,6 +303,7 @@
             this.btnStatisticByType.TabIndex = 0;
             this.btnStatisticByType.Text = "Thống kê";
             this.btnStatisticByType.UseVisualStyleBackColor = true;
+            this.btnStatisticByType.Click += new System.EventHandler(this.btnStatisticByType_Click);
             // 
             // panel2
             // 
