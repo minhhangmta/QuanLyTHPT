@@ -51,12 +51,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnStatisticByType = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnYear = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbbYear = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvStatistic = new System.Windows.Forms.DataGridView();
-            this.cbbYear = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnYear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbConduct.SuspendLayout();
@@ -152,6 +152,7 @@
             // rbtAllConduct
             // 
             this.rbtAllConduct.AutoSize = true;
+            this.rbtAllConduct.Checked = true;
             this.rbtAllConduct.Location = new System.Drawing.Point(178, 51);
             this.rbtAllConduct.Name = "rbtAllConduct";
             this.rbtAllConduct.Size = new System.Drawing.Size(56, 17);
@@ -167,7 +168,6 @@
             this.rbtGoodConduct.Name = "rbtGoodConduct";
             this.rbtGoodConduct.Size = new System.Drawing.Size(44, 17);
             this.rbtGoodConduct.TabIndex = 0;
-            this.rbtGoodConduct.TabStop = true;
             this.rbtGoodConduct.Text = "Khá";
             this.rbtGoodConduct.UseVisualStyleBackColor = true;
             // 
@@ -178,7 +178,6 @@
             this.rbtWeakConduct.Name = "rbtWeakConduct";
             this.rbtWeakConduct.Size = new System.Drawing.Size(44, 17);
             this.rbtWeakConduct.TabIndex = 0;
-            this.rbtWeakConduct.TabStop = true;
             this.rbtWeakConduct.Text = "Yếu";
             this.rbtWeakConduct.UseVisualStyleBackColor = true;
             // 
@@ -189,7 +188,6 @@
             this.rbtAverageConduct.Name = "rbtAverageConduct";
             this.rbtAverageConduct.Size = new System.Drawing.Size(76, 17);
             this.rbtAverageConduct.TabIndex = 0;
-            this.rbtAverageConduct.TabStop = true;
             this.rbtAverageConduct.Text = "Trung bình";
             this.rbtAverageConduct.UseVisualStyleBackColor = true;
             // 
@@ -200,7 +198,6 @@
             this.rbtExcellentConduct.Name = "rbtExcellentConduct";
             this.rbtExcellentConduct.Size = new System.Drawing.Size(41, 17);
             this.rbtExcellentConduct.TabIndex = 0;
-            this.rbtExcellentConduct.TabStop = true;
             this.rbtExcellentConduct.Text = "Tốt";
             this.rbtExcellentConduct.UseVisualStyleBackColor = true;
             // 
@@ -226,13 +223,13 @@
             this.rbtBellowAverageStudent.Name = "rbtBellowAverageStudent";
             this.rbtBellowAverageStudent.Size = new System.Drawing.Size(96, 17);
             this.rbtBellowAverageStudent.TabIndex = 5;
-            this.rbtBellowAverageStudent.TabStop = true;
             this.rbtBellowAverageStudent.Text = "Trung bình yếu";
             this.rbtBellowAverageStudent.UseVisualStyleBackColor = true;
             // 
             // rbtAllStudent
             // 
             this.rbtAllStudent.AutoSize = true;
+            this.rbtAllStudent.Checked = true;
             this.rbtAllStudent.Location = new System.Drawing.Point(178, 49);
             this.rbtAllStudent.Name = "rbtAllStudent";
             this.rbtAllStudent.Size = new System.Drawing.Size(56, 17);
@@ -248,7 +245,6 @@
             this.rbtGoodStudent.Name = "rbtGoodStudent";
             this.rbtGoodStudent.Size = new System.Drawing.Size(44, 17);
             this.rbtGoodStudent.TabIndex = 0;
-            this.rbtGoodStudent.TabStop = true;
             this.rbtGoodStudent.Text = "Khá";
             this.rbtGoodStudent.UseVisualStyleBackColor = true;
             // 
@@ -259,7 +255,6 @@
             this.rbtWeakStudent.Name = "rbtWeakStudent";
             this.rbtWeakStudent.Size = new System.Drawing.Size(44, 17);
             this.rbtWeakStudent.TabIndex = 0;
-            this.rbtWeakStudent.TabStop = true;
             this.rbtWeakStudent.Text = "Yếu";
             this.rbtWeakStudent.UseVisualStyleBackColor = true;
             // 
@@ -270,7 +265,6 @@
             this.rbtAverageStudent.Name = "rbtAverageStudent";
             this.rbtAverageStudent.Size = new System.Drawing.Size(76, 17);
             this.rbtAverageStudent.TabIndex = 0;
-            this.rbtAverageStudent.TabStop = true;
             this.rbtAverageStudent.Text = "Trung bình";
             this.rbtAverageStudent.UseVisualStyleBackColor = true;
             // 
@@ -281,7 +275,6 @@
             this.rbtExcellentStudent.Name = "rbtExcellentStudent";
             this.rbtExcellentStudent.Size = new System.Drawing.Size(43, 17);
             this.rbtExcellentStudent.TabIndex = 0;
-            this.rbtExcellentStudent.TabStop = true;
             this.rbtExcellentStudent.Text = "Giỏi";
             this.rbtExcellentStudent.UseVisualStyleBackColor = true;
             // 
@@ -316,6 +309,33 @@
             this.panel2.Size = new System.Drawing.Size(735, 71);
             this.panel2.TabIndex = 1;
             // 
+            // btnYear
+            // 
+            this.btnYear.Location = new System.Drawing.Point(143, 42);
+            this.btnYear.Name = "btnYear";
+            this.btnYear.Size = new System.Drawing.Size(44, 23);
+            this.btnYear.TabIndex = 2;
+            this.btnYear.Text = "Chọn";
+            this.btnYear.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Năm học :";
+            // 
+            // cbbYear
+            // 
+            this.cbbYear.FormattingEnabled = true;
+            this.cbbYear.Location = new System.Drawing.Point(77, 44);
+            this.cbbYear.Name = "cbbYear";
+            this.cbbYear.Size = new System.Drawing.Size(60, 21);
+            this.cbbYear.TabIndex = 0;
+            this.cbbYear.Text = "2017";
+            // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -344,33 +364,6 @@
             this.dgvStatistic.Size = new System.Drawing.Size(696, 409);
             this.dgvStatistic.TabIndex = 4;
             this.dgvStatistic.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStatistic_CellFormatting);
-            // 
-            // cbbYear
-            // 
-            this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.Location = new System.Drawing.Point(77, 44);
-            this.cbbYear.Name = "cbbYear";
-            this.cbbYear.Size = new System.Drawing.Size(60, 21);
-            this.cbbYear.TabIndex = 0;
-            this.cbbYear.Text = "2017";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Năm học :";
-            // 
-            // btnYear
-            // 
-            this.btnYear.Location = new System.Drawing.Point(143, 42);
-            this.btnYear.Name = "btnYear";
-            this.btnYear.Size = new System.Drawing.Size(44, 23);
-            this.btnYear.TabIndex = 2;
-            this.btnYear.Text = "Chọn";
-            this.btnYear.UseVisualStyleBackColor = true;
             // 
             // ucStatisticStudents
             // 

@@ -58,14 +58,43 @@ namespace GUI
 
         private void btnStatisticByType_Click(object sender, EventArgs e)
         {
-            var checkedRadioCapacity = new[] { grbCapacity }
-                   .SelectMany(g => g.Controls.OfType<RadioButton>()
-                                            .Where(r => r.Checked));
-            Console.Write(checkedRadioCapacity.ToString());
+            string SCORE = "";
+            if (rbtAverageStudent.Checked){
+                SCORE = "AvergareStudent"; 
+            }else if (rbtExcellentStudent.Checked)
+            {
+                SCORE = "ExcellentStudent";
+            }else if (rbtGoodStudent.Checked)
+            {
+                SCORE = "GoodStudent";
+            }else if(rbtWeakStudent.Checked)
+            {
+                SCORE = "WeakStudent";
+            }else if (rbtBellowAverageStudent.Checked)
+            {
+                SCORE = "BellowAverageStudent";
+            }
+            else if (rbtAllStudent.Checked){
+                SCORE = "AllStudent";
+            }
 
-            var checkedRadioConduct = new[] { grbConduct }
-                  .SelectMany(g => g.Controls.OfType<RadioButton>()
-                                           .Where(r => r.Checked));
+            string CONDUCT = "";
+            if (rbtAllConduct.Checked)
+            {
+                CONDUCT = "AllConduct";
+            }else if (rbtExcellentConduct.Checked)
+            {
+                CONDUCT = "ExcellentConduct";
+            }else if (rbtGoodConduct.Checked)
+            {
+                CONDUCT = "GoodConduct";
+            }else if (rbtAverageConduct.Checked)
+            {
+                CONDUCT = "AverageConduct";
+            }else if (rbtWeakConduct.Checked)
+            {
+                CONDUCT = "WeakConduct";
+            }
         }
     }
 }

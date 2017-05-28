@@ -142,5 +142,10 @@ namespace BUS
 
         }
 
+        public DataTable StatisticByType(string score ,string conduct)
+        {
+            
+        }
+
     }
 }
