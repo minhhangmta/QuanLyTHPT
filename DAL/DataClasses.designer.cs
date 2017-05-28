@@ -755,8 +755,6 @@ namespace DAO
 		
 		private string _trinhDo;
 		
-		private string _loaiGV;
-		
 		private string _xepLoai;
 		
 		private System.Nullable<int> _trangThai;
@@ -795,8 +793,6 @@ namespace DAO
     partial void OnsdtChanged();
     partial void OntrinhDoChanging(string value);
     partial void OntrinhDoChanged();
-    partial void OnloaiGVChanging(string value);
-    partial void OnloaiGVChanged();
     partial void OnxepLoaiChanging(string value);
     partial void OnxepLoaiChanged();
     partial void OntrangThaiChanging(System.Nullable<int> value);
@@ -974,26 +970,6 @@ namespace DAO
 					this._trinhDo = value;
 					this.SendPropertyChanged("trinhDo");
 					this.OntrinhDoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loaiGV", DbType="NVarChar(20)")]
-		public string loaiGV
-		{
-			get
-			{
-				return this._loaiGV;
-			}
-			set
-			{
-				if ((this._loaiGV != value))
-				{
-					this.OnloaiGVChanging(value);
-					this.SendPropertyChanging();
-					this._loaiGV = value;
-					this.SendPropertyChanged("loaiGV");
-					this.OnloaiGVChanged();
 				}
 			}
 		}
@@ -1735,7 +1711,13 @@ namespace DAO
 		
 		private string _tenKhoi;
 		
-		private string _xepLoai;
+		private System.Nullable<int> _soHS;
+		
+		private System.Nullable<int> _soLopGioi;
+		
+		private System.Nullable<int> _soLopKha;
+		
+		private System.Nullable<int> _soLopTB;
 		
 		private EntitySet<Lop> _Lops;
 		
@@ -1747,8 +1729,14 @@ namespace DAO
     partial void OnmaKhoiChanged();
     partial void OntenKhoiChanging(string value);
     partial void OntenKhoiChanged();
-    partial void OnxepLoaiChanging(string value);
-    partial void OnxepLoaiChanged();
+    partial void OnsoHSChanging(System.Nullable<int> value);
+    partial void OnsoHSChanged();
+    partial void OnsoLopGioiChanging(System.Nullable<int> value);
+    partial void OnsoLopGioiChanged();
+    partial void OnsoLopKhaChanging(System.Nullable<int> value);
+    partial void OnsoLopKhaChanged();
+    partial void OnsoLopTBChanging(System.Nullable<int> value);
+    partial void OnsoLopTBChanged();
     #endregion
 		
 		public KhoiLop()
@@ -1797,22 +1785,82 @@ namespace DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xepLoai", DbType="NVarChar(20)")]
-		public string xepLoai
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soHS", DbType="Int")]
+		public System.Nullable<int> soHS
 		{
 			get
 			{
-				return this._xepLoai;
+				return this._soHS;
 			}
 			set
 			{
-				if ((this._xepLoai != value))
+				if ((this._soHS != value))
 				{
-					this.OnxepLoaiChanging(value);
+					this.OnsoHSChanging(value);
 					this.SendPropertyChanging();
-					this._xepLoai = value;
-					this.SendPropertyChanged("xepLoai");
-					this.OnxepLoaiChanged();
+					this._soHS = value;
+					this.SendPropertyChanged("soHS");
+					this.OnsoHSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soLopGioi", DbType="Int")]
+		public System.Nullable<int> soLopGioi
+		{
+			get
+			{
+				return this._soLopGioi;
+			}
+			set
+			{
+				if ((this._soLopGioi != value))
+				{
+					this.OnsoLopGioiChanging(value);
+					this.SendPropertyChanging();
+					this._soLopGioi = value;
+					this.SendPropertyChanged("soLopGioi");
+					this.OnsoLopGioiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soLopKha", DbType="Int")]
+		public System.Nullable<int> soLopKha
+		{
+			get
+			{
+				return this._soLopKha;
+			}
+			set
+			{
+				if ((this._soLopKha != value))
+				{
+					this.OnsoLopKhaChanging(value);
+					this.SendPropertyChanging();
+					this._soLopKha = value;
+					this.SendPropertyChanged("soLopKha");
+					this.OnsoLopKhaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soLopTB", DbType="Int")]
+		public System.Nullable<int> soLopTB
+		{
+			get
+			{
+				return this._soLopTB;
+			}
+			set
+			{
+				if ((this._soLopTB != value))
+				{
+					this.OnsoLopTBChanging(value);
+					this.SendPropertyChanging();
+					this._soLopTB = value;
+					this.SendPropertyChanged("soLopTB");
+					this.OnsoLopTBChanged();
 				}
 			}
 		}
@@ -2230,11 +2278,13 @@ namespace DAO
 		
 		private System.Nullable<decimal> _luongCB;
 		
-		private System.Nullable<int> _heSoLuong;
+		private System.Nullable<decimal> _heSoLuong;
 		
 		private System.Nullable<decimal> _thuong;
 		
 		private System.Nullable<decimal> _tongLuong;
+		
+		private string _loaiGV;
 		
 		private EntitySet<GiaoVien> _GiaoViens;
 		
@@ -2246,12 +2296,14 @@ namespace DAO
     partial void OnmaLuongChanged();
     partial void OnluongCBChanging(System.Nullable<decimal> value);
     partial void OnluongCBChanged();
-    partial void OnheSoLuongChanging(System.Nullable<int> value);
+    partial void OnheSoLuongChanging(System.Nullable<decimal> value);
     partial void OnheSoLuongChanged();
     partial void OnthuongChanging(System.Nullable<decimal> value);
     partial void OnthuongChanged();
     partial void OntongLuongChanging(System.Nullable<decimal> value);
     partial void OntongLuongChanged();
+    partial void OnloaiGVChanging(string value);
+    partial void OnloaiGVChanged();
     #endregion
 		
 		public Luong()
@@ -2300,8 +2352,8 @@ namespace DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_heSoLuong", DbType="Int")]
-		public System.Nullable<int> heSoLuong
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_heSoLuong", DbType="Decimal(3,2)")]
+		public System.Nullable<decimal> heSoLuong
 		{
 			get
 			{
@@ -2356,6 +2408,26 @@ namespace DAO
 					this._tongLuong = value;
 					this.SendPropertyChanged("tongLuong");
 					this.OntongLuongChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_loaiGV", DbType="NVarChar(10)")]
+		public string loaiGV
+		{
+			get
+			{
+				return this._loaiGV;
+			}
+			set
+			{
+				if ((this._loaiGV != value))
+				{
+					this.OnloaiGVChanging(value);
+					this.SendPropertyChanging();
+					this._loaiGV = value;
+					this.SendPropertyChanged("loaiGV");
+					this.OnloaiGVChanged();
 				}
 			}
 		}

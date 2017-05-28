@@ -32,23 +32,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvGiaoVien = new System.Windows.Forms.DataGridView();
-            this.maGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoTenGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trinhDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loaiGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.xepLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -66,15 +49,15 @@
             this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.rdbNam = new System.Windows.Forms.RadioButton();
             this.rdbNu = new System.Windows.Forms.RadioButton();
-            this.cmbLoaiGV = new System.Windows.Forms.ComboBox();
             this.cmbXepLoai = new System.Windows.Forms.ComboBox();
+            this.cmbChucVu = new System.Windows.Forms.ComboBox();
+            this.cmbMonHoc = new System.Windows.Forms.ComboBox();
             this.cmbTrangThai = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -88,8 +71,22 @@
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
-            this.cmbMonHoc = new System.Windows.Forms.ComboBox();
-            this.cmbChucVu = new System.Windows.Forms.ComboBox();
+            this.maGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoTenGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trinhDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xepLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoVien)).BeginInit();
             this.panel2.SuspendLayout();
@@ -124,7 +121,6 @@
             this.email,
             this.sdt,
             this.trinhDo,
-            this.loaiGV,
             this.xepLoai,
             this.trangThai,
             this.maMH,
@@ -140,148 +136,6 @@
             this.dgvGiaoVien.TabIndex = 0;
             this.dgvGiaoVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoVien_CellClick);
             this.dgvGiaoVien.SelectionChanged += new System.EventHandler(this.dgvGiaoVien_SelectionChanged);
-            // 
-            // maGV
-            // 
-            this.maGV.DataPropertyName = "maGV";
-            this.maGV.FillWeight = 363.6941F;
-            this.maGV.HeaderText = "Mã GV";
-            this.maGV.Name = "maGV";
-            this.maGV.ReadOnly = true;
-            // 
-            // MonHoc
-            // 
-            this.MonHoc.DataPropertyName = "MonHoc";
-            this.MonHoc.HeaderText = "MH";
-            this.MonHoc.Name = "MonHoc";
-            this.MonHoc.ReadOnly = true;
-            this.MonHoc.Visible = false;
-            // 
-            // hoTenGV
-            // 
-            this.hoTenGV.DataPropertyName = "hoTenGV";
-            this.hoTenGV.FillWeight = 710.6598F;
-            this.hoTenGV.HeaderText = "Họ và tên";
-            this.hoTenGV.Name = "hoTenGV";
-            this.hoTenGV.ReadOnly = true;
-            this.hoTenGV.Width = 150;
-            // 
-            // ngaySinh
-            // 
-            this.ngaySinh.DataPropertyName = "ngaySinh";
-            this.ngaySinh.FillWeight = 27.13717F;
-            this.ngaySinh.HeaderText = "Ngày sinh";
-            this.ngaySinh.Name = "ngaySinh";
-            this.ngaySinh.ReadOnly = true;
-            // 
-            // gioiTinh
-            // 
-            this.gioiTinh.DataPropertyName = "gioiTinh";
-            this.gioiTinh.FillWeight = 27.13717F;
-            this.gioiTinh.HeaderText = "Giới tính";
-            this.gioiTinh.Name = "gioiTinh";
-            this.gioiTinh.ReadOnly = true;
-            // 
-            // diaChi
-            // 
-            this.diaChi.DataPropertyName = "diaChi";
-            this.diaChi.FillWeight = 27.13717F;
-            this.diaChi.HeaderText = "Địa chỉ";
-            this.diaChi.Name = "diaChi";
-            this.diaChi.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.FillWeight = 27.13717F;
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // sdt
-            // 
-            this.sdt.DataPropertyName = "sdt";
-            this.sdt.FillWeight = 27.13717F;
-            this.sdt.HeaderText = "SĐT";
-            this.sdt.Name = "sdt";
-            this.sdt.ReadOnly = true;
-            this.sdt.Width = 80;
-            // 
-            // trinhDo
-            // 
-            this.trinhDo.DataPropertyName = "trinhDo";
-            this.trinhDo.FillWeight = 27.13717F;
-            this.trinhDo.HeaderText = "Trình độ";
-            this.trinhDo.Name = "trinhDo";
-            this.trinhDo.ReadOnly = true;
-            this.trinhDo.Width = 55;
-            // 
-            // loaiGV
-            // 
-            this.loaiGV.DataPropertyName = "loaiGV";
-            this.loaiGV.FillWeight = 27.13717F;
-            this.loaiGV.HeaderText = "Loại GV";
-            this.loaiGV.Name = "loaiGV";
-            this.loaiGV.ReadOnly = true;
-            this.loaiGV.Width = 80;
-            // 
-            // xepLoai
-            // 
-            this.xepLoai.DataPropertyName = "xepLoai";
-            this.xepLoai.FillWeight = 27.13717F;
-            this.xepLoai.HeaderText = "Xếp loại";
-            this.xepLoai.Name = "xepLoai";
-            this.xepLoai.ReadOnly = true;
-            this.xepLoai.Width = 70;
-            // 
-            // trangThai
-            // 
-            this.trangThai.DataPropertyName = "trangThai";
-            this.trangThai.FillWeight = 27.13717F;
-            this.trangThai.HeaderText = "Trạng thái";
-            this.trangThai.Name = "trangThai";
-            this.trangThai.ReadOnly = true;
-            // 
-            // maMH
-            // 
-            this.maMH.DataPropertyName = "maMH";
-            this.maMH.FillWeight = 27.13717F;
-            this.maMH.HeaderText = "Mã MH";
-            this.maMH.Name = "maMH";
-            this.maMH.ReadOnly = true;
-            this.maMH.Width = 80;
-            // 
-            // maCV
-            // 
-            this.maCV.DataPropertyName = "maCV";
-            this.maCV.FillWeight = 27.13717F;
-            this.maCV.HeaderText = "Mã chức vụ";
-            this.maCV.Name = "maCV";
-            this.maCV.ReadOnly = true;
-            // 
-            // maLuong
-            // 
-            this.maLuong.DataPropertyName = "maLuong";
-            this.maLuong.FillWeight = 27.13717F;
-            this.maLuong.HeaderText = "Mã lương";
-            this.maLuong.Name = "maLuong";
-            this.maLuong.ReadOnly = true;
-            // 
-            // chucVu
-            // 
-            this.chucVu.DataPropertyName = "chucVu";
-            this.chucVu.HeaderText = "Chức vụ";
-            this.chucVu.Name = "chucVu";
-            this.chucVu.ReadOnly = true;
-            this.chucVu.Visible = false;
-            // 
-            // luong
-            // 
-            this.luong.DataPropertyName = "luong";
-            this.luong.HeaderText = "Luong";
-            this.luong.Name = "luong";
-            this.luong.ReadOnly = true;
-            this.luong.Visible = false;
             // 
             // panel4
             // 
@@ -438,7 +292,6 @@
             this.groupBox1.Controls.Add(this.dtNgaySinh);
             this.groupBox1.Controls.Add(this.rdbNam);
             this.groupBox1.Controls.Add(this.rdbNu);
-            this.groupBox1.Controls.Add(this.cmbLoaiGV);
             this.groupBox1.Controls.Add(this.cmbXepLoai);
             this.groupBox1.Controls.Add(this.cmbChucVu);
             this.groupBox1.Controls.Add(this.cmbMonHoc);
@@ -448,7 +301,6 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -503,15 +355,6 @@
             this.rdbNu.Text = "Nữ";
             this.rdbNu.UseVisualStyleBackColor = true;
             // 
-            // cmbLoaiGV
-            // 
-            this.cmbLoaiGV.Enabled = false;
-            this.cmbLoaiGV.FormattingEnabled = true;
-            this.cmbLoaiGV.Location = new System.Drawing.Point(159, 148);
-            this.cmbLoaiGV.Name = "cmbLoaiGV";
-            this.cmbLoaiGV.Size = new System.Drawing.Size(115, 21);
-            this.cmbLoaiGV.TabIndex = 21;
-            // 
             // cmbXepLoai
             // 
             this.cmbXepLoai.AccessibleName = "";
@@ -527,6 +370,32 @@
             this.cmbXepLoai.Name = "cmbXepLoai";
             this.cmbXepLoai.Size = new System.Drawing.Size(115, 21);
             this.cmbXepLoai.TabIndex = 21;
+            // 
+            // cmbChucVu
+            // 
+            this.cmbChucVu.Enabled = false;
+            this.cmbChucVu.FormattingEnabled = true;
+            this.cmbChucVu.Items.AddRange(new object[] {
+            "Đang làm việc",
+            "Đình chỉ",
+            "Đã nghỉ"});
+            this.cmbChucVu.Location = new System.Drawing.Point(21, 444);
+            this.cmbChucVu.Name = "cmbChucVu";
+            this.cmbChucVu.Size = new System.Drawing.Size(115, 21);
+            this.cmbChucVu.TabIndex = 21;
+            // 
+            // cmbMonHoc
+            // 
+            this.cmbMonHoc.Enabled = false;
+            this.cmbMonHoc.FormattingEnabled = true;
+            this.cmbMonHoc.Items.AddRange(new object[] {
+            "Đang làm việc",
+            "Đình chỉ",
+            "Đã nghỉ"});
+            this.cmbMonHoc.Location = new System.Drawing.Point(21, 387);
+            this.cmbMonHoc.Name = "cmbMonHoc";
+            this.cmbMonHoc.Size = new System.Drawing.Size(115, 21);
+            this.cmbMonHoc.TabIndex = 21;
             // 
             // cmbTrangThai
             // 
@@ -595,17 +464,6 @@
             this.label9.Size = new System.Drawing.Size(52, 15);
             this.label9.TabIndex = 17;
             this.label9.Text = "Trình độ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(156, 130);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 15);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Loại GV";
             // 
             // label7
             // 
@@ -729,34 +587,141 @@
             this.txtSDT.Enabled = false;
             this.txtSDT.Location = new System.Drawing.Point(21, 149);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(115, 20);
+            this.txtSDT.Size = new System.Drawing.Size(253, 20);
             this.txtSDT.TabIndex = 18;
             // 
-            // cmbMonHoc
+            // maGV
             // 
-            this.cmbMonHoc.Enabled = false;
-            this.cmbMonHoc.FormattingEnabled = true;
-            this.cmbMonHoc.Items.AddRange(new object[] {
-            "Đang làm việc",
-            "Đình chỉ",
-            "Đã nghỉ"});
-            this.cmbMonHoc.Location = new System.Drawing.Point(21, 387);
-            this.cmbMonHoc.Name = "cmbMonHoc";
-            this.cmbMonHoc.Size = new System.Drawing.Size(115, 21);
-            this.cmbMonHoc.TabIndex = 21;
+            this.maGV.DataPropertyName = "maGV";
+            this.maGV.FillWeight = 363.6941F;
+            this.maGV.HeaderText = "Mã GV";
+            this.maGV.Name = "maGV";
+            this.maGV.ReadOnly = true;
             // 
-            // cmbChucVu
+            // MonHoc
             // 
-            this.cmbChucVu.Enabled = false;
-            this.cmbChucVu.FormattingEnabled = true;
-            this.cmbChucVu.Items.AddRange(new object[] {
-            "Đang làm việc",
-            "Đình chỉ",
-            "Đã nghỉ"});
-            this.cmbChucVu.Location = new System.Drawing.Point(21, 444);
-            this.cmbChucVu.Name = "cmbChucVu";
-            this.cmbChucVu.Size = new System.Drawing.Size(115, 21);
-            this.cmbChucVu.TabIndex = 21;
+            this.MonHoc.DataPropertyName = "MonHoc";
+            this.MonHoc.HeaderText = "MH";
+            this.MonHoc.Name = "MonHoc";
+            this.MonHoc.ReadOnly = true;
+            this.MonHoc.Visible = false;
+            // 
+            // hoTenGV
+            // 
+            this.hoTenGV.DataPropertyName = "hoTenGV";
+            this.hoTenGV.FillWeight = 710.6598F;
+            this.hoTenGV.HeaderText = "Họ và tên";
+            this.hoTenGV.Name = "hoTenGV";
+            this.hoTenGV.ReadOnly = true;
+            this.hoTenGV.Width = 150;
+            // 
+            // ngaySinh
+            // 
+            this.ngaySinh.DataPropertyName = "ngaySinh";
+            this.ngaySinh.FillWeight = 27.13717F;
+            this.ngaySinh.HeaderText = "Ngày sinh";
+            this.ngaySinh.Name = "ngaySinh";
+            this.ngaySinh.ReadOnly = true;
+            // 
+            // gioiTinh
+            // 
+            this.gioiTinh.DataPropertyName = "gioiTinh";
+            this.gioiTinh.FillWeight = 27.13717F;
+            this.gioiTinh.HeaderText = "Giới tính";
+            this.gioiTinh.Name = "gioiTinh";
+            this.gioiTinh.ReadOnly = true;
+            // 
+            // diaChi
+            // 
+            this.diaChi.DataPropertyName = "diaChi";
+            this.diaChi.FillWeight = 27.13717F;
+            this.diaChi.HeaderText = "Địa chỉ";
+            this.diaChi.Name = "diaChi";
+            this.diaChi.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.FillWeight = 27.13717F;
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // sdt
+            // 
+            this.sdt.DataPropertyName = "sdt";
+            this.sdt.FillWeight = 27.13717F;
+            this.sdt.HeaderText = "SĐT";
+            this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
+            this.sdt.Width = 80;
+            // 
+            // trinhDo
+            // 
+            this.trinhDo.DataPropertyName = "trinhDo";
+            this.trinhDo.FillWeight = 27.13717F;
+            this.trinhDo.HeaderText = "Trình độ";
+            this.trinhDo.Name = "trinhDo";
+            this.trinhDo.ReadOnly = true;
+            this.trinhDo.Width = 55;
+            // 
+            // xepLoai
+            // 
+            this.xepLoai.DataPropertyName = "xepLoai";
+            this.xepLoai.FillWeight = 27.13717F;
+            this.xepLoai.HeaderText = "Xếp loại";
+            this.xepLoai.Name = "xepLoai";
+            this.xepLoai.ReadOnly = true;
+            this.xepLoai.Width = 70;
+            // 
+            // trangThai
+            // 
+            this.trangThai.DataPropertyName = "trangThai";
+            this.trangThai.FillWeight = 27.13717F;
+            this.trangThai.HeaderText = "Trạng thái";
+            this.trangThai.Name = "trangThai";
+            this.trangThai.ReadOnly = true;
+            // 
+            // maMH
+            // 
+            this.maMH.DataPropertyName = "maMH";
+            this.maMH.FillWeight = 27.13717F;
+            this.maMH.HeaderText = "Mã MH";
+            this.maMH.Name = "maMH";
+            this.maMH.ReadOnly = true;
+            this.maMH.Width = 80;
+            // 
+            // maCV
+            // 
+            this.maCV.DataPropertyName = "maCV";
+            this.maCV.FillWeight = 27.13717F;
+            this.maCV.HeaderText = "Mã chức vụ";
+            this.maCV.Name = "maCV";
+            this.maCV.ReadOnly = true;
+            // 
+            // maLuong
+            // 
+            this.maLuong.DataPropertyName = "maLuong";
+            this.maLuong.FillWeight = 27.13717F;
+            this.maLuong.HeaderText = "Mã lương";
+            this.maLuong.Name = "maLuong";
+            this.maLuong.ReadOnly = true;
+            // 
+            // chucVu
+            // 
+            this.chucVu.DataPropertyName = "chucVu";
+            this.chucVu.HeaderText = "Chức vụ";
+            this.chucVu.Name = "chucVu";
+            this.chucVu.ReadOnly = true;
+            this.chucVu.Visible = false;
+            // 
+            // luong
+            // 
+            this.luong.DataPropertyName = "luong";
+            this.luong.HeaderText = "Luong";
+            this.luong.Name = "luong";
+            this.luong.ReadOnly = true;
+            this.luong.Visible = false;
             // 
             // ucGiaoVien
             // 
@@ -805,7 +770,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -820,8 +784,9 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.DateTimePicker dtNgaySinh;
-        private System.Windows.Forms.ComboBox cmbLoaiGV;
         private System.Windows.Forms.ComboBox cmbXepLoai;
+        private System.Windows.Forms.ComboBox cmbMonHoc;
+        private System.Windows.Forms.ComboBox cmbChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn maGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoTenGV;
@@ -831,7 +796,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
         private System.Windows.Forms.DataGridViewTextBoxColumn trinhDo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loaiGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn xepLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn maMH;
@@ -839,7 +803,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn chucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn luong;
-        private System.Windows.Forms.ComboBox cmbMonHoc;
-        private System.Windows.Forms.ComboBox cmbChucVu;
     }
 }

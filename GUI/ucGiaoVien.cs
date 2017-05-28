@@ -38,10 +38,12 @@ namespace GUI
 
         private string status = "";
 
-        public void etool_Enabled()
+        public void tool_Enabled()
         {
 
         }
+
+        //public void tool_
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -55,11 +57,20 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            status = "Them";
+            btnCapNhat.Enabled = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            status="Sua"
+            btnThem.Enabled = false;
+            btnXoa.Enabled = false;
+            btnCapNhat.Enabled = false;
+
 
         }
 
@@ -129,6 +140,14 @@ namespace GUI
             }
         }
 
+        public bool isNull(string str)
+        {
+            if (dgvGiaoVien.CurrentRow.Cells["str"].Value != null)
+                return true;
+            else
+                return false;
+        }
+
         private void dgvGiaoVien_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -179,5 +198,7 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+       
     }
 }

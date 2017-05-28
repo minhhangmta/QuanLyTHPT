@@ -39,7 +39,6 @@
       <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="sdt" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="trinhDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="loaiGV" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="xepLoai" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="trangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="maMH" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -76,7 +75,10 @@
     <Type Name="KhoiLop">
       <Column Name="maKhoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tenKhoi" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="xepLoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="soHS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="soLopGioi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="soLopKha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="soLopTB" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="KhoiLop_Lop" Member="Lops" ThisKey="maKhoi" OtherKey="maKhoi" Type="Lop" />
     </Type>
   </Table>
@@ -99,9 +101,10 @@
     <Type Name="Luong">
       <Column Name="maLuong" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="luongCB" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
-      <Column Name="heSoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="heSoLuong" Type="System.Decimal" DbType="Decimal(3,2)" CanBeNull="true" />
       <Column Name="thuong" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
       <Column Name="tongLuong" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+      <Column Name="loaiGV" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Association Name="Luong_GiaoVien" Member="GiaoViens" ThisKey="maLuong" OtherKey="maLuong" Type="GiaoVien" />
     </Type>
   </Table>
