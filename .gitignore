@@ -253,3 +253,4 @@ paket-files/
 *.dbml.layout
 *.dbml
 DataClasses.designer.cs
+DAL/DataClasses.dbml.layout

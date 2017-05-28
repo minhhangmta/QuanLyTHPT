@@ -44,10 +44,10 @@
         <elementListCompartment Id="40b09bb8-0f69-4c4d-b8f3-17e3ddd147b4" absoluteBounds="3.765, 7.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2248f42c-9807-4191-bec9-0bca51cbff59" absoluteBounds="1, 1.625, 2, 1.3862939453125005">
+    <classShape Id="2248f42c-9807-4191-bec9-0bca51cbff59" absoluteBounds="0.5, 0.875, 2, 1.3862939453125005">
       <DataClassMoniker Name="/DataClassesDataContext/MonHoc" />
       <nestedChildShapes>
-        <elementListCompartment Id="677e743a-2f9d-4cc2-84f3-a82c5c4d8b5b" absoluteBounds="1.0150000000000001, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="677e743a-2f9d-4cc2-84f3-a82c5c4d8b5b" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="fbfed736-65bb-4f44-bc92-bb2f3d85efdd" absoluteBounds="6.5, 7.875, 2, 1.1939925130208344">
@@ -104,14 +104,14 @@
         <classShapeMoniker Id="20881938-03e2-4534-8d60-50abf9efa56b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2 : 3.0112939453125); (2 : 4.85659912109375); (3.5 : 4.85659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 2.2612939453125); (1.5 : 4.85659912109375); (1.94791916666667 : 4.85659912109375 : JumpStart); (2.11458583333333 : 4.85659912109375 : JumpEnd); (3.5 : 4.85659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/MonHoc/MonHoc_BangDiem" />
       <nodes>
         <classShapeMoniker Id="2248f42c-9807-4191-bec9-0bca51cbff59" />
         <classShapeMoniker Id="bb86912c-b4b3-45b9-9e68-15fd2427b308" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3 : 2.79734537760417); (5.57291666666667 : 2.79734537760417 : JumpStart); (5.73958333333333 : 2.79734537760417 : JumpEnd); (7.5 : 2.79734537760417); (7.5 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.0312525 : 2.2612939453125); (2.0312525 : 6.03409824869792); (4.41666666666667 : 6.03409824869791 : JumpStart); (4.58333333333333 : 6.03409824869792 : JumpEnd); (5.57291666666667 : 6.03409824869791 : JumpStart); (5.78645833333333 : 6.03409824869792 : JumpEnd); (6.5 : 6.03409824869792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/MonHoc/MonHoc_GiaoVien" />
       <nodes>
         <classShapeMoniker Id="2248f42c-9807-4191-bec9-0bca51cbff59" />
