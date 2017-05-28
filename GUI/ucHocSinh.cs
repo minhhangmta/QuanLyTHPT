@@ -29,7 +29,7 @@ namespace GUI
 
         public HocSinh getHocSinh()
         {
-            string temp="";
+            string temp = "";
             if (rdbNam.Checked == true)
                 temp = "Nam";
             else
@@ -130,6 +130,8 @@ namespace GUI
             txtNgheNghiepCha.Clear();
             txtNgheNghiepMe.Clear();
             txtTonGiao.Clear();
+            cmbChucVu.Text = "";
+            cmbTrangThai.Text = "";
             rdbNam.Checked = false;
             rdbNu.Checked = false;
         }
@@ -156,12 +158,12 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            status = "Xoa";
+           // status = "Xoa";
             DialogResult res = MessageBox.Show("Xóa học sinh : " + txtHoTen.Text, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             {
                 if (res == DialogResult.OK)
                 {
-                    int mahs= int.Parse(dgvHocSinh.CurrentRow.Cells["maHS"].Value.ToString());
+                    int mahs = int.Parse(dgvHocSinh.CurrentRow.Cells["maHS"].Value.ToString());
                     int result = HocSinhBUS.Instance.DeleteHocSinh(mahs);
                     if (result == 1)
                     {
@@ -229,23 +231,40 @@ namespace GUI
             LoadDB();
         }
 
+        public bool isNull(string str)
+        {
+            if (dgvHocSinh.CurrentRow.Cells[str].Value == null)
+                return true;
+            else
+                return false;
+        }
+
         private void dgvHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                if (dgvHocSinh.CurrentRow.Cells["maHS"].Value != null)
+                if (isNull("maHS") == false)
                 {
-                    txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();
-                    txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
-                    txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
-                    txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
-                    txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
-                    txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
-                    txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
-                    txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
-                    txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
+                    //bat buoc nhap tat ca combobox
+                    txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();//bat buoc
+                    if (isNull("dcTamTru") == false)
+                        txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
+                    if (isNull("dcThuongTru") == false)
+                        txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
+                    if (isNull("danToc") == false)
+                        txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
+                    if (isNull("tonGiao") == false)
+                        txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
+                    if (isNull("hoTenCha") == false)
+                        txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
+                    if (isNull("hoTenMe") == false)
+                        txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
+                    if (isNull("ngheNghiepCha") == false)
+                        txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
+                    if (isNull("ngheNghiepMe") == false)
+                        txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
                     dtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells["ngaySinh"].Value.ToString());
-                    ////Gioi tinh
+                    ////Gioi tinh //bat buoc
                     string GT = dgvHocSinh.CurrentRow.Cells["gioiTinh"].Value.ToString();
                     if (GT == "Nam")
                         rdbNam.Checked = true;
@@ -291,19 +310,27 @@ namespace GUI
         {
             try
             {
-                if (dgvHocSinh.CurrentRow.Cells["maHS"].Value != null)
+                if (isNull("maHS") == false)
                 {
-                    txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();
-                    txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
-                    txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
-                    txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
-                    txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
-                    txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
-                    txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
-                    txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
-                    txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
+                    txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();//bat buoc
+                    if (isNull("dcTamTru") == false)
+                        txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
+                    if (isNull("dcThuongTru") == false)
+                        txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
+                    if (isNull("danToc") == false)
+                        txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
+                    if (isNull("tonGiao") == false)
+                        txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
+                    if (isNull("hoTenCha") == false)
+                        txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
+                    if (isNull("hoTenMe") == false)
+                        txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
+                    if (isNull("ngheNghiepCha") == false)
+                        txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
+                    if (isNull("ngheNghiepMe") == false)
+                        txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
                     dtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells["ngaySinh"].Value.ToString());
-                    ////Gioi tinh
+                    ////Gioi tinh //bat buoc
                     string GT = dgvHocSinh.CurrentRow.Cells["gioiTinh"].Value.ToString();
                     if (GT == "Nam")
                         rdbNam.Checked = true;
@@ -323,13 +350,20 @@ namespace GUI
                     //Trang thai
                     int stt = dgvHocSinh.CurrentRow.Cells["trangThai"].Value.GetHashCode();
                     if (stt == 1)
+                    {
                         cmbTrangThai.SelectedItem = "Đang học";
+                        cmbTrangThai.SelectedValue = 1;
+                    }
                     if (stt == 2)
+                    {
                         cmbTrangThai.SelectedItem = "Đình chỉ";
+                        cmbTrangThai.SelectedValue = 2;
+                    }
                     if (stt == 0)
+                    {
                         cmbTrangThai.SelectedItem = "Đã nghỉ";
-                    //Lop hoc
-
+                        cmbTrangThai.SelectedValue = 0;
+                    }
                 }
             }
             catch (Exception ex)
@@ -338,6 +372,6 @@ namespace GUI
             }
         }
 
-        
+
     }
 }

@@ -46,5 +46,57 @@ namespace BUS
             cmb.DisplayMember = "tenCV";
             cmb.ValueMember = "maCV";
         }
+
+        public int DeleteGiaoVien(int magv)
+        {
+            try
+            {
+                GiaoVien gv = DB.GiaoViens.Where(h => h.maGV == magv).FirstOrDefault();
+                DB.GiaoViens.DeleteOnSubmit(gv);
+                DB.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return 1;
+        }
+        public int InsertGiaoVien(GiaoVien gv)
+        {
+            try
+            {
+                DB.GiaoViens.InsertOnSubmit(gv);
+                DB.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+        public int EditGiaoVien(GiaoVien gv)
+        {
+            try
+            {
+                GiaoVien giaovien= DB.GiaoViens.Single(m => m.maGV == gv.maGV);
+                giaovien.hoTenGV = gv.hoTenGV;
+                giaovien.maCV = gv.maCV;
+                giaovien.maLuong = gv.maLuong;
+                giaovien.maMH = gv.maMH;
+                giaovien.ngaySinh = gv.ngaySinh;
+                giaovien.sdt = gv.sdt;
+                giaovien.trangThai = gv.trangThai;
+                giaovien.trinhDo = gv.trinhDo;
+                giaovien.email = gv.email;
+                giaovien.gioiTinh = gv.gioiTinh;
+                DB.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+            return 1;
+        }
     }
 }

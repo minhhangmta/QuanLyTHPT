@@ -213,10 +213,10 @@
             this.cmbChucVu.Enabled = false;
             this.cmbChucVu.FormattingEnabled = true;
             this.cmbChucVu.Items.AddRange(new object[] {
+            "Không có",
             "Lớp trưởng",
             "Lớp phó",
-            "Bí thư",
-            "Không có"});
+            "Bí thư"});
             this.cmbChucVu.Location = new System.Drawing.Point(158, 252);
             this.cmbChucVu.Name = "cmbChucVu";
             this.cmbChucVu.Size = new System.Drawing.Size(121, 21);
