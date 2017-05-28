@@ -45,12 +45,18 @@ namespace GUI
                 case "Đình chỉ": stt = 2; break;
                 default: break;
             }
-            GiaoVien giaovien= new GiaoVien();
-            
-            //hocsinh.chucVu = cmbChucVu.SelectedItem.ToString();
+            GiaoVien giaovien = new GiaoVien();
+            giaovien.diaChi = GiaoVienBUS.Instance.StandardString(txtDiaChi.Text);
+            giaovien.email = txtEmail.Text;
+            giaovien.hoTenGV = GiaoVienBUS.Instance.StandardString(txtHoTen.Text);
+            giaovien.maCV = int.Parse(cmbChucVu.SelectedValue.ToString());
+            giaovien.maMH = int.Parse(cmbMonHoc.SelectedValue.ToString());
             giaovien.trangThai = stt;
             giaovien.gioiTinh = temp;
-            //hocsinh.maLop = int.Parse(cmbLopHoc.SelectedValue.ToString());
+            giaovien.trinhDo = GiaoVienBUS.Instance.StandardString(txtTrinhDo.Text);
+            giaovien.sdt = txtSDT.Text;
+            giaovien.maLuong = int.Parse(txtMaLuong.Text);
+            giaovien.ngaySinh = dtNgaySinh.Value;
             return giaovien;
         }
         public void LoadDB()
@@ -111,7 +117,7 @@ namespace GUI
             cmbTrangThai.Text = "";
         }
 
-        
+
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -136,7 +142,7 @@ namespace GUI
         private void btnSua_Click(object sender, EventArgs e)
         {
             status = "Sua";
-            btnThem.Enabled = true;
+            btnThem.Enabled = false;
             btnXoa.Enabled = false;
             btnCapNhat.Enabled = false;
             tool_Enabled();
@@ -170,25 +176,25 @@ namespace GUI
                 int result = GiaoVienBUS.Instance.InsertGiaoVien(getGiaoVien());
                 if (result == 1)
                 {
-                    MessageBox.Show("Thêm học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm giáo viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Thêm học sinh không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Thêm giáo viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                HocSinh hs = getHocSinh();
-                hs.maHS = int.Parse(dgvHocSinh.CurrentRow.Cells["maHS"].Value.ToString());
-                int result = HocSinhBUS.Instance.EditHocSinh(hs);
+                GiaoVien gv = getGiaoVien();
+                gv.maGV= int.Parse(dgvGiaoVien.CurrentRow.Cells["maGV"].Value.ToString());
+                int result = GiaoVienBUS.Instance.EditGiaoVien(gv);
                 if (result == 1)
                 {
-                    MessageBox.Show("Sửa học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sửa giáo viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Sửa học sinh không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sửa giáo viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             tool_Disenabled();
@@ -248,7 +254,11 @@ namespace GUI
                         cmbTrangThai.SelectedItem = "Đình chỉ";
                     if (stt == 0)
                         cmbTrangThai.SelectedItem = "Đã nghỉ";
+                    //Chuc vu
+                    cmbChucVu.SelectedValue = dgvGiaoVien.CurrentRow.Cells["maCV"].Value.GetHashCode();
 
+                    //Mon hoc
+                    cmbMonHoc.SelectedValue = dgvGiaoVien.CurrentRow.Cells["maMH"].Value.GetHashCode();
                 }
             }
             catch (Exception ex)

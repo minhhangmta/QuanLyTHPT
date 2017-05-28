@@ -31,21 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tabPage_ThongKe = new System.Windows.Forms.TabPage();
             this.grb_main_TK = new System.Windows.Forms.GroupBox();
+            this.panelStatistic = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnStatisticStudent = new System.Windows.Forms.Button();
             this.tabPage_QuanLy = new System.Windows.Forms.TabPage();
             this.panel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btn_GiaoVien = new System.Windows.Forms.Button();
+            this.btnHanhKiem = new System.Windows.Forms.Button();
+            this.btnBangDiem = new System.Windows.Forms.Button();
             this.btn_LopHoc = new System.Windows.Forms.Button();
             this.btn_HocSinh = new System.Windows.Forms.Button();
-            this.btnStatisticStudent = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.heThong_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doiMK_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dangXuat_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoat_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelStatistic = new System.Windows.Forms.Panel();
             this.tabPage_ThongKe.SuspendLayout();
             this.grb_main_TK.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,6 +79,14 @@
             this.grb_main_TK.TabIndex = 5;
             this.grb_main_TK.TabStop = false;
             // 
+            // panelStatistic
+            // 
+            this.panelStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStatistic.Location = new System.Drawing.Point(3, 16);
+            this.panelStatistic.Name = "panelStatistic";
+            this.panelStatistic.Size = new System.Drawing.Size(951, 519);
+            this.panelStatistic.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGray;
@@ -87,6 +97,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(957, 79);
             this.panel2.TabIndex = 4;
+            // 
+            // btnStatisticStudent
+            // 
+            this.btnStatisticStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatisticStudent.Image = global::GUI.Properties.Resources.statistics_market_icon;
+            this.btnStatisticStudent.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnStatisticStudent.Location = new System.Drawing.Point(3, 3);
+            this.btnStatisticStudent.Name = "btnStatisticStudent";
+            this.btnStatisticStudent.Size = new System.Drawing.Size(80, 73);
+            this.btnStatisticStudent.TabIndex = 1;
+            this.btnStatisticStudent.Text = "Học Sinh";
+            this.btnStatisticStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnStatisticStudent.UseVisualStyleBackColor = true;
+            this.btnStatisticStudent.Click += new System.EventHandler(this.btnStatisticStudent_Click);
             // 
             // tabPage_QuanLy
             // 
@@ -112,6 +136,8 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.btn_GiaoVien);
+            this.panel3.Controls.Add(this.btnHanhKiem);
+            this.panel3.Controls.Add(this.btnBangDiem);
             this.panel3.Controls.Add(this.btn_LopHoc);
             this.panel3.Controls.Add(this.btn_HocSinh);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -120,27 +146,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(957, 79);
             this.panel3.TabIndex = 2;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage_QuanLy);
-            this.tabControl1.Controls.Add(this.tabPage_ThongKe);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(971, 649);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.heThong_ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // btn_GiaoVien
             // 
@@ -155,6 +160,34 @@
             this.btn_GiaoVien.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_GiaoVien.UseVisualStyleBackColor = true;
             this.btn_GiaoVien.Click += new System.EventHandler(this.btn_GiaoVien_Click);
+            // 
+            // btnHanhKiem
+            // 
+            this.btnHanhKiem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHanhKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnHanhKiem.Image")));
+            this.btnHanhKiem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnHanhKiem.Location = new System.Drawing.Point(359, 3);
+            this.btnHanhKiem.Name = "btnHanhKiem";
+            this.btnHanhKiem.Size = new System.Drawing.Size(84, 73);
+            this.btnHanhKiem.TabIndex = 2;
+            this.btnHanhKiem.Text = "Hạnh Kiểm";
+            this.btnHanhKiem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnHanhKiem.UseVisualStyleBackColor = true;
+            this.btnHanhKiem.Click += new System.EventHandler(this.btnHanhKiem_Click);
+            // 
+            // btnBangDiem
+            // 
+            this.btnBangDiem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBangDiem.Image = ((System.Drawing.Image)(resources.GetObject("btnBangDiem.Image")));
+            this.btnBangDiem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBangDiem.Location = new System.Drawing.Point(269, 3);
+            this.btnBangDiem.Name = "btnBangDiem";
+            this.btnBangDiem.Size = new System.Drawing.Size(84, 73);
+            this.btnBangDiem.TabIndex = 2;
+            this.btnBangDiem.Text = "Bảng điểm";
+            this.btnBangDiem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBangDiem.UseVisualStyleBackColor = true;
+            this.btnBangDiem.Click += new System.EventHandler(this.btnBangDiem_Click);
             // 
             // btn_LopHoc
             // 
@@ -184,19 +217,26 @@
             this.btn_HocSinh.UseVisualStyleBackColor = true;
             this.btn_HocSinh.Click += new System.EventHandler(this.btn_HocSinh_Click);
             // 
-            // btnStatisticStudent
+            // tabControl1
             // 
-            this.btnStatisticStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatisticStudent.Image = global::GUI.Properties.Resources.statistics_market_icon;
-            this.btnStatisticStudent.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnStatisticStudent.Location = new System.Drawing.Point(3, 3);
-            this.btnStatisticStudent.Name = "btnStatisticStudent";
-            this.btnStatisticStudent.Size = new System.Drawing.Size(80, 73);
-            this.btnStatisticStudent.TabIndex = 1;
-            this.btnStatisticStudent.Text = "Học Sinh";
-            this.btnStatisticStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnStatisticStudent.UseVisualStyleBackColor = true;
-            this.btnStatisticStudent.Click += new System.EventHandler(this.btnStatisticStudent_Click);
+            this.tabControl1.Controls.Add(this.tabPage_QuanLy);
+            this.tabControl1.Controls.Add(this.tabPage_ThongKe);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 24);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(971, 649);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.heThong_ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // heThong_ToolStripMenuItem
             // 
@@ -228,14 +268,6 @@
             this.thoat_ToolStripMenuItem.Name = "thoat_ToolStripMenuItem";
             this.thoat_ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.thoat_ToolStripMenuItem.Text = "Thoát";
-            // 
-            // panelStatistic
-            // 
-            this.panelStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelStatistic.Location = new System.Drawing.Point(3, 16);
-            this.panelStatistic.Name = "panelStatistic";
-            this.panelStatistic.Size = new System.Drawing.Size(951, 519);
-            this.panelStatistic.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -283,6 +315,8 @@
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button btnStatisticStudent;
         private System.Windows.Forms.Panel panelStatistic;
+        private System.Windows.Forms.Button btnHanhKiem;
+        private System.Windows.Forms.Button btnBangDiem;
     }
 }
 

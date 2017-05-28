@@ -71,5 +71,29 @@ namespace GUI
             else
                 ucStatistic.BringToFront();
         }
-    }
+
+        private void btnBangDiem_Click(object sender, EventArgs e)
+        {
+            if (!panel.Controls.Contains(ucBangDiem.Instance))
+            {
+                panel.Controls.Add(ucBangDiem.Instance);
+                ucBangDiem.Instance.Dock = DockStyle.Fill;
+                ucBangDiem.Instance.BringToFront();
+            }
+            else
+                ucBangDiem.Instance.BringToFront();
+        }
+
+        private void btnHanhKiem_Click(object sender, EventArgs e)
+        {
+            if (!panel.Controls.Contains(ucHanhKiem.Instance))
+            {
+                panel.Controls.Add(ucHanhKiem.Instance);
+                ucHanhKiem.Instance.Dock = DockStyle.Fill;
+                ucHanhKiem.Instance.BringToFront();
+            }
+            else
+                ucHanhKiem.Instance.BringToFront();
+        }
+    }    
 }

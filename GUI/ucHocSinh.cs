@@ -42,16 +42,16 @@ namespace GUI
                 default: break;
             }
             HocSinh hocsinh = new HocSinh();
-            hocsinh.hoTenHS = txtHoTen.Text;
+            hocsinh.hoTenHS = HocSinhBUS.Instance.StandardString(txtHoTen.Text);
             hocsinh.ngaySinh = dtNgaySinh.Value;
-            hocsinh.dcThuongTru = txtDCthuongtru.Text;
-            hocsinh.dcTamTru = txtDCtamtru.Text;
-            hocsinh.danToc = txtDanToc.Text;
-            hocsinh.hoTenCha = txtHoTenCha.Text;
-            hocsinh.tonGiao = txtTonGiao.Text;
-            hocsinh.hoTenMe = txtHoTenMe.Text;
-            hocsinh.ngheNghiepMe = txtNgheNghiepMe.Text;
-            hocsinh.ngheNghiepCha = txtNgheNghiepCha.Text;
+            hocsinh.dcThuongTru = HocSinhBUS.Instance.StandardString(txtDCthuongtru.Text);
+            hocsinh.dcTamTru = HocSinhBUS.Instance.StandardString(txtDCtamtru.Text);
+            hocsinh.danToc = HocSinhBUS.Instance.StandardString(txtDanToc.Text);
+            hocsinh.hoTenCha = HocSinhBUS.Instance.StandardString(txtHoTenCha.Text);
+            hocsinh.tonGiao = HocSinhBUS.Instance.StandardString(txtTonGiao.Text);
+            hocsinh.hoTenMe = HocSinhBUS.Instance.StandardString(txtHoTenMe.Text);
+            hocsinh.ngheNghiepMe = HocSinhBUS.Instance.StandardWord(txtNgheNghiepMe.Text);
+            hocsinh.ngheNghiepCha = HocSinhBUS.Instance.StandardWord(txtNgheNghiepCha.Text);
             hocsinh.chucVu = cmbChucVu.SelectedItem.ToString();
             hocsinh.trangThai = stt;
             hocsinh.gioiTinh = temp;

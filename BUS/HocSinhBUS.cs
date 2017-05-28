@@ -97,7 +97,31 @@ namespace BUS
             return 1;
         }
 
-        
+        public string StandardString(string strInput)
+        {
+            strInput = strInput.Trim().ToLower();
+            while (strInput.Contains("  "))
+                strInput = strInput.Replace("  ", " ");
+            string strResult = "";
+            string[] arrResult = strInput.Split(' ');
+            foreach (string item in arrResult)
+                strResult += item.Substring(0, 1).ToUpper() + item.Substring(1) + " ";
+            return strResult.TrimEnd();
+        }
+
+        public string StandardWord(string data)
+        {
+            if (data.Length > 0)
+            {
+                while (data.IndexOf("  ") > 0)
+                {
+                    data = data.Replace("  ", " ");
+                    data = data.Trim();
+                }
+            }
+            return data;
+        }
+
         public void DisplayCombobox_LopHoc()
         {
 
