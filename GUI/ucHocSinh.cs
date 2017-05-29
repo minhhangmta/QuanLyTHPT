@@ -139,6 +139,12 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            status = "Them";
+            clearText();
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnCapNhat.Enabled = false;
+            tool_Enabled();
 
         }
 
