@@ -160,7 +160,24 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            // status = "Xoa";
+            DialogResult res = MessageBox.Show("Xóa học sinh : " + txtHoTen.Text, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            {
+                if (res == DialogResult.OK)
+                {
+                    int mahs = int.Parse(dgvHocSinh.CurrentRow.Cells["maHS"].Value.ToString());
+                    int result = HocSinhBUS.Instance.DeleteHocSinh(mahs);
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDB();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
