@@ -150,7 +150,11 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            status = "Sua";
+            btnThem.Enabled = false;
+            btnXoa.Enabled = false;
+            btnCapNhat.Enabled = false;
+            tool_Enabled();
         }
 
 
