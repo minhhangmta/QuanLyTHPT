@@ -182,12 +182,44 @@ namespace GUI
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-
+            LoadDB();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            if (status == "Them")
+            {
+                int result = HocSinhBUS.Instance.InsertHocSinh(getHocSinh());
+                if (result == 1)
+                {
+                    MessageBox.Show("Thêm học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm học sinh không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                HocSinh hs = getHocSinh();
+                hs.maHS = int.Parse(dgvHocSinh.CurrentRow.Cells["maHS"].Value.ToString());
+                int result = HocSinhBUS.Instance.EditHocSinh(hs);
+                if (result == 1)
+                {
+                    MessageBox.Show("Sửa học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Sửa học sinh không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            tool_Disenabled();
+            btnSua.Enabled = true;
+            btnThem.Enabled = true;
+            btnCapNhat.Enabled = true;
+            btnXoa.Enabled = true;
+            LoadDB();
+            status = "";
 
         }
 
