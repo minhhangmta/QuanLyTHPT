@@ -225,12 +225,20 @@ namespace GUI
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-
+            tool_Disenabled();
+            btnThem.Enabled = true;
+            btnXoa.Enabled = true;
+            btnSua.Enabled = true;
+            btnCapNhat.Enabled = true;
+            LoadDB();
         }
 
         public bool isNull(string str)
         {
-
+            if (dgvHocSinh.CurrentRow.Cells[str].Value == null)
+                return true;
+            else
+                return false;
         }
 
         private void dgvHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
