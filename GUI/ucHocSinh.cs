@@ -100,12 +100,41 @@ namespace GUI
 
         public void tool_Disenabled()
         {
-
+            txtDanToc.Enabled = false;
+            txtDCtamtru.Enabled = false;
+            txtDCthuongtru.Enabled = false;
+            txtHoTen.Enabled = false;
+            txtHoTenCha.Enabled = false;
+            txtHoTenMe.Enabled = false;
+            txtNgheNghiepCha.Enabled = false;
+            txtNgheNghiepMe.Enabled = false;
+            txtTonGiao.Enabled = false;
+            cmbChucVu.Enabled = false;
+            cmbLopHoc.Enabled = false;
+            cmbTrangThai.Enabled = false;
+            rdbNam.Enabled = false;
+            rdbNu.Enabled = false;
+            dtNgaySinh.Enabled = false;
+            btnLuu.Enabled = false;
+            btnHuy.Enabled = false;
         }
 
         public void clearText()
         {
 
+            txtDCtamtru.Clear();
+            txtDCthuongtru.Clear();
+            txtDanToc.Clear();
+            txtHoTen.Clear();
+            txtHoTenCha.Clear();
+            txtHoTenMe.Clear();
+            txtNgheNghiepCha.Clear();
+            txtNgheNghiepMe.Clear();
+            txtTonGiao.Clear();
+            cmbChucVu.Text = "";
+            cmbTrangThai.Text = "";
+            rdbNam.Checked = false;
+            rdbNu.Checked = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
