@@ -17,7 +17,12 @@ namespace GUI
         private static ucHocSinh _instance;
         public static ucHocSinh Instance
         {
-
+            get
+            {
+                if (_instance == null)
+                    _instance = new ucHocSinh();
+                return _instance;
+            }
         }
 
         HocSinhBUS HSBUS = new HocSinhBUS();
