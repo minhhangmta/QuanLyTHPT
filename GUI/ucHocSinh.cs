@@ -60,7 +60,8 @@ namespace GUI
         }
         public void LoadDB()
         {
-
+            dgvHocSinh.DataSource = HSBUS.GetList();
+            HocSinhBUS.Instance.GetTenLop(cmbLopHoc);
         }
 
         private string status = "";
