@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO;
+using System.Windows.Forms;
 
 namespace BUS
 {
-    class LopHocBUS
+    public class LopHocBUS
     {
         private static LopHocBUS instance;
 
@@ -32,18 +33,32 @@ namespace BUS
             return DB.Lops.ToList();
         }
 
-    /*    public void GetTenLop(ComboBox cmb)
+        public void GetTenKhoi(ComboBox cmb)
         {
-            cmb.DataSource = DB.Lops.ToList();
-            cmb.DisplayMember = "tenLop";
-            cmb.ValueMember = "maLop";
-        }*/
+            cmb.DataSource = DB.KhoiLops.ToList();
+            cmb.DisplayMember = "tenKhoi";
+            cmb.ValueMember = "maKhoi";
+        }
+
+        public void GetTenBan(ComboBox cmb)
+        {
+            cmb.DataSource = DB.PhanBans.ToList();
+            cmb.DisplayMember = "tenBan";
+            cmb.ValueMember = "maBan";
+        }
+
+        public void GetTenGV(ComboBox cmb)
+        {
+            cmb.DataSource = DB.GiaoViens.ToList();
+            cmb.DisplayMember = "hoTenGV";
+            cmb.ValueMember = "maGV";
+        }
 
         public int DeleteLop(int malop)
         {
             try
             {
-                Lop lop= DB.Lops.Where(h => h.maLop == malop).FirstOrDefault();
+                Lop lop = DB.Lops.Where(h => h.maLop == malop).FirstOrDefault();
                 DB.Lops.DeleteOnSubmit(lop);
                 DB.SubmitChanges();
             }
@@ -87,7 +102,8 @@ namespace BUS
                 hocsinh.gioiTinh = hs.gioiTinh;
                 hocsinh.dcTamTru = hs.dcTamTru;
                 hocsinh.dcThuongTru = hs.dcThuongTru;
-                */DB.SubmitChanges();
+                */
+                DB.SubmitChanges();
             }
             catch (Exception e)
             {

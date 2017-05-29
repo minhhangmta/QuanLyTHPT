@@ -218,7 +218,7 @@ namespace GUI
 
         public bool isNULL(string str)
         {
-            if (dgvGiaoVien.CurrentRow.Cells["maGV"].Value == null)
+            if (dgvGiaoVien.CurrentRow.Cells[str].Value == null)
                 return true;
             else
                 return false;
@@ -298,7 +298,11 @@ namespace GUI
                         cmbTrangThai.SelectedItem = "Đình chỉ";
                     if (stt == 0)
                         cmbTrangThai.SelectedItem = "Đã nghỉ";
+                    //Chuc vu
+                    cmbChucVu.SelectedValue = dgvGiaoVien.CurrentRow.Cells["maCV"].Value.GetHashCode();
 
+                    //Mon hoc
+                    cmbMonHoc.SelectedValue = dgvGiaoVien.CurrentRow.Cells["maMH"].Value.GetHashCode();
                 }
             }
             catch (Exception ex)
@@ -307,6 +311,9 @@ namespace GUI
             }
         }
 
-
+        private void dgvGiaoVien_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            dgvGiaoVien.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
+        }
     }
 }

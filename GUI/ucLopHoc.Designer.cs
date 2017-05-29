@@ -48,20 +48,24 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbGVCN = new System.Windows.Forms.ComboBox();
             this.cmbPhanBan = new System.Windows.Forms.ComboBox();
-            this.cmbLopHoc = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtSiSo = new System.Windows.Forms.TextBox();
-            this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.maLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaoVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KhoiLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhanBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.siSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maKhoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maGVCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbTenKhoi = new System.Windows.Forms.ComboBox();
+            this.txtTenLop = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLopHoc)).BeginInit();
@@ -80,6 +84,7 @@
             this.btnHuy.TabIndex = 1;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // groupBox3
             // 
@@ -103,6 +108,7 @@
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThem
             // 
@@ -204,6 +210,10 @@
             this.dgvLopHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLopHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maLop,
+            this.GiaoVien,
+            this.KhoiLop,
+            this.PhanBan,
+            this.STT,
             this.tenLop,
             this.siSo,
             this.maKhoi,
@@ -216,6 +226,7 @@
             this.dgvLopHoc.Size = new System.Drawing.Size(757, 412);
             this.dgvLopHoc.TabIndex = 0;
             this.dgvLopHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLopHoc_CellClick);
+            this.dgvLopHoc.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvLopHoc_RowPrePaint);
             this.dgvLopHoc.SelectionChanged += new System.EventHandler(this.dgvLopHoc_SelectionChanged);
             // 
             // panel4
@@ -255,13 +266,13 @@
             this.groupBox1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.groupBox1.Controls.Add(this.cmbGVCN);
             this.groupBox1.Controls.Add(this.cmbPhanBan);
-            this.groupBox1.Controls.Add(this.cmbLopHoc);
+            this.groupBox1.Controls.Add(this.cmbTenKhoi);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.txtTenLop);
             this.groupBox1.Controls.Add(this.txtSiSo);
-            this.groupBox1.Controls.Add(this.txtMaLop);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -284,26 +295,17 @@
             // 
             this.cmbPhanBan.Enabled = false;
             this.cmbPhanBan.FormattingEnabled = true;
-            this.cmbPhanBan.Location = new System.Drawing.Point(46, 255);
+            this.cmbPhanBan.Location = new System.Drawing.Point(46, 259);
             this.cmbPhanBan.Name = "cmbPhanBan";
             this.cmbPhanBan.Size = new System.Drawing.Size(188, 21);
             this.cmbPhanBan.TabIndex = 21;
-            // 
-            // cmbLopHoc
-            // 
-            this.cmbLopHoc.Enabled = false;
-            this.cmbLopHoc.FormattingEnabled = true;
-            this.cmbLopHoc.Location = new System.Drawing.Point(46, 153);
-            this.cmbLopHoc.Name = "cmbLopHoc";
-            this.cmbLopHoc.Size = new System.Drawing.Size(188, 21);
-            this.cmbLopHoc.TabIndex = 21;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(44, 293);
+            this.label4.Location = new System.Drawing.Point(44, 302);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 15);
             this.label4.TabIndex = 18;
@@ -314,7 +316,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(44, 237);
+            this.label3.Location = new System.Drawing.Point(44, 241);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 15);
             this.label3.TabIndex = 18;
@@ -336,7 +338,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Navy;
-            this.label14.Location = new System.Drawing.Point(43, 135);
+            this.label14.Location = new System.Drawing.Point(43, 73);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(48, 15);
             this.label14.TabIndex = 18;
@@ -350,24 +352,16 @@
             this.txtSiSo.Size = new System.Drawing.Size(188, 20);
             this.txtSiSo.TabIndex = 20;
             // 
-            // txtMaLop
-            // 
-            this.txtMaLop.Enabled = false;
-            this.txtMaLop.Location = new System.Drawing.Point(46, 100);
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(188, 20);
-            this.txtMaLop.TabIndex = 20;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(43, 82);
+            this.label1.Location = new System.Drawing.Point(43, 133);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 15);
+            this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Mã Lớp";
+            this.label1.Text = "Tên khối";
             // 
             // maLop
             // 
@@ -375,10 +369,43 @@
             this.maLop.HeaderText = "Mã Lớp";
             this.maLop.Name = "maLop";
             this.maLop.ReadOnly = true;
+            this.maLop.Visible = false;
+            // 
+            // GiaoVien
+            // 
+            this.GiaoVien.DataPropertyName = "GiaoVien";
+            this.GiaoVien.HeaderText = "GiaoVien";
+            this.GiaoVien.Name = "GiaoVien";
+            this.GiaoVien.ReadOnly = true;
+            this.GiaoVien.Visible = false;
+            // 
+            // KhoiLop
+            // 
+            this.KhoiLop.DataPropertyName = "KhoiLop";
+            this.KhoiLop.HeaderText = "KhoiLop";
+            this.KhoiLop.Name = "KhoiLop";
+            this.KhoiLop.ReadOnly = true;
+            this.KhoiLop.Visible = false;
+            // 
+            // PhanBan
+            // 
+            this.PhanBan.DataPropertyName = "PhanBan";
+            this.PhanBan.HeaderText = "PhanBan";
+            this.PhanBan.Name = "PhanBan";
+            this.PhanBan.ReadOnly = true;
+            this.PhanBan.Visible = false;
+            // 
+            // STT
+            // 
+            this.STT.FillWeight = 78.69141F;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             // 
             // tenLop
             // 
             this.tenLop.DataPropertyName = "tenLop";
+            this.tenLop.FillWeight = 101.2827F;
             this.tenLop.HeaderText = "Tên lớp";
             this.tenLop.Name = "tenLop";
             this.tenLop.ReadOnly = true;
@@ -386,6 +413,7 @@
             // siSo
             // 
             this.siSo.DataPropertyName = "siSo";
+            this.siSo.FillWeight = 96.19882F;
             this.siSo.HeaderText = "Sĩ số";
             this.siSo.Name = "siSo";
             this.siSo.ReadOnly = true;
@@ -393,6 +421,7 @@
             // maKhoi
             // 
             this.maKhoi.DataPropertyName = "maKhoi";
+            this.maKhoi.FillWeight = 120.0802F;
             this.maKhoi.HeaderText = "Mã khối";
             this.maKhoi.Name = "maKhoi";
             this.maKhoi.ReadOnly = true;
@@ -400,6 +429,7 @@
             // maBan
             // 
             this.maBan.DataPropertyName = "maBan";
+            this.maBan.FillWeight = 152.2843F;
             this.maBan.HeaderText = "Mã Ban";
             this.maBan.Name = "maBan";
             this.maBan.ReadOnly = true;
@@ -407,9 +437,27 @@
             // maGVCN
             // 
             this.maGVCN.DataPropertyName = "maGVCN";
+            this.maGVCN.FillWeight = 51.4627F;
             this.maGVCN.HeaderText = "Mã GVCN";
             this.maGVCN.Name = "maGVCN";
             this.maGVCN.ReadOnly = true;
+            // 
+            // cmbTenKhoi
+            // 
+            this.cmbTenKhoi.Enabled = false;
+            this.cmbTenKhoi.FormattingEnabled = true;
+            this.cmbTenKhoi.Location = new System.Drawing.Point(47, 151);
+            this.cmbTenKhoi.Name = "cmbTenKhoi";
+            this.cmbTenKhoi.Size = new System.Drawing.Size(188, 21);
+            this.cmbTenKhoi.TabIndex = 21;
+            // 
+            // txtTenLop
+            // 
+            this.txtTenLop.Enabled = false;
+            this.txtTenLop.Location = new System.Drawing.Point(46, 91);
+            this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.Size = new System.Drawing.Size(188, 20);
+            this.txtTenLop.TabIndex = 20;
             // 
             // ucLopHoc
             // 
@@ -451,19 +499,23 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbGVCN;
         private System.Windows.Forms.ComboBox cmbPhanBan;
-        private System.Windows.Forms.ComboBox cmbLopHoc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtSiSo;
-        private System.Windows.Forms.TextBox txtMaLop;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaoVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KhoiLop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhanBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn siSo;
         private System.Windows.Forms.DataGridViewTextBoxColumn maKhoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn maBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn maGVCN;
+        private System.Windows.Forms.ComboBox cmbTenKhoi;
+        private System.Windows.Forms.TextBox txtTenLop;
     }
 }

@@ -374,6 +374,9 @@ namespace GUI
             }
         }
 
-
+        private void dgvHocSinh_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            dgvHocSinh.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
+        }
     }
 }

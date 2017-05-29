@@ -66,7 +66,17 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvHocSinh = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.maHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoTenHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,15 +92,6 @@
             this.chucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -487,6 +488,7 @@
             this.dgvHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHocSinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maHS,
+            this.STT,
             this.Lop,
             this.hoTenHS,
             this.gioiTinh,
@@ -509,127 +511,8 @@
             this.dgvHocSinh.Size = new System.Drawing.Size(925, 478);
             this.dgvHocSinh.TabIndex = 0;
             this.dgvHocSinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocSinh_CellClick);
+            this.dgvHocSinh.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvHocSinh_RowPrePaint);
             this.dgvHocSinh.SelectionChanged += new System.EventHandler(this.dgvHocSinh_SelectionChanged);
-            // 
-            // maHS
-            // 
-            this.maHS.DataPropertyName = "maHS";
-            this.maHS.HeaderText = "Mã HS";
-            this.maHS.Name = "maHS";
-            this.maHS.ReadOnly = true;
-            // 
-            // Lop
-            // 
-            this.Lop.DataPropertyName = "Lop";
-            this.Lop.HeaderText = "Lop";
-            this.Lop.Name = "Lop";
-            this.Lop.ReadOnly = true;
-            this.Lop.Visible = false;
-            // 
-            // hoTenHS
-            // 
-            this.hoTenHS.DataPropertyName = "hoTenHS";
-            this.hoTenHS.HeaderText = "Họ và tên";
-            this.hoTenHS.Name = "hoTenHS";
-            this.hoTenHS.ReadOnly = true;
-            this.hoTenHS.Width = 150;
-            // 
-            // gioiTinh
-            // 
-            this.gioiTinh.DataPropertyName = "gioiTinh";
-            this.gioiTinh.HeaderText = "Giới tính";
-            this.gioiTinh.Name = "gioiTinh";
-            this.gioiTinh.ReadOnly = true;
-            // 
-            // ngaySinh
-            // 
-            this.ngaySinh.DataPropertyName = "ngaySinh";
-            this.ngaySinh.HeaderText = "Ngày sinh";
-            this.ngaySinh.Name = "ngaySinh";
-            this.ngaySinh.ReadOnly = true;
-            // 
-            // dcThuongTru
-            // 
-            this.dcThuongTru.DataPropertyName = "dcThuongTru";
-            this.dcThuongTru.HeaderText = "ĐC thường trú";
-            this.dcThuongTru.Name = "dcThuongTru";
-            this.dcThuongTru.ReadOnly = true;
-            this.dcThuongTru.Width = 150;
-            // 
-            // dcTamTru
-            // 
-            this.dcTamTru.DataPropertyName = "dcTamTru";
-            this.dcTamTru.HeaderText = "ĐC tạm trú";
-            this.dcTamTru.Name = "dcTamTru";
-            this.dcTamTru.ReadOnly = true;
-            this.dcTamTru.Width = 150;
-            // 
-            // danToc
-            // 
-            this.danToc.DataPropertyName = "danToc";
-            this.danToc.HeaderText = "Dân tộc";
-            this.danToc.Name = "danToc";
-            this.danToc.ReadOnly = true;
-            // 
-            // tonGiao
-            // 
-            this.tonGiao.DataPropertyName = "tonGiao";
-            this.tonGiao.HeaderText = "Tôn giáo";
-            this.tonGiao.Name = "tonGiao";
-            this.tonGiao.ReadOnly = true;
-            // 
-            // hoTenCha
-            // 
-            this.hoTenCha.DataPropertyName = "hoTenCha";
-            this.hoTenCha.HeaderText = "Họ tên cha";
-            this.hoTenCha.Name = "hoTenCha";
-            this.hoTenCha.ReadOnly = true;
-            this.hoTenCha.Width = 150;
-            // 
-            // hoTenMe
-            // 
-            this.hoTenMe.DataPropertyName = "hoTenMe";
-            this.hoTenMe.HeaderText = "Họ tên mẹ";
-            this.hoTenMe.Name = "hoTenMe";
-            this.hoTenMe.ReadOnly = true;
-            this.hoTenMe.Width = 150;
-            // 
-            // ngheNghiepCha
-            // 
-            this.ngheNghiepCha.DataPropertyName = "ngheNghiepCha";
-            this.ngheNghiepCha.HeaderText = "Nghề nghiệp cha";
-            this.ngheNghiepCha.Name = "ngheNghiepCha";
-            this.ngheNghiepCha.ReadOnly = true;
-            this.ngheNghiepCha.Width = 150;
-            // 
-            // ngheNghiepMe
-            // 
-            this.ngheNghiepMe.DataPropertyName = "ngheNghiepMe";
-            this.ngheNghiepMe.HeaderText = "Nghề nghiệp mẹ";
-            this.ngheNghiepMe.Name = "ngheNghiepMe";
-            this.ngheNghiepMe.ReadOnly = true;
-            this.ngheNghiepMe.Width = 150;
-            // 
-            // chucVu
-            // 
-            this.chucVu.DataPropertyName = "chucVu";
-            this.chucVu.HeaderText = "Chức vụ";
-            this.chucVu.Name = "chucVu";
-            this.chucVu.ReadOnly = true;
-            // 
-            // trangThai
-            // 
-            this.trangThai.DataPropertyName = "trangThai";
-            this.trangThai.HeaderText = "Trạng thái";
-            this.trangThai.Name = "trangThai";
-            this.trangThai.ReadOnly = true;
-            // 
-            // maLop
-            // 
-            this.maLop.DataPropertyName = "maLop";
-            this.maLop.HeaderText = "Mã lớp";
-            this.maLop.Name = "maLop";
-            this.maLop.ReadOnly = true;
             // 
             // panel4
             // 
@@ -744,6 +627,134 @@
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
+            // maHS
+            // 
+            this.maHS.DataPropertyName = "maHS";
+            this.maHS.HeaderText = "Mã HS";
+            this.maHS.Name = "maHS";
+            this.maHS.ReadOnly = true;
+            this.maHS.Visible = false;
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 40;
+            // 
+            // Lop
+            // 
+            this.Lop.DataPropertyName = "Lop";
+            this.Lop.HeaderText = "Lop";
+            this.Lop.Name = "Lop";
+            this.Lop.ReadOnly = true;
+            this.Lop.Visible = false;
+            // 
+            // hoTenHS
+            // 
+            this.hoTenHS.DataPropertyName = "hoTenHS";
+            this.hoTenHS.HeaderText = "Họ và tên";
+            this.hoTenHS.Name = "hoTenHS";
+            this.hoTenHS.ReadOnly = true;
+            this.hoTenHS.Width = 150;
+            // 
+            // gioiTinh
+            // 
+            this.gioiTinh.DataPropertyName = "gioiTinh";
+            this.gioiTinh.HeaderText = "Giới tính";
+            this.gioiTinh.Name = "gioiTinh";
+            this.gioiTinh.ReadOnly = true;
+            // 
+            // ngaySinh
+            // 
+            this.ngaySinh.DataPropertyName = "ngaySinh";
+            this.ngaySinh.HeaderText = "Ngày sinh";
+            this.ngaySinh.Name = "ngaySinh";
+            this.ngaySinh.ReadOnly = true;
+            // 
+            // dcThuongTru
+            // 
+            this.dcThuongTru.DataPropertyName = "dcThuongTru";
+            this.dcThuongTru.HeaderText = "ĐC thường trú";
+            this.dcThuongTru.Name = "dcThuongTru";
+            this.dcThuongTru.ReadOnly = true;
+            this.dcThuongTru.Width = 150;
+            // 
+            // dcTamTru
+            // 
+            this.dcTamTru.DataPropertyName = "dcTamTru";
+            this.dcTamTru.HeaderText = "ĐC tạm trú";
+            this.dcTamTru.Name = "dcTamTru";
+            this.dcTamTru.ReadOnly = true;
+            this.dcTamTru.Width = 150;
+            // 
+            // danToc
+            // 
+            this.danToc.DataPropertyName = "danToc";
+            this.danToc.HeaderText = "Dân tộc";
+            this.danToc.Name = "danToc";
+            this.danToc.ReadOnly = true;
+            // 
+            // tonGiao
+            // 
+            this.tonGiao.DataPropertyName = "tonGiao";
+            this.tonGiao.HeaderText = "Tôn giáo";
+            this.tonGiao.Name = "tonGiao";
+            this.tonGiao.ReadOnly = true;
+            // 
+            // hoTenCha
+            // 
+            this.hoTenCha.DataPropertyName = "hoTenCha";
+            this.hoTenCha.HeaderText = "Họ tên cha";
+            this.hoTenCha.Name = "hoTenCha";
+            this.hoTenCha.ReadOnly = true;
+            this.hoTenCha.Width = 150;
+            // 
+            // hoTenMe
+            // 
+            this.hoTenMe.DataPropertyName = "hoTenMe";
+            this.hoTenMe.HeaderText = "Họ tên mẹ";
+            this.hoTenMe.Name = "hoTenMe";
+            this.hoTenMe.ReadOnly = true;
+            this.hoTenMe.Width = 150;
+            // 
+            // ngheNghiepCha
+            // 
+            this.ngheNghiepCha.DataPropertyName = "ngheNghiepCha";
+            this.ngheNghiepCha.HeaderText = "Nghề nghiệp cha";
+            this.ngheNghiepCha.Name = "ngheNghiepCha";
+            this.ngheNghiepCha.ReadOnly = true;
+            this.ngheNghiepCha.Width = 150;
+            // 
+            // ngheNghiepMe
+            // 
+            this.ngheNghiepMe.DataPropertyName = "ngheNghiepMe";
+            this.ngheNghiepMe.HeaderText = "Nghề nghiệp mẹ";
+            this.ngheNghiepMe.Name = "ngheNghiepMe";
+            this.ngheNghiepMe.ReadOnly = true;
+            this.ngheNghiepMe.Width = 150;
+            // 
+            // chucVu
+            // 
+            this.chucVu.DataPropertyName = "chucVu";
+            this.chucVu.HeaderText = "Chức vụ";
+            this.chucVu.Name = "chucVu";
+            this.chucVu.ReadOnly = true;
+            // 
+            // trangThai
+            // 
+            this.trangThai.DataPropertyName = "trangThai";
+            this.trangThai.HeaderText = "Trạng thái";
+            this.trangThai.Name = "trangThai";
+            this.trangThai.ReadOnly = true;
+            // 
+            // maLop
+            // 
+            this.maLop.DataPropertyName = "maLop";
+            this.maLop.HeaderText = "Mã lớp";
+            this.maLop.Name = "maLop";
+            this.maLop.ReadOnly = true;
+            // 
             // ucHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -811,7 +822,9 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvHocSinh;
+        private System.Windows.Forms.ComboBox cmbLopHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn maHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lop;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoTenHS;
         private System.Windows.Forms.DataGridViewTextBoxColumn gioiTinh;
@@ -827,6 +840,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLop;
-        private System.Windows.Forms.ComboBox cmbLopHoc;
     }
 }

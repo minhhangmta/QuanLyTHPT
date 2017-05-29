@@ -32,21 +32,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvGiaoVien = new System.Windows.Forms.DataGridView();
-            this.maGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoTenGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trinhDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -84,6 +69,22 @@
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
+            this.maGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoTenGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trinhDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoVien)).BeginInit();
             this.panel2.SuspendLayout();
@@ -110,6 +111,7 @@
             this.dgvGiaoVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGiaoVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maGV,
+            this.STT,
             this.MonHoc,
             this.hoTenGV,
             this.ngaySinh,
@@ -131,131 +133,8 @@
             this.dgvGiaoVien.Size = new System.Drawing.Size(895, 482);
             this.dgvGiaoVien.TabIndex = 0;
             this.dgvGiaoVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoVien_CellClick);
+            this.dgvGiaoVien.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvGiaoVien_RowPrePaint);
             this.dgvGiaoVien.SelectionChanged += new System.EventHandler(this.dgvGiaoVien_SelectionChanged);
-            // 
-            // maGV
-            // 
-            this.maGV.DataPropertyName = "maGV";
-            this.maGV.FillWeight = 363.6941F;
-            this.maGV.HeaderText = "Mã GV";
-            this.maGV.Name = "maGV";
-            this.maGV.ReadOnly = true;
-            // 
-            // MonHoc
-            // 
-            this.MonHoc.DataPropertyName = "MonHoc";
-            this.MonHoc.HeaderText = "MH";
-            this.MonHoc.Name = "MonHoc";
-            this.MonHoc.ReadOnly = true;
-            this.MonHoc.Visible = false;
-            // 
-            // hoTenGV
-            // 
-            this.hoTenGV.DataPropertyName = "hoTenGV";
-            this.hoTenGV.FillWeight = 710.6598F;
-            this.hoTenGV.HeaderText = "Họ và tên";
-            this.hoTenGV.Name = "hoTenGV";
-            this.hoTenGV.ReadOnly = true;
-            this.hoTenGV.Width = 150;
-            // 
-            // ngaySinh
-            // 
-            this.ngaySinh.DataPropertyName = "ngaySinh";
-            this.ngaySinh.FillWeight = 27.13717F;
-            this.ngaySinh.HeaderText = "Ngày sinh";
-            this.ngaySinh.Name = "ngaySinh";
-            this.ngaySinh.ReadOnly = true;
-            // 
-            // gioiTinh
-            // 
-            this.gioiTinh.DataPropertyName = "gioiTinh";
-            this.gioiTinh.FillWeight = 27.13717F;
-            this.gioiTinh.HeaderText = "Giới tính";
-            this.gioiTinh.Name = "gioiTinh";
-            this.gioiTinh.ReadOnly = true;
-            // 
-            // diaChi
-            // 
-            this.diaChi.DataPropertyName = "diaChi";
-            this.diaChi.FillWeight = 27.13717F;
-            this.diaChi.HeaderText = "Địa chỉ";
-            this.diaChi.Name = "diaChi";
-            this.diaChi.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.FillWeight = 27.13717F;
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // sdt
-            // 
-            this.sdt.DataPropertyName = "sdt";
-            this.sdt.FillWeight = 27.13717F;
-            this.sdt.HeaderText = "SĐT";
-            this.sdt.Name = "sdt";
-            this.sdt.ReadOnly = true;
-            this.sdt.Width = 80;
-            // 
-            // trinhDo
-            // 
-            this.trinhDo.DataPropertyName = "trinhDo";
-            this.trinhDo.FillWeight = 27.13717F;
-            this.trinhDo.HeaderText = "Trình độ";
-            this.trinhDo.Name = "trinhDo";
-            this.trinhDo.ReadOnly = true;
-            this.trinhDo.Width = 55;
-            // 
-            // trangThai
-            // 
-            this.trangThai.DataPropertyName = "trangThai";
-            this.trangThai.FillWeight = 27.13717F;
-            this.trangThai.HeaderText = "Trạng thái";
-            this.trangThai.Name = "trangThai";
-            this.trangThai.ReadOnly = true;
-            // 
-            // maMH
-            // 
-            this.maMH.DataPropertyName = "maMH";
-            this.maMH.FillWeight = 27.13717F;
-            this.maMH.HeaderText = "Mã MH";
-            this.maMH.Name = "maMH";
-            this.maMH.ReadOnly = true;
-            this.maMH.Width = 80;
-            // 
-            // maCV
-            // 
-            this.maCV.DataPropertyName = "maCV";
-            this.maCV.FillWeight = 27.13717F;
-            this.maCV.HeaderText = "Mã chức vụ";
-            this.maCV.Name = "maCV";
-            this.maCV.ReadOnly = true;
-            // 
-            // maLuong
-            // 
-            this.maLuong.DataPropertyName = "maLuong";
-            this.maLuong.FillWeight = 27.13717F;
-            this.maLuong.HeaderText = "Mã lương";
-            this.maLuong.Name = "maLuong";
-            this.maLuong.ReadOnly = true;
-            // 
-            // chucVu
-            // 
-            this.chucVu.DataPropertyName = "chucVu";
-            this.chucVu.HeaderText = "Chức vụ";
-            this.chucVu.Name = "chucVu";
-            this.chucVu.ReadOnly = true;
-            this.chucVu.Visible = false;
-            // 
-            // luong
-            // 
-            this.luong.DataPropertyName = "luong";
-            this.luong.HeaderText = "Luong";
-            this.luong.Name = "luong";
-            this.luong.ReadOnly = true;
-            this.luong.Visible = false;
             // 
             // panel4
             // 
@@ -673,6 +552,138 @@
             this.txtSDT.Size = new System.Drawing.Size(115, 20);
             this.txtSDT.TabIndex = 18;
             // 
+            // maGV
+            // 
+            this.maGV.DataPropertyName = "maGV";
+            this.maGV.FillWeight = 363.6941F;
+            this.maGV.HeaderText = "Mã GV";
+            this.maGV.Name = "maGV";
+            this.maGV.ReadOnly = true;
+            this.maGV.Visible = false;
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 40;
+            // 
+            // MonHoc
+            // 
+            this.MonHoc.DataPropertyName = "MonHoc";
+            this.MonHoc.HeaderText = "MH";
+            this.MonHoc.Name = "MonHoc";
+            this.MonHoc.ReadOnly = true;
+            this.MonHoc.Visible = false;
+            // 
+            // hoTenGV
+            // 
+            this.hoTenGV.DataPropertyName = "hoTenGV";
+            this.hoTenGV.FillWeight = 710.6598F;
+            this.hoTenGV.HeaderText = "Họ và tên";
+            this.hoTenGV.Name = "hoTenGV";
+            this.hoTenGV.ReadOnly = true;
+            this.hoTenGV.Width = 150;
+            // 
+            // ngaySinh
+            // 
+            this.ngaySinh.DataPropertyName = "ngaySinh";
+            this.ngaySinh.FillWeight = 27.13717F;
+            this.ngaySinh.HeaderText = "Ngày sinh";
+            this.ngaySinh.Name = "ngaySinh";
+            this.ngaySinh.ReadOnly = true;
+            // 
+            // gioiTinh
+            // 
+            this.gioiTinh.DataPropertyName = "gioiTinh";
+            this.gioiTinh.FillWeight = 27.13717F;
+            this.gioiTinh.HeaderText = "Giới tính";
+            this.gioiTinh.Name = "gioiTinh";
+            this.gioiTinh.ReadOnly = true;
+            // 
+            // diaChi
+            // 
+            this.diaChi.DataPropertyName = "diaChi";
+            this.diaChi.FillWeight = 27.13717F;
+            this.diaChi.HeaderText = "Địa chỉ";
+            this.diaChi.Name = "diaChi";
+            this.diaChi.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.FillWeight = 27.13717F;
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // sdt
+            // 
+            this.sdt.DataPropertyName = "sdt";
+            this.sdt.FillWeight = 27.13717F;
+            this.sdt.HeaderText = "SĐT";
+            this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
+            this.sdt.Width = 80;
+            // 
+            // trinhDo
+            // 
+            this.trinhDo.DataPropertyName = "trinhDo";
+            this.trinhDo.FillWeight = 27.13717F;
+            this.trinhDo.HeaderText = "Trình độ";
+            this.trinhDo.Name = "trinhDo";
+            this.trinhDo.ReadOnly = true;
+            this.trinhDo.Width = 70;
+            // 
+            // trangThai
+            // 
+            this.trangThai.DataPropertyName = "trangThai";
+            this.trangThai.FillWeight = 27.13717F;
+            this.trangThai.HeaderText = "Trạng thái";
+            this.trangThai.Name = "trangThai";
+            this.trangThai.ReadOnly = true;
+            // 
+            // maMH
+            // 
+            this.maMH.DataPropertyName = "maMH";
+            this.maMH.FillWeight = 27.13717F;
+            this.maMH.HeaderText = "Mã MH";
+            this.maMH.Name = "maMH";
+            this.maMH.ReadOnly = true;
+            this.maMH.Width = 80;
+            // 
+            // maCV
+            // 
+            this.maCV.DataPropertyName = "maCV";
+            this.maCV.FillWeight = 27.13717F;
+            this.maCV.HeaderText = "Mã chức vụ";
+            this.maCV.Name = "maCV";
+            this.maCV.ReadOnly = true;
+            // 
+            // maLuong
+            // 
+            this.maLuong.DataPropertyName = "maLuong";
+            this.maLuong.FillWeight = 27.13717F;
+            this.maLuong.HeaderText = "Mã lương";
+            this.maLuong.Name = "maLuong";
+            this.maLuong.ReadOnly = true;
+            // 
+            // chucVu
+            // 
+            this.chucVu.DataPropertyName = "chucVu";
+            this.chucVu.HeaderText = "Chức vụ";
+            this.chucVu.Name = "chucVu";
+            this.chucVu.ReadOnly = true;
+            this.chucVu.Visible = false;
+            // 
+            // luong
+            // 
+            this.luong.DataPropertyName = "luong";
+            this.luong.HeaderText = "Luong";
+            this.luong.Name = "luong";
+            this.luong.ReadOnly = true;
+            this.luong.Visible = false;
+            // 
             // ucGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -736,6 +747,7 @@
         private System.Windows.Forms.ComboBox cmbMonHoc;
         private System.Windows.Forms.ComboBox cmbChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn maGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoTenGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaySinh;
