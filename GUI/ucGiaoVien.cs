@@ -31,34 +31,6 @@ namespace GUI
 
         GiaoVienBUS GVBUS = new GiaoVienBUS();
 
-        public GiaoVien getGiaoVien()
-        {
-            string temp = "";
-            if (rdbNam.Checked == true)
-                temp = "Nam";
-            else
-                temp = "Nữ";
-            int stt = 0;
-            switch (cmbTrangThai.SelectedItem.ToString())
-            {
-                case "Đang làm việc": stt = 1; break;
-                case "Đình chỉ": stt = 2; break;
-                default: break;
-            }
-            GiaoVien giaovien = new GiaoVien();
-            giaovien.diaChi = GiaoVienBUS.Instance.StandardString(txtDiaChi.Text);
-            giaovien.email = txtEmail.Text;
-            giaovien.hoTenGV = GiaoVienBUS.Instance.StandardString(txtHoTen.Text);
-            giaovien.maCV = int.Parse(cmbChucVu.SelectedValue.ToString());
-            giaovien.maMH = int.Parse(cmbMonHoc.SelectedValue.ToString());
-            giaovien.trangThai = stt;
-            giaovien.gioiTinh = temp;
-            giaovien.trinhDo = GiaoVienBUS.Instance.StandardString(txtTrinhDo.Text);
-            giaovien.sdt = txtSDT.Text;
-            giaovien.maLuong = int.Parse(txtMaLuong.Text);
-            giaovien.ngaySinh = dtNgaySinh.Value;
-            return giaovien;
-        }
         public void LoadDB()
         {
             dgvGiaoVien.DataSource = GVBUS.GetList();
