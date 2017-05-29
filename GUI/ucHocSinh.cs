@@ -79,7 +79,23 @@ namespace GUI
 
         public void tool_Enabled()
         {
-
+            txtDanToc.Enabled = true;
+            txtDCtamtru.Enabled = true;
+            txtDCthuongtru.Enabled = true;
+            txtHoTen.Enabled = true;
+            txtHoTenCha.Enabled = true;
+            txtHoTenMe.Enabled = true;
+            txtNgheNghiepCha.Enabled = true;
+            txtNgheNghiepMe.Enabled = true;
+            txtTonGiao.Enabled = true;
+            cmbChucVu.Enabled = true;
+            cmbLopHoc.Enabled = true;
+            cmbTrangThai.Enabled = true;
+            rdbNam.Enabled = true;
+            rdbNu.Enabled = true;
+            dtNgaySinh.Enabled = true;
+            btnLuu.Enabled = true;
+            btnHuy.Enabled = true;
         }
 
         public void tool_Disenabled()
