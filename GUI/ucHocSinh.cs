@@ -29,7 +29,34 @@ namespace GUI
 
         public HocSinh getHocSinh()
         {
-
+            string temp = "";
+            if (rdbNam.Checked == true)
+                temp = "Nam";
+            else
+                temp = "Nữ";
+            int stt = 0;
+            switch (cmbTrangThai.SelectedItem.ToString())
+            {
+                case "Đang học": stt = 1; break;
+                case "Đình chỉ": stt = 2; break;
+                default: break;
+            }
+            HocSinh hocsinh = new HocSinh();
+            hocsinh.hoTenHS = HocSinhBUS.Instance.StandardString(txtHoTen.Text);
+            hocsinh.ngaySinh = dtNgaySinh.Value;
+            hocsinh.dcThuongTru = HocSinhBUS.Instance.StandardString(txtDCthuongtru.Text);
+            hocsinh.dcTamTru = HocSinhBUS.Instance.StandardString(txtDCtamtru.Text);
+            hocsinh.danToc = HocSinhBUS.Instance.StandardString(txtDanToc.Text);
+            hocsinh.hoTenCha = HocSinhBUS.Instance.StandardString(txtHoTenCha.Text);
+            hocsinh.tonGiao = HocSinhBUS.Instance.StandardString(txtTonGiao.Text);
+            hocsinh.hoTenMe = HocSinhBUS.Instance.StandardString(txtHoTenMe.Text);
+            hocsinh.ngheNghiepMe = HocSinhBUS.Instance.StandardWord(txtNgheNghiepMe.Text);
+            hocsinh.ngheNghiepCha = HocSinhBUS.Instance.StandardWord(txtNgheNghiepCha.Text);
+            hocsinh.chucVu = cmbChucVu.SelectedItem.ToString();
+            hocsinh.trangThai = stt;
+            hocsinh.gioiTinh = temp;
+            hocsinh.maLop = int.Parse(cmbLopHoc.SelectedValue.ToString());
+            return hocsinh;
         }
         public void LoadDB()
         {
