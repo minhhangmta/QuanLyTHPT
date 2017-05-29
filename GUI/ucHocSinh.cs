@@ -74,6 +74,7 @@ namespace GUI
 
         private void ucHocSinh_Load(object sender, EventArgs e)
         {
+            LoadDB();
         }
 
         public void tool_Enabled()
