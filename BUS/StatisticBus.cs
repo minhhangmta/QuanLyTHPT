@@ -142,10 +142,57 @@ namespace BUS
 
         }
 
-      /*  public DataTable StatisticByType(string score ,string conduct)
+        public DataTable StatisticByType(string score, string conduct)
         {
-            
-        } 
-        */
+
+            DataTable dataTale = getDatatableStatistic("2017");
+            switch (score)
+            {
+                case "ExcellentStudent":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (float.Parse(dr["TB cả năm"].ToString()) < 8)
+                                dr.Delete();
+                        }
+                        break;
+                    }
+                case "GoodStudent":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (float.Parse(dr["TB cả năm"].ToString()) < 6.5 || float.Parse(dr["TB cả năm"].ToString()) >= 8)
+                                dr.Delete();
+                        }
+                        break;
+                    }
+                case "AvergareStudent":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (float.Parse(dr["TB cả năm"].ToString()) < 8 || float.Parse(dr["TB cả năm"].ToString()) >= 6.4)
+                                dr.Delete();
+                        }
+                        break;
+                    }
+                case "WeakStudent":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (float.Parse(dr["TB cả năm"].ToString()) < 5 || float.Parse(dr["TB cả năm"].ToString()) >= 5)
+                                dr.Delete();
+                        }
+                        break;
+                    }
+            }
+           
+
+            return dataTale;
+        }
+
     }
 }

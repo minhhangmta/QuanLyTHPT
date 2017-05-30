@@ -42,7 +42,6 @@
             this.rbtAverageConduct = new System.Windows.Forms.RadioButton();
             this.rbtExcellentConduct = new System.Windows.Forms.RadioButton();
             this.grbCapacity = new System.Windows.Forms.GroupBox();
-            this.rbtBellowAverageStudent = new System.Windows.Forms.RadioButton();
             this.rbtAllStudent = new System.Windows.Forms.RadioButton();
             this.rbtGoodStudent = new System.Windows.Forms.RadioButton();
             this.rbtWeakStudent = new System.Windows.Forms.RadioButton();
@@ -203,7 +202,6 @@
             // 
             // grbCapacity
             // 
-            this.grbCapacity.Controls.Add(this.rbtBellowAverageStudent);
             this.grbCapacity.Controls.Add(this.rbtAllStudent);
             this.grbCapacity.Controls.Add(this.rbtGoodStudent);
             this.grbCapacity.Controls.Add(this.rbtWeakStudent);
@@ -215,16 +213,6 @@
             this.grbCapacity.TabIndex = 1;
             this.grbCapacity.TabStop = false;
             this.grbCapacity.Text = "Học lực";
-            // 
-            // rbtBellowAverageStudent
-            // 
-            this.rbtBellowAverageStudent.AutoSize = true;
-            this.rbtBellowAverageStudent.Location = new System.Drawing.Point(69, 49);
-            this.rbtBellowAverageStudent.Name = "rbtBellowAverageStudent";
-            this.rbtBellowAverageStudent.Size = new System.Drawing.Size(96, 17);
-            this.rbtBellowAverageStudent.TabIndex = 5;
-            this.rbtBellowAverageStudent.Text = "Trung bình yếu";
-            this.rbtBellowAverageStudent.UseVisualStyleBackColor = true;
             // 
             // rbtAllStudent
             // 
@@ -251,7 +239,7 @@
             // rbtWeakStudent
             // 
             this.rbtWeakStudent.AutoSize = true;
-            this.rbtWeakStudent.Location = new System.Drawing.Point(178, 19);
+            this.rbtWeakStudent.Location = new System.Drawing.Point(69, 49);
             this.rbtWeakStudent.Name = "rbtWeakStudent";
             this.rbtWeakStudent.Size = new System.Drawing.Size(44, 17);
             this.rbtWeakStudent.TabIndex = 0;
@@ -406,7 +394,6 @@
         private System.Windows.Forms.RadioButton rbtExcellentConduct;
         private System.Windows.Forms.RadioButton rbtAllConduct;
         private System.Windows.Forms.RadioButton rbtAllStudent;
-        private System.Windows.Forms.RadioButton rbtBellowAverageStudent;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;

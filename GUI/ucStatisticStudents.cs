@@ -70,9 +70,6 @@ namespace GUI
             }else if(rbtWeakStudent.Checked)
             {
                 SCORE = "WeakStudent";
-            }else if (rbtBellowAverageStudent.Checked)
-            {
-                SCORE = "BellowAverageStudent";
             }
             else if (rbtAllStudent.Checked){
                 SCORE = "AllStudent";
@@ -95,6 +92,8 @@ namespace GUI
             {
                 CONDUCT = "WeakConduct";
             }
+
+           dgvStatistic.DataSource =  statisticBus.StatisticByType(SCORE,CONDUCT);
         }
     }
 }
