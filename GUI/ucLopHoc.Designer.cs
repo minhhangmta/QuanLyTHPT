@@ -48,10 +48,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbGVCN = new System.Windows.Forms.ComboBox();
             this.cmbPhanBan = new System.Windows.Forms.ComboBox();
+            this.cmbTenKhoi = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtTenLop = new System.Windows.Forms.TextBox();
             this.txtSiSo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.maLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,8 +66,6 @@
             this.maKhoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maGVCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbTenKhoi = new System.Windows.Forms.ComboBox();
-            this.txtTenLop = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLopHoc)).BeginInit();
@@ -226,6 +226,7 @@
             this.dgvLopHoc.Size = new System.Drawing.Size(757, 412);
             this.dgvLopHoc.TabIndex = 0;
             this.dgvLopHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLopHoc_CellClick);
+            this.dgvLopHoc.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLopHoc_CellFormatting);
             this.dgvLopHoc.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvLopHoc_RowPrePaint);
             this.dgvLopHoc.SelectionChanged += new System.EventHandler(this.dgvLopHoc_SelectionChanged);
             // 
@@ -300,6 +301,15 @@
             this.cmbPhanBan.Size = new System.Drawing.Size(188, 21);
             this.cmbPhanBan.TabIndex = 21;
             // 
+            // cmbTenKhoi
+            // 
+            this.cmbTenKhoi.Enabled = false;
+            this.cmbTenKhoi.FormattingEnabled = true;
+            this.cmbTenKhoi.Location = new System.Drawing.Point(47, 151);
+            this.cmbTenKhoi.Name = "cmbTenKhoi";
+            this.cmbTenKhoi.Size = new System.Drawing.Size(188, 21);
+            this.cmbTenKhoi.TabIndex = 21;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -343,6 +353,14 @@
             this.label14.Size = new System.Drawing.Size(48, 15);
             this.label14.TabIndex = 18;
             this.label14.Text = "Tên lớp";
+            // 
+            // txtTenLop
+            // 
+            this.txtTenLop.Enabled = false;
+            this.txtTenLop.Location = new System.Drawing.Point(46, 91);
+            this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.Size = new System.Drawing.Size(188, 20);
+            this.txtTenLop.TabIndex = 20;
             // 
             // txtSiSo
             // 
@@ -422,7 +440,7 @@
             // 
             this.maKhoi.DataPropertyName = "maKhoi";
             this.maKhoi.FillWeight = 120.0802F;
-            this.maKhoi.HeaderText = "Mã khối";
+            this.maKhoi.HeaderText = "Khối";
             this.maKhoi.Name = "maKhoi";
             this.maKhoi.ReadOnly = true;
             // 
@@ -430,7 +448,7 @@
             // 
             this.maBan.DataPropertyName = "maBan";
             this.maBan.FillWeight = 152.2843F;
-            this.maBan.HeaderText = "Mã Ban";
+            this.maBan.HeaderText = "Phân ban";
             this.maBan.Name = "maBan";
             this.maBan.ReadOnly = true;
             // 
@@ -438,26 +456,9 @@
             // 
             this.maGVCN.DataPropertyName = "maGVCN";
             this.maGVCN.FillWeight = 51.4627F;
-            this.maGVCN.HeaderText = "Mã GVCN";
+            this.maGVCN.HeaderText = "Tên GVCN";
             this.maGVCN.Name = "maGVCN";
             this.maGVCN.ReadOnly = true;
-            // 
-            // cmbTenKhoi
-            // 
-            this.cmbTenKhoi.Enabled = false;
-            this.cmbTenKhoi.FormattingEnabled = true;
-            this.cmbTenKhoi.Location = new System.Drawing.Point(47, 151);
-            this.cmbTenKhoi.Name = "cmbTenKhoi";
-            this.cmbTenKhoi.Size = new System.Drawing.Size(188, 21);
-            this.cmbTenKhoi.TabIndex = 21;
-            // 
-            // txtTenLop
-            // 
-            this.txtTenLop.Enabled = false;
-            this.txtTenLop.Location = new System.Drawing.Point(46, 91);
-            this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Size = new System.Drawing.Size(188, 20);
-            this.txtTenLop.TabIndex = 20;
             // 
             // ucLopHoc
             // 
@@ -505,6 +506,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtSiSo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbTenKhoi;
+        private System.Windows.Forms.TextBox txtTenLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn maLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaoVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn KhoiLop;
@@ -515,7 +518,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maKhoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn maBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn maGVCN;
-        private System.Windows.Forms.ComboBox cmbTenKhoi;
-        private System.Windows.Forms.TextBox txtTenLop;
     }
 }

@@ -111,7 +111,10 @@
             this.dgvBangDiem.ReadOnly = true;
             this.dgvBangDiem.Size = new System.Drawing.Size(818, 481);
             this.dgvBangDiem.TabIndex = 0;
+            this.dgvBangDiem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBangDiem_CellClick);
+            this.dgvBangDiem.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvBangDiem_CellFormatting);
             this.dgvBangDiem.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvBangDiem_RowPrePaint);
+            this.dgvBangDiem.SelectionChanged += new System.EventHandler(this.dgvBangDiem_SelectionChanged);
             // 
             // panel4
             // 
@@ -326,6 +329,12 @@
             // 
             this.cmbNamHoc.Enabled = false;
             this.cmbNamHoc.FormattingEnabled = true;
+            this.cmbNamHoc.Items.AddRange(new object[] {
+            "2019",
+            "2018",
+            "2017",
+            "2016",
+            "2015"});
             this.cmbNamHoc.Location = new System.Drawing.Point(48, 258);
             this.cmbNamHoc.Name = "cmbNamHoc";
             this.cmbNamHoc.Size = new System.Drawing.Size(188, 21);
@@ -460,14 +469,14 @@
             // maHS
             // 
             this.maHS.DataPropertyName = "maHS";
-            this.maHS.HeaderText = "Mã HS";
+            this.maHS.HeaderText = "Tên học sinh";
             this.maHS.Name = "maHS";
             this.maHS.ReadOnly = true;
             // 
             // maMH
             // 
             this.maMH.DataPropertyName = "maMH";
-            this.maMH.HeaderText = "Mã môn học";
+            this.maMH.HeaderText = "Môn học";
             this.maMH.Name = "maMH";
             this.maMH.ReadOnly = true;
             // 

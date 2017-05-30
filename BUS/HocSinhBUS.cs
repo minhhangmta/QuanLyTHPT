@@ -69,6 +69,11 @@ namespace BUS
             return 1;
         }
 
+        public List<Lop> getListLop()
+        {
+            return DB.Lops.ToList();
+        }
+
         public int EditHocSinh(HocSinh hs)
         {
             try

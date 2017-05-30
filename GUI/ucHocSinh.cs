@@ -378,5 +378,25 @@ namespace GUI
         {
             dgvHocSinh.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
         }
+
+        private void dgvHocSinh_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            List<Lop> listLop = HocSinhBUS.Instance.getListLop();
+
+            if (this.dgvHocSinh.Columns[e.ColumnIndex].Name == "maLop")
+            {
+                if (e.Value != null)
+                {
+                    foreach (Lop lop in listLop)
+                    {
+                        if(int.Parse(e.Value.ToString()) == lop.maLop)
+                        {
+                            e.Value = lop.tenLop;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
