@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBangDiem));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBangDiem = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -47,21 +47,23 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtCaNam = new System.Windows.Forms.TextBox();
+            this.txtHK2 = new System.Windows.Forms.TextBox();
+            this.txtHK1 = new System.Windows.Forms.TextBox();
+            this.cmbNamHoc = new System.Windows.Forms.ComboBox();
+            this.cmbHoTen = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cmbMonHoc = new System.Windows.Forms.ComboBox();
             this.cmbLopHoc = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +71,7 @@
             this.tbHocKy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbNamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBangDiem)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,7 +80,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvBangDiem);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -87,26 +89,29 @@
             this.panel1.Size = new System.Drawing.Size(818, 628);
             this.panel1.TabIndex = 7;
             // 
-            // dataGridView1
+            // dgvBangDiem
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvBangDiem.AllowUserToAddRows = false;
+            this.dgvBangDiem.AllowUserToDeleteRows = false;
+            this.dgvBangDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBangDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBangDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
+            this.HocSinh,
+            this.MonHoc,
             this.maHS,
             this.maMH,
             this.namHoc,
             this.tbHocKy1,
             this.tbHocKy2,
             this.tbNamHoc});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 73);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(818, 481);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvBangDiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBangDiem.Location = new System.Drawing.Point(0, 73);
+            this.dgvBangDiem.Name = "dgvBangDiem";
+            this.dgvBangDiem.ReadOnly = true;
+            this.dgvBangDiem.Size = new System.Drawing.Size(818, 481);
+            this.dgvBangDiem.TabIndex = 0;
+            this.dgvBangDiem.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvBangDiem_RowPrePaint);
             // 
             // panel4
             // 
@@ -175,6 +180,7 @@
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnThem
             // 
@@ -190,6 +196,7 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -203,6 +210,7 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -216,6 +224,7 @@
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
@@ -228,6 +237,7 @@
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // groupBox3
             // 
@@ -250,22 +260,23 @@
             this.btnHuy.TabIndex = 1;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.txtHoTen);
+            this.groupBox1.Controls.Add(this.txtCaNam);
+            this.groupBox1.Controls.Add(this.txtHK2);
+            this.groupBox1.Controls.Add(this.txtHK1);
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.comboBox6);
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.cmbNamHoc);
+            this.groupBox1.Controls.Add(this.cmbHoTen);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.comboBox5);
+            this.groupBox1.Controls.Add(this.cmbMonHoc);
             this.groupBox1.Controls.Add(this.cmbLopHoc);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
@@ -287,47 +298,47 @@
             this.label8.TabIndex = 34;
             this.label8.Text = "CHI TIẾT ĐIỂM";
             // 
-            // textBox2
+            // txtCaNam
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(49, 421);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 20);
-            this.textBox2.TabIndex = 32;
+            this.txtCaNam.Enabled = false;
+            this.txtCaNam.Location = new System.Drawing.Point(49, 421);
+            this.txtCaNam.Name = "txtCaNam";
+            this.txtCaNam.Size = new System.Drawing.Size(188, 20);
+            this.txtCaNam.TabIndex = 32;
             // 
-            // textBox1
+            // txtHK2
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(49, 365);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 32;
+            this.txtHK2.Enabled = false;
+            this.txtHK2.Location = new System.Drawing.Point(49, 365);
+            this.txtHK2.Name = "txtHK2";
+            this.txtHK2.Size = new System.Drawing.Size(188, 20);
+            this.txtHK2.TabIndex = 32;
             // 
-            // txtHoTen
+            // txtHK1
             // 
-            this.txtHoTen.Enabled = false;
-            this.txtHoTen.Location = new System.Drawing.Point(49, 313);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(188, 20);
-            this.txtHoTen.TabIndex = 32;
+            this.txtHK1.Enabled = false;
+            this.txtHK1.Location = new System.Drawing.Point(49, 313);
+            this.txtHK1.Name = "txtHK1";
+            this.txtHK1.Size = new System.Drawing.Size(188, 20);
+            this.txtHK1.TabIndex = 32;
             // 
-            // comboBox6
+            // cmbNamHoc
             // 
-            this.comboBox6.Enabled = false;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(48, 258);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(188, 21);
-            this.comboBox6.TabIndex = 30;
+            this.cmbNamHoc.Enabled = false;
+            this.cmbNamHoc.FormattingEnabled = true;
+            this.cmbNamHoc.Location = new System.Drawing.Point(48, 258);
+            this.cmbNamHoc.Name = "cmbNamHoc";
+            this.cmbNamHoc.Size = new System.Drawing.Size(188, 21);
+            this.cmbNamHoc.TabIndex = 30;
             // 
-            // comboBox4
+            // cmbHoTen
             // 
-            this.comboBox4.Enabled = false;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(48, 207);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(188, 21);
-            this.comboBox4.TabIndex = 30;
+            this.cmbHoTen.Enabled = false;
+            this.cmbHoTen.FormattingEnabled = true;
+            this.cmbHoTen.Location = new System.Drawing.Point(48, 207);
+            this.cmbHoTen.Name = "cmbHoTen";
+            this.cmbHoTen.Size = new System.Drawing.Size(188, 21);
+            this.cmbHoTen.TabIndex = 30;
             // 
             // label6
             // 
@@ -373,14 +384,14 @@
             this.label14.TabIndex = 25;
             this.label14.Text = "Lớp";
             // 
-            // comboBox5
+            // cmbMonHoc
             // 
-            this.comboBox5.Enabled = false;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(48, 154);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(188, 21);
-            this.comboBox5.TabIndex = 31;
+            this.cmbMonHoc.Enabled = false;
+            this.cmbMonHoc.FormattingEnabled = true;
+            this.cmbMonHoc.Location = new System.Drawing.Point(48, 154);
+            this.cmbMonHoc.Name = "cmbMonHoc";
+            this.cmbMonHoc.Size = new System.Drawing.Size(188, 21);
+            this.cmbMonHoc.TabIndex = 31;
             // 
             // cmbLopHoc
             // 
@@ -430,45 +441,61 @@
             this.STT.Name = "STT";
             this.STT.ReadOnly = true;
             // 
+            // HocSinh
+            // 
+            this.HocSinh.DataPropertyName = "HocSinh";
+            this.HocSinh.HeaderText = "HocSinh";
+            this.HocSinh.Name = "HocSinh";
+            this.HocSinh.ReadOnly = true;
+            this.HocSinh.Visible = false;
+            // 
+            // MonHoc
+            // 
+            this.MonHoc.DataPropertyName = "MonHoc";
+            this.MonHoc.HeaderText = "MonHoc";
+            this.MonHoc.Name = "MonHoc";
+            this.MonHoc.ReadOnly = true;
+            this.MonHoc.Visible = false;
+            // 
             // maHS
             // 
             this.maHS.DataPropertyName = "maHS";
-            this.maHS.HeaderText = "maHS";
+            this.maHS.HeaderText = "Mã HS";
             this.maHS.Name = "maHS";
             this.maHS.ReadOnly = true;
             // 
             // maMH
             // 
             this.maMH.DataPropertyName = "maMH";
-            this.maMH.HeaderText = "maMH";
+            this.maMH.HeaderText = "Mã môn học";
             this.maMH.Name = "maMH";
             this.maMH.ReadOnly = true;
             // 
             // namHoc
             // 
             this.namHoc.DataPropertyName = "namHoc";
-            this.namHoc.HeaderText = "namHoc";
+            this.namHoc.HeaderText = "Năm học";
             this.namHoc.Name = "namHoc";
             this.namHoc.ReadOnly = true;
             // 
             // tbHocKy1
             // 
             this.tbHocKy1.DataPropertyName = "tbHocKy1";
-            this.tbHocKy1.HeaderText = "tbHocKy1";
+            this.tbHocKy1.HeaderText = "TB học kỳ 1";
             this.tbHocKy1.Name = "tbHocKy1";
             this.tbHocKy1.ReadOnly = true;
             // 
             // tbHocKy2
             // 
             this.tbHocKy2.DataPropertyName = "tbHocKy2";
-            this.tbHocKy2.HeaderText = "tbHocKy2";
+            this.tbHocKy2.HeaderText = "TB học kỳ 2";
             this.tbHocKy2.Name = "tbHocKy2";
             this.tbHocKy2.ReadOnly = true;
             // 
             // tbNamHoc
             // 
             this.tbNamHoc.DataPropertyName = "tbNamHoc";
-            this.tbNamHoc.HeaderText = "tbNamHoc";
+            this.tbNamHoc.HeaderText = "TB cả năm";
             this.tbNamHoc.Name = "tbNamHoc";
             this.tbNamHoc.ReadOnly = true;
             // 
@@ -481,7 +508,7 @@
             this.Name = "ucBangDiem";
             this.Size = new System.Drawing.Size(1117, 628);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBangDiem)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -494,7 +521,7 @@
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBangDiem;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -509,22 +536,24 @@
         private System.Windows.Forms.Button btnHuy;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbNamHoc;
+        private System.Windows.Forms.ComboBox cmbHoTen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cmbMonHoc;
         private System.Windows.Forms.ComboBox cmbLopHoc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.TextBox txtCaNam;
+        private System.Windows.Forms.TextBox txtHK2;
+        private System.Windows.Forms.TextBox txtHK1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HocSinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn maHS;
         private System.Windows.Forms.DataGridViewTextBoxColumn maMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn namHoc;

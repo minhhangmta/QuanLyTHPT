@@ -23,7 +23,6 @@ namespace DAO
         public List<HanhKiem> GetList()
         {
             List<HanhKiem> hanhkiem = new List<HanhKiem>();
-            //O day dung using de no tu don dep khi dung xong, vi cai datacontext nam ben DTO nen sd using ntn tot hon
             DataClassesDataContext db = new DataClassesDataContext();
             hanhkiem = db.HanhKiems.Select(p => p).ToList(); //tra ve 1 thang hs thi phai .tolist cho no
             return hanhkiem;
