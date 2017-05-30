@@ -189,7 +189,50 @@ namespace BUS
                         break;
                     }
             }
-           
+
+            switch (conduct)
+            {
+                case "ExcellentConduct":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (dr["HK cả năm"].ToString() != "Tốt")
+                                dr.Delete();
+                        }
+                        break;
+                    }
+                case "GoodConduct":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (dr["HK cả năm"].ToString() != "Khá")
+                                dr.Delete();
+                        }
+                        break;
+                    }
+                case "AverageConduct":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (dr["HK cả năm"].ToString() != "Trung bình")
+                                dr.Delete();
+                        }
+                        break;
+                    }
+                case "WeakConduct":
+                    {
+                        for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+                        {
+                            DataRow dr = dataTale.Rows[i];
+                            if (dr["HK cả năm"].ToString() != "Yếu")
+                                dr.Delete();
+                        }
+                        break;
+                    }
+            }
 
             return dataTale;
         }
