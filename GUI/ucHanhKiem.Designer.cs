@@ -393,35 +393,35 @@
             // maHS
             // 
             this.maHS.DataPropertyName = "maHS";
-            this.maHS.HeaderText = "maHS";
+            this.maHS.HeaderText = "Mã HS";
             this.maHS.Name = "maHS";
             this.maHS.ReadOnly = true;
             // 
             // namHoc
             // 
             this.namHoc.DataPropertyName = "namHoc";
-            this.namHoc.HeaderText = "namHoc";
+            this.namHoc.HeaderText = "Năm học";
             this.namHoc.Name = "namHoc";
             this.namHoc.ReadOnly = true;
             // 
             // hocKy1
             // 
             this.hocKy1.DataPropertyName = "hocKy1";
-            this.hocKy1.HeaderText = "hocKy1";
+            this.hocKy1.HeaderText = "Học kỳ 1";
             this.hocKy1.Name = "hocKy1";
             this.hocKy1.ReadOnly = true;
             // 
             // hocKy2
             // 
             this.hocKy2.DataPropertyName = "hocKy2";
-            this.hocKy2.HeaderText = "hocKy2";
+            this.hocKy2.HeaderText = "Học kỳ 2";
             this.hocKy2.Name = "hocKy2";
             this.hocKy2.ReadOnly = true;
             // 
             // caNam
             // 
             this.caNam.DataPropertyName = "caNam";
-            this.caNam.HeaderText = "caNam";
+            this.caNam.HeaderText = "Cả năm";
             this.caNam.Name = "caNam";
             this.caNam.ReadOnly = true;
             // 

@@ -28,7 +28,7 @@ namespace BUS
         public List<HanhKiem> GetList()
         {
             List<HanhKiem> lst = new List<HanhKiem>();
-            DB.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, DB.HanhKiems.ToList());
+          //  DB.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, DB.HanhKiems.ToList());
             return DB.HanhKiems.ToList();
         }
     }
