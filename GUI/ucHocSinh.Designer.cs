@@ -511,6 +511,7 @@
             this.dgvHocSinh.Size = new System.Drawing.Size(925, 478);
             this.dgvHocSinh.TabIndex = 0;
             this.dgvHocSinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocSinh_CellClick);
+            this.dgvHocSinh.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHocSinh_CellFormatting);
             this.dgvHocSinh.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvHocSinh_RowPrePaint);
             this.dgvHocSinh.SelectionChanged += new System.EventHandler(this.dgvHocSinh_SelectionChanged);
             // 
@@ -751,7 +752,7 @@
             // maLop
             // 
             this.maLop.DataPropertyName = "maLop";
-            this.maLop.HeaderText = "Mã lớp";
+            this.maLop.HeaderText = "Tên lớp";
             this.maLop.Name = "maLop";
             this.maLop.ReadOnly = true;
             // 
