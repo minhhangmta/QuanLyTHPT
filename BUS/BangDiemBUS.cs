@@ -140,5 +140,23 @@ namespace BUS
             }
             return data;
         }
+
+        public HocSinh getHocSinhById(int id)
+        {
+            return DB.HocSinhs.Single(m => m.maHS == id);
+        }
+
+        public MonHoc getMonHocByID(int id)
+        {
+            return DB.MonHocs.Single(m => m.maMH == id);
+        }
+
+        public Lop getLopByID(int id)
+        {
+            HocSinh hs = DB.HocSinhs.FirstOrDefault(m => m.maHS == id);
+            Lop lop = DB.Lops.Single(m => m.maLop == hs.maLop);
+            return lop;
+
+        }
     }
 }

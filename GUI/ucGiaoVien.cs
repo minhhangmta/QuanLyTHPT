@@ -55,7 +55,7 @@ namespace GUI
             giaovien.gioiTinh = temp;
             giaovien.trinhDo = GiaoVienBUS.Instance.StandardString(txtTrinhDo.Text);
             giaovien.sdt = txtSDT.Text;
-            giaovien.maLuong = int.Parse(txtMaLuong.Text);
+            giaovien.maLuong = int.Parse(cmbMaLuong.SelectedValue.ToString());
             giaovien.ngaySinh = dtNgaySinh.Value;
             return giaovien;
         }
@@ -65,6 +65,7 @@ namespace GUI
             dgvGiaoVien.DataSource = GVBUS.GetList();
             GiaoVienBUS.Instance.GetMonHoc(cmbMonHoc);
             GiaoVienBUS.Instance.GetChucVu(cmbChucVu);
+            GiaoVienBUS.Instance.GetMaLuong(cmbMaLuong);
         }
 
         private string status = "";
@@ -74,7 +75,7 @@ namespace GUI
             txtHoTen.Enabled = true;
             txtDiaChi.Enabled = true;
             txtEmail.Enabled = true;
-            txtMaLuong.Enabled = true;
+            cmbMaLuong.Enabled = true;
             txtSDT.Enabled = true;
             txtTrinhDo.Enabled = true;
             cmbChucVu.Enabled = true;
@@ -92,7 +93,7 @@ namespace GUI
             txtHoTen.Enabled = false;
             txtDiaChi.Enabled = false;
             txtEmail.Enabled = false;
-            txtMaLuong.Enabled = false;
+            cmbMaLuong.Enabled = false;
             txtSDT.Enabled = false;
             txtTrinhDo.Enabled = false;
             cmbChucVu.Enabled = false;
@@ -110,7 +111,7 @@ namespace GUI
             txtDiaChi.Clear();
             txtEmail.Clear();
             txtHoTen.Clear();
-            txtMaLuong.Clear();
+            cmbMaLuong.Text = "";
             txtSDT.Clear();
             txtTrinhDo.Clear();
             cmbChucVu.Text = "";
@@ -187,7 +188,7 @@ namespace GUI
             else
             {
                 GiaoVien gv = getGiaoVien();
-                gv.maGV= int.Parse(dgvGiaoVien.CurrentRow.Cells["maGV"].Value.ToString());
+                gv.maGV = int.Parse(dgvGiaoVien.CurrentRow.Cells["maGV"].Value.ToString());
                 int result = GiaoVienBUS.Instance.EditGiaoVien(gv);
                 if (result == 1)
                 {
@@ -236,8 +237,8 @@ namespace GUI
                         txtDiaChi.Text = dgvGiaoVien.CurrentRow.Cells["diaChi"].Value.ToString();
                     txtEmail.Text = dgvGiaoVien.CurrentRow.Cells["email"].Value.ToString();//bat buoc
                     txtSDT.Text = dgvGiaoVien.CurrentRow.Cells["sdt"].Value.ToString();//bat buoc
-                    if (isNULL("maLuong") == false)
-                        txtMaLuong.Text = dgvGiaoVien.CurrentRow.Cells["maLuong"].Value.ToString();
+                  //  if (isNULL("maLuong") == false)
+                       // txtLuong.Text = dgvGiaoVien.CurrentRow.Cells["maLuong"].Value.ToString();
                     if (isNULL("trinhDo") == false)
                         txtTrinhDo.Text = dgvGiaoVien.CurrentRow.Cells["trinhDo"].Value.ToString();
                     dtNgaySinh.Value = DateTime.Parse(dgvGiaoVien.CurrentRow.Cells["ngaySinh"].Value.ToString());
@@ -281,7 +282,7 @@ namespace GUI
                     txtEmail.Text = dgvGiaoVien.CurrentRow.Cells["email"].Value.ToString();//bat buoc
                     txtSDT.Text = dgvGiaoVien.CurrentRow.Cells["sdt"].Value.ToString();//bat buoc
                     if (isNULL("maLuong") == false)
-                        txtMaLuong.Text = dgvGiaoVien.CurrentRow.Cells["maLuong"].Value.ToString();
+                        cmbMaLuong.SelectedValue = dgvGiaoVien.CurrentRow.Cells["maLuong"].Value.GetHashCode();
                     if (isNULL("trinhDo") == false)
                         txtTrinhDo.Text = dgvGiaoVien.CurrentRow.Cells["trinhDo"].Value.ToString();
                     dtNgaySinh.Value = DateTime.Parse(dgvGiaoVien.CurrentRow.Cells["ngaySinh"].Value.ToString());
@@ -315,6 +316,79 @@ namespace GUI
         private void dgvGiaoVien_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             dgvGiaoVien.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
+        }
+
+        private void dgvGiaoVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            List<MonHoc> listMH = GiaoVienBUS.Instance.getListMH();
+            List<ChucVu> listCV = GiaoVienBUS.Instance.getListCV();
+            List<Luong> listLuong = GiaoVienBUS.Instance.getListLuong();
+
+            if (this.dgvGiaoVien.Columns[e.ColumnIndex].Name == "maMH")
+            {
+                if (e.Value != null)
+                {
+                    foreach (MonHoc mh in listMH)
+                    {
+                        if (int.Parse(e.Value.ToString()) == mh.maMH)
+                        {
+                            e.Value = mh.tenMH;
+                            return;
+                        }
+                    }
+                }
+            }
+
+            if (this.dgvGiaoVien.Columns[e.ColumnIndex].Name == "maCV")
+            {
+                if (e.Value != null)
+                {
+                    foreach (ChucVu cv in listCV)
+                    {
+                        if (int.Parse(e.Value.ToString()) == cv.maCV)
+                        {
+                            e.Value = cv.tenCV;
+                            return;
+                        }
+                    }
+                }
+            }
+
+            if (this.dgvGiaoVien.Columns[e.ColumnIndex].Name == "maLuong")
+            {
+                if (e.Value != null)
+                {
+                    foreach (Luong luong in listLuong)
+                    {
+                        if (int.Parse(e.Value.ToString()) == luong.maLuong)
+                        {
+                            e.Value = luong.tongLuong;
+                            return;
+                        }
+                    }
+                }
+            }
+
+            if (this.dgvGiaoVien.Columns[e.ColumnIndex].Name == "trangThai")
+            {
+                if (e.Value != null)
+                {
+                    switch(e.Value.ToString())
+                    {
+                        case "1":
+                            e.Value = "Đang làm việc";
+                            break;
+                        case "2":
+                            e.Value = "Đình chỉ";
+                            break;
+                        default:
+                            e.Value = "Đã nghỉ";
+                            break;
+                    }
+                }
+            }
+
+
         }
     }
 }

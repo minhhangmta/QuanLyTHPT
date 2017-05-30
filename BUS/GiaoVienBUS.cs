@@ -99,6 +99,13 @@ namespace BUS
             return 1;
         }
 
+        public void GetMaLuong(ComboBox cmbMaLuong)
+        {
+            cmbMaLuong.DataSource = DB.Luongs.ToList();
+            cmbMaLuong.DisplayMember = "maLuong";
+            cmbMaLuong.ValueMember = "maLuong";
+        }
+
         public string StandardString(string strInput)
         {
             strInput = strInput.Trim().ToLower();
@@ -122,6 +129,21 @@ namespace BUS
                 }
             }
             return data;
+        }
+
+        public List<MonHoc> getListMH()
+        {
+            return DB.MonHocs.ToList();
+        }
+
+        public List<ChucVu> getListCV()
+        {
+            return DB.ChucVus.ToList();
+        }
+
+        public List<Luong> getListLuong()
+        {
+            return DB.Luongs.ToList();
         }
     }
 }

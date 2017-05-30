@@ -46,7 +46,12 @@ namespace GUI
         public BangDiem getBangDiem()
         {
             BangDiem bangdiem = new BangDiem();
-
+            bangdiem.maHS = int.Parse(cmbHoTen.SelectedValue.ToString());
+            bangdiem.maMH = int.Parse(cmbMonHoc.SelectedValue.ToString());
+            bangdiem.namHoc= cmbNamHoc.SelectedItem.ToString();
+            bangdiem.tbHocKy1 = decimal.Parse(txtHK1.Text);
+            bangdiem.tbHocKy2 = decimal.Parse(txtHK2.Text);
+            bangdiem.tbNamHoc = decimal.Parse(txtCaNam.Text);
             return bangdiem;
         }
 
@@ -75,7 +80,7 @@ namespace GUI
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
         }
-        
+
         public void clearText()
         {
             cmbHoTen.Text = "";
@@ -115,7 +120,7 @@ namespace GUI
                 {
                     int mahs = int.Parse(dgvBangDiem.CurrentRow.Cells["maHS"].Value.ToString());
                     int mamh = int.Parse(dgvBangDiem.CurrentRow.Cells["maMH"].Value.ToString());
-                    int result = BangDiemBUS.Instance.DeleteBangDiem(mahs,mamh);
+                    int result = BangDiemBUS.Instance.DeleteBangDiem(mahs, mamh);
                     if (result == 1)
                     {
                         MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -204,10 +209,10 @@ namespace GUI
                     txtCaNam.Text = dgvBangDiem.CurrentRow.Cells["tbNamHoc"].Value.ToString();
                     txtHK1.Text = dgvBangDiem.CurrentRow.Cells["tbHocKy1"].Value.ToString();
                     txtHK2.Text = dgvBangDiem.CurrentRow.Cells["tbHocKy2"].Value.ToString();
-                    cmbHoTen.SelectedItem = dgvBangDiem.CurrentRow.Cells["hoTenHS"].Value.ToString();
-                //    cmbLopHoc.SelectedValue = dgvBangDiem.CurrentRow.Cells["maLop"].Value.GetHashCode();
-                //    cmbMonHoc.SelectedValue = dgvBangDiem.CurrentRow.Cells["maMH"].Value.GetHashCode();
                     cmbNamHoc.SelectedItem = dgvBangDiem.CurrentRow.Cells["namHoc"].Value.ToString();
+                    cmbHoTen.SelectedItem = BangDiemBUS.Instance.getHocSinhById(int.Parse(dgvBangDiem.CurrentRow.Cells["maHS"].Value.ToString()));
+                    cmbMonHoc.SelectedItem = BangDiemBUS.Instance.getMonHocByID(int.Parse(dgvBangDiem.CurrentRow.Cells["maMH"].Value.ToString()));
+                    cmbLopHoc.SelectedItem = BangDiemBUS.Instance.getLopByID(int.Parse(dgvBangDiem.CurrentRow.Cells["maHS"].Value.ToString()));
                 }
             }
             catch (Exception ex)
@@ -218,7 +223,23 @@ namespace GUI
 
         private void dgvBangDiem_SelectionChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (isNull("maHS") == false && isNull("maMH") == false)
+                {
+                    txtCaNam.Text = dgvBangDiem.CurrentRow.Cells["tbNamHoc"].Value.ToString();
+                    txtHK1.Text = dgvBangDiem.CurrentRow.Cells["tbHocKy1"].Value.ToString();
+                    txtHK2.Text = dgvBangDiem.CurrentRow.Cells["tbHocKy2"].Value.ToString();
+                    cmbNamHoc.SelectedItem = dgvBangDiem.CurrentRow.Cells["namHoc"].Value.ToString();
+                    cmbHoTen.SelectedItem = BangDiemBUS.Instance.getHocSinhById(int.Parse(dgvBangDiem.CurrentRow.Cells["maHS"].Value.ToString()));
+                    cmbMonHoc.SelectedItem = BangDiemBUS.Instance.getMonHocByID(int.Parse(dgvBangDiem.CurrentRow.Cells["maMH"].Value.ToString()));
+                    cmbLopHoc.SelectedItem = BangDiemBUS.Instance.getLopByID(int.Parse(dgvBangDiem.CurrentRow.Cells["maHS"].Value.ToString()));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dgvBangDiem_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

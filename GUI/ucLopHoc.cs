@@ -243,5 +243,10 @@ namespace GUI
             tool_Disenabled();
             LoadDB();
         }
+
+        private void dgvLopHoc_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
     }
 }
