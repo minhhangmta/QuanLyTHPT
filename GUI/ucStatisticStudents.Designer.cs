@@ -31,9 +31,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnStatisticByScore = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbb2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbb1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grbConduct = new System.Windows.Forms.GroupBox();
             this.rbtAllConduct = new System.Windows.Forms.RadioButton();
@@ -50,12 +50,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnStatisticByType = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnYear = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbbYear = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvStatistic = new System.Windows.Forms.DataGridView();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.cbbYear = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnYear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbConduct.SuspendLayout();
@@ -80,9 +81,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnStatisticByScore);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbb2);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbb1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(17, 347);
             this.groupBox1.Name = "groupBox1";
@@ -99,11 +100,12 @@
             this.btnStatisticByScore.TabIndex = 4;
             this.btnStatisticByScore.Text = "Thống kê";
             this.btnStatisticByScore.UseVisualStyleBackColor = true;
+            this.btnStatisticByScore.Click += new System.EventHandler(this.btnStatisticByScore_Click);
             // 
-            // comboBox2
+            // cbb2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbb2.FormattingEnabled = true;
+            this.cbb2.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -114,10 +116,12 @@
             "8",
             "9",
             "10"});
-            this.comboBox2.Location = new System.Drawing.Point(193, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(40, 21);
-            this.comboBox2.TabIndex = 3;
+            this.cbb2.Location = new System.Drawing.Point(193, 41);
+            this.cbb2.Name = "cbb2";
+            this.cbb2.Size = new System.Drawing.Size(40, 21);
+            this.cbb2.TabIndex = 3;
+            this.cbb2.Text = "10";
+            this.cbb2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbb2_KeyPress);
             // 
             // label2
             // 
@@ -128,10 +132,10 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Đến :";
             // 
-            // comboBox1
+            // cbb1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbb1.FormattingEnabled = true;
+            this.cbb1.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -142,10 +146,12 @@
             "8",
             "9",
             "10"});
-            this.comboBox1.Location = new System.Drawing.Point(103, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(40, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbb1.Location = new System.Drawing.Point(103, 41);
+            this.cbb1.Name = "cbb1";
+            this.cbb1.Size = new System.Drawing.Size(40, 21);
+            this.cbb1.TabIndex = 1;
+            this.cbb1.Text = "7";
+            this.cbb1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbb1_KeyPress);
             // 
             // label1
             // 
@@ -310,6 +316,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnRefresh);
             this.panel2.Controls.Add(this.btnYear);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.cbbYear);
@@ -318,33 +325,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(735, 71);
             this.panel2.TabIndex = 1;
-            // 
-            // btnYear
-            // 
-            this.btnYear.Location = new System.Drawing.Point(143, 42);
-            this.btnYear.Name = "btnYear";
-            this.btnYear.Size = new System.Drawing.Size(44, 23);
-            this.btnYear.TabIndex = 2;
-            this.btnYear.Text = "Chọn";
-            this.btnYear.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Năm học :";
-            // 
-            // cbbYear
-            // 
-            this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.Location = new System.Drawing.Point(77, 44);
-            this.cbbYear.Name = "cbbYear";
-            this.cbbYear.Size = new System.Drawing.Size(60, 21);
-            this.cbbYear.TabIndex = 0;
-            this.cbbYear.Text = "2017";
             // 
             // panel3
             // 
@@ -374,6 +354,52 @@
             this.dgvStatistic.Size = new System.Drawing.Size(696, 409);
             this.dgvStatistic.TabIndex = 4;
             this.dgvStatistic.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvStatistic_CellFormatting);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Image = global::GUI.Properties.Resources.refresh;
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(619, 40);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(77, 28);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "Làm mới";
+            this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // cbbYear
+            // 
+            this.cbbYear.FormattingEnabled = true;
+            this.cbbYear.Items.AddRange(new object[] {
+            "2015",
+            "2016",
+            "2017"});
+            this.cbbYear.Location = new System.Drawing.Point(77, 44);
+            this.cbbYear.Name = "cbbYear";
+            this.cbbYear.Size = new System.Drawing.Size(60, 21);
+            this.cbbYear.TabIndex = 0;
+            this.cbbYear.Text = "2017";
+            this.cbbYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbYear_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Năm học :";
+            // 
+            // btnYear
+            // 
+            this.btnYear.Location = new System.Drawing.Point(143, 42);
+            this.btnYear.Name = "btnYear";
+            this.btnYear.Size = new System.Drawing.Size(44, 23);
+            this.btnYear.TabIndex = 2;
+            this.btnYear.Text = "Chọn";
+            this.btnYear.UseVisualStyleBackColor = true;
+            this.btnYear.Click += new System.EventHandler(this.btnYear_Click);
             // 
             // ucStatisticStudents
             // 
@@ -417,9 +443,9 @@
         private System.Windows.Forms.RadioButton rbtAllConduct;
         private System.Windows.Forms.RadioButton rbtAllStudent;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbb2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbb1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStatisticByScore;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -428,8 +454,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvStatistic;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnYear;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbbYear;
-        private System.Windows.Forms.Button btnYear;
     }
 }

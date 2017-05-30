@@ -237,5 +237,23 @@ namespace BUS
             return dataTale;
         }
 
+        public DataTable StatisticByRangeOfScore(float score1,float score2)
+        {
+            if (score1 > score2)
+            {
+                return null;
+            }
+            DataTable dataTale = getDatatableStatistic("2017");
+            for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dataTale.Rows[i];
+                float score = float.Parse(dr["TB cả năm"].ToString());
+                if (score < score1 || score > score2)
+                    dr.Delete();
+            }
+
+            return dataTale;
+        }
+
     }
 }
