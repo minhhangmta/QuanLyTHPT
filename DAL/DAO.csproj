@@ -43,12 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangDiemDAO.cs" />
     <Compile Include="DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="GiaoVienDAO.cs" />
+    <Compile Include="HanhKiemDAO.cs" />
     <Compile Include="HocSinhDAO.cs" />
     <Compile Include="LopHocDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
