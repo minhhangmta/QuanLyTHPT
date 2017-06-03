@@ -31,6 +31,7 @@ namespace GUI
             dgvHanhKiem.DataSource = HKBUS.GetList();
         }
 
+
         public ucHanhKiem()
         {
             InitializeComponent();
@@ -70,6 +71,16 @@ namespace GUI
         private void dgvHanhKiem_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             dgvHanhKiem.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
+        }
+
+        private void dgvHanhKiem_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvHanhKiem_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

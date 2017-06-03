@@ -39,6 +39,12 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvHanhKiem = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hocKy1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hocKy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.caNam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -57,12 +63,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cmbHK1 = new System.Windows.Forms.ComboBox();
             this.cmbHoTen = new System.Windows.Forms.ComboBox();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hocKy1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hocKy2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caNam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHanhKiem)).BeginInit();
             this.panel2.SuspendLayout();
@@ -75,6 +75,11 @@
             // 
             this.cmbHK2.Enabled = false;
             this.cmbHK2.FormattingEnabled = true;
+            this.cmbHK2.Items.AddRange(new object[] {
+            "Tốt",
+            "Khá",
+            "Trung bình",
+            "Yếu"});
             this.cmbHK2.Location = new System.Drawing.Point(47, 259);
             this.cmbHK2.Name = "cmbHK2";
             this.cmbHK2.Size = new System.Drawing.Size(188, 21);
@@ -174,7 +179,50 @@
             this.dgvHanhKiem.ReadOnly = true;
             this.dgvHanhKiem.Size = new System.Drawing.Size(668, 438);
             this.dgvHanhKiem.TabIndex = 0;
+            this.dgvHanhKiem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHanhKiem_CellClick);
             this.dgvHanhKiem.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvHanhKiem_RowPrePaint);
+            this.dgvHanhKiem.SelectionChanged += new System.EventHandler(this.dgvHanhKiem_SelectionChanged);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // maHS
+            // 
+            this.maHS.DataPropertyName = "maHS";
+            this.maHS.HeaderText = "Mã HS";
+            this.maHS.Name = "maHS";
+            this.maHS.ReadOnly = true;
+            // 
+            // namHoc
+            // 
+            this.namHoc.DataPropertyName = "namHoc";
+            this.namHoc.HeaderText = "Năm học";
+            this.namHoc.Name = "namHoc";
+            this.namHoc.ReadOnly = true;
+            // 
+            // hocKy1
+            // 
+            this.hocKy1.DataPropertyName = "hocKy1";
+            this.hocKy1.HeaderText = "Học kỳ 1";
+            this.hocKy1.Name = "hocKy1";
+            this.hocKy1.ReadOnly = true;
+            // 
+            // hocKy2
+            // 
+            this.hocKy2.DataPropertyName = "hocKy2";
+            this.hocKy2.HeaderText = "Học kỳ 2";
+            this.hocKy2.Name = "hocKy2";
+            this.hocKy2.ReadOnly = true;
+            // 
+            // caNam
+            // 
+            this.caNam.DataPropertyName = "caNam";
+            this.caNam.HeaderText = "Cả năm";
+            this.caNam.Name = "caNam";
+            this.caNam.ReadOnly = true;
             // 
             // panel4
             // 
@@ -293,6 +341,11 @@
             // 
             this.cmbCaNam.Enabled = false;
             this.cmbCaNam.FormattingEnabled = true;
+            this.cmbCaNam.Items.AddRange(new object[] {
+            "Tốt",
+            "Khá",
+            "Trung bình",
+            "Yếu"});
             this.cmbCaNam.Location = new System.Drawing.Point(47, 315);
             this.cmbCaNam.Name = "cmbCaNam";
             this.cmbCaNam.Size = new System.Drawing.Size(188, 21);
@@ -370,6 +423,11 @@
             // 
             this.cmbHK1.Enabled = false;
             this.cmbHK1.FormattingEnabled = true;
+            this.cmbHK1.Items.AddRange(new object[] {
+            "Tốt",
+            "Khá",
+            "Trung bình",
+            "Yếu"});
             this.cmbHK1.Location = new System.Drawing.Point(47, 207);
             this.cmbHK1.Name = "cmbHK1";
             this.cmbHK1.Size = new System.Drawing.Size(188, 21);
@@ -383,47 +441,6 @@
             this.cmbHoTen.Name = "cmbHoTen";
             this.cmbHoTen.Size = new System.Drawing.Size(188, 21);
             this.cmbHoTen.TabIndex = 21;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // maHS
-            // 
-            this.maHS.DataPropertyName = "maHS";
-            this.maHS.HeaderText = "Mã HS";
-            this.maHS.Name = "maHS";
-            this.maHS.ReadOnly = true;
-            // 
-            // namHoc
-            // 
-            this.namHoc.DataPropertyName = "namHoc";
-            this.namHoc.HeaderText = "Năm học";
-            this.namHoc.Name = "namHoc";
-            this.namHoc.ReadOnly = true;
-            // 
-            // hocKy1
-            // 
-            this.hocKy1.DataPropertyName = "hocKy1";
-            this.hocKy1.HeaderText = "Học kỳ 1";
-            this.hocKy1.Name = "hocKy1";
-            this.hocKy1.ReadOnly = true;
-            // 
-            // hocKy2
-            // 
-            this.hocKy2.DataPropertyName = "hocKy2";
-            this.hocKy2.HeaderText = "Học kỳ 2";
-            this.hocKy2.Name = "hocKy2";
-            this.hocKy2.ReadOnly = true;
-            // 
-            // caNam
-            // 
-            this.caNam.DataPropertyName = "caNam";
-            this.caNam.HeaderText = "Cả năm";
-            this.caNam.Name = "caNam";
-            this.caNam.ReadOnly = true;
             // 
             // ucHanhKiem
             // 

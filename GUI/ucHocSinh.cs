@@ -15,6 +15,7 @@ namespace GUI
     public partial class ucHocSinh : UserControl
     {
         private static ucHocSinh _instance;
+        private bool action = true;
         public static ucHocSinh Instance
         {
             get
@@ -139,6 +140,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            action = false;
             status = "Them";
             clearText();
             btnSua.Enabled = false;
@@ -150,6 +152,7 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            action = false;
             status = "Sua";
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
@@ -187,6 +190,7 @@ namespace GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            action = true;
             if (status == "Them")
             {
                 int result = HocSinhBUS.Instance.InsertHocSinh(getHocSinh());
@@ -225,6 +229,7 @@ namespace GUI
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
+            action = true;
             tool_Disenabled();
             btnThem.Enabled = true;
             btnXoa.Enabled = true;
@@ -245,60 +250,67 @@ namespace GUI
         {
             try
             {
-                if (isNull("maHS") == false)
+                if (action == false)
                 {
-                    //bat buoc nhap tat ca combobox
-                    txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();//bat buoc
-                    if (isNull("dcTamTru") == false)
-                        txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
-                    if (isNull("dcThuongTru") == false)
-                        txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
-                    if (isNull("danToc") == false)
-                        txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
-                    if (isNull("tonGiao") == false)
-                        txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
-                    if (isNull("hoTenCha") == false)
-                        txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
-                    if (isNull("hoTenMe") == false)
-                        txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
-                    if (isNull("ngheNghiepCha") == false)
-                        txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
-                    if (isNull("ngheNghiepMe") == false)
-                        txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
-                    dtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells["ngaySinh"].Value.ToString());
-                    ////Gioi tinh //bat buoc
-                    string GT = dgvHocSinh.CurrentRow.Cells["gioiTinh"].Value.ToString();
-                    if (GT == "Nam")
-                        rdbNam.Checked = true;
-                    if (GT == "Nữ")
-                        rdbNu.Checked = true;
-                    //Chuc Vu
-                    string CV = dgvHocSinh.CurrentRow.Cells["chucVu"].Value.ToString();
-                    if (CV == "Lớp trưởng")
-                        cmbChucVu.SelectedItem = "Lớp trưởng";
-                    if (CV == "Lớp phó")
-                        cmbChucVu.SelectedItem = "Lớp phó";
-                    if (CV == "Bí thư")
-                        cmbChucVu.SelectedItem = "Bí thư";
-                    if (CV == "Không có")
-                        cmbChucVu.SelectedItem = "Không có";
+                    return;
+                }
+                else
+                {
+                    if (isNull("maHS") == false)
+                    {
+                        //bat buoc nhap tat ca combobox
+                        txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();//bat buoc
+                        if (isNull("dcTamTru") == false)
+                            txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
+                        if (isNull("dcThuongTru") == false)
+                            txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
+                        if (isNull("danToc") == false)
+                            txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
+                        if (isNull("tonGiao") == false)
+                            txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
+                        if (isNull("hoTenCha") == false)
+                            txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
+                        if (isNull("hoTenMe") == false)
+                            txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
+                        if (isNull("ngheNghiepCha") == false)
+                            txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
+                        if (isNull("ngheNghiepMe") == false)
+                            txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
+                        dtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells["ngaySinh"].Value.ToString());
+                        ////Gioi tinh //bat buoc
+                        string GT = dgvHocSinh.CurrentRow.Cells["gioiTinh"].Value.ToString();
+                        if (GT == "Nam")
+                            rdbNam.Checked = true;
+                        if (GT == "Nữ")
+                            rdbNu.Checked = true;
+                        //Chuc Vu
+                        string CV = dgvHocSinh.CurrentRow.Cells["chucVu"].Value.ToString();
+                        if (CV == "Lớp trưởng")
+                            cmbChucVu.SelectedItem = "Lớp trưởng";
+                        if (CV == "Lớp phó")
+                            cmbChucVu.SelectedItem = "Lớp phó";
+                        if (CV == "Bí thư")
+                            cmbChucVu.SelectedItem = "Bí thư";
+                        if (CV == "Không có")
+                            cmbChucVu.SelectedItem = "Không có";
 
-                    //Trang thai
-                    int stt = dgvHocSinh.CurrentRow.Cells["trangThai"].Value.GetHashCode();
-                    if (stt == 1)
-                    {
-                        cmbTrangThai.SelectedItem = "Đang học";
-                        cmbTrangThai.SelectedValue = 1;
-                    }
-                    if (stt == 2)
-                    {
-                        cmbTrangThai.SelectedItem = "Đình chỉ";
-                        cmbTrangThai.SelectedValue = 2;
-                    }
-                    if (stt == 0)
-                    {
-                        cmbTrangThai.SelectedItem = "Đã nghỉ";
-                        cmbTrangThai.SelectedValue = 0;
+                        //Trang thai
+                        int stt = dgvHocSinh.CurrentRow.Cells["trangThai"].Value.GetHashCode();
+                        if (stt == 1)
+                        {
+                            cmbTrangThai.SelectedItem = "Đang học";
+                            cmbTrangThai.SelectedValue = 1;
+                        }
+                        if (stt == 2)
+                        {
+                            cmbTrangThai.SelectedItem = "Đình chỉ";
+                            cmbTrangThai.SelectedValue = 2;
+                        }
+                        if (stt == 0)
+                        {
+                            cmbTrangThai.SelectedItem = "Đã nghỉ";
+                            cmbTrangThai.SelectedValue = 0;
+                        }
                     }
                 }
             }
@@ -312,59 +324,66 @@ namespace GUI
         {
             try
             {
-                if (isNull("maHS") == false)
+                if (action==false)
                 {
-                    txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();//bat buoc
-                    if (isNull("dcTamTru") == false)
-                        txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
-                    if (isNull("dcThuongTru") == false)
-                        txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
-                    if (isNull("danToc") == false)
-                        txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
-                    if (isNull("tonGiao") == false)
-                        txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
-                    if (isNull("hoTenCha") == false)
-                        txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
-                    if (isNull("hoTenMe") == false)
-                        txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
-                    if (isNull("ngheNghiepCha") == false)
-                        txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
-                    if (isNull("ngheNghiepMe") == false)
-                        txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
-                    dtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells["ngaySinh"].Value.ToString());
-                    ////Gioi tinh //bat buoc
-                    string GT = dgvHocSinh.CurrentRow.Cells["gioiTinh"].Value.ToString();
-                    if (GT == "Nam")
-                        rdbNam.Checked = true;
-                    if (GT == "Nữ")
-                        rdbNu.Checked = true;
-                    //Chuc Vu
-                    string CV = dgvHocSinh.CurrentRow.Cells["chucVu"].Value.ToString();
-                    if (CV == "Lớp trưởng")
-                        cmbChucVu.SelectedItem = "Lớp trưởng";
-                    if (CV == "Lớp phó")
-                        cmbChucVu.SelectedItem = "Lớp phó";
-                    if (CV == "Bí thư")
-                        cmbChucVu.SelectedItem = "Bí thư";
-                    if (CV == "Không có")
-                        cmbChucVu.SelectedItem = "Không có";
+                    return;
+                }
+                else
+                {
+                    if (isNull("maHS") == false)
+                    {
+                        txtHoTen.Text = dgvHocSinh.CurrentRow.Cells["hoTenHS"].Value.ToString();//bat buoc
+                        if (isNull("dcTamTru") == false)
+                            txtDCtamtru.Text = dgvHocSinh.CurrentRow.Cells["dcTamTru"].Value.ToString();
+                        if (isNull("dcThuongTru") == false)
+                            txtDCthuongtru.Text = dgvHocSinh.CurrentRow.Cells["dcThuongTru"].Value.ToString();
+                        if (isNull("danToc") == false)
+                            txtDanToc.Text = dgvHocSinh.CurrentRow.Cells["danToc"].Value.ToString();
+                        if (isNull("tonGiao") == false)
+                            txtTonGiao.Text = dgvHocSinh.CurrentRow.Cells["tonGiao"].Value.ToString();
+                        if (isNull("hoTenCha") == false)
+                            txtHoTenCha.Text = dgvHocSinh.CurrentRow.Cells["hoTenCha"].Value.ToString();
+                        if (isNull("hoTenMe") == false)
+                            txtHoTenMe.Text = dgvHocSinh.CurrentRow.Cells["hoTenMe"].Value.ToString();
+                        if (isNull("ngheNghiepCha") == false)
+                            txtNgheNghiepCha.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepCha"].Value.ToString();
+                        if (isNull("ngheNghiepMe") == false)
+                            txtNgheNghiepMe.Text = dgvHocSinh.CurrentRow.Cells["ngheNghiepMe"].Value.ToString();
+                        dtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells["ngaySinh"].Value.ToString());
+                        ////Gioi tinh //bat buoc
+                        string GT = dgvHocSinh.CurrentRow.Cells["gioiTinh"].Value.ToString();
+                        if (GT == "Nam")
+                            rdbNam.Checked = true;
+                        if (GT == "Nữ")
+                            rdbNu.Checked = true;
+                        //Chuc Vu
+                        string CV = dgvHocSinh.CurrentRow.Cells["chucVu"].Value.ToString();
+                        if (CV == "Lớp trưởng")
+                            cmbChucVu.SelectedItem = "Lớp trưởng";
+                        if (CV == "Lớp phó")
+                            cmbChucVu.SelectedItem = "Lớp phó";
+                        if (CV == "Bí thư")
+                            cmbChucVu.SelectedItem = "Bí thư";
+                        if (CV == "Không có")
+                            cmbChucVu.SelectedItem = "Không có";
 
-                    //Trang thai
-                    int stt = dgvHocSinh.CurrentRow.Cells["trangThai"].Value.GetHashCode();
-                    if (stt == 1)
-                    {
-                        cmbTrangThai.SelectedItem = "Đang học";
-                        cmbTrangThai.SelectedValue = 1;
-                    }
-                    if (stt == 2)
-                    {
-                        cmbTrangThai.SelectedItem = "Đình chỉ";
-                        cmbTrangThai.SelectedValue = 2;
-                    }
-                    if (stt == 0)
-                    {
-                        cmbTrangThai.SelectedItem = "Đã nghỉ";
-                        cmbTrangThai.SelectedValue = 0;
+                        //Trang thai
+                        int stt = dgvHocSinh.CurrentRow.Cells["trangThai"].Value.GetHashCode();
+                        if (stt == 1)
+                        {
+                            cmbTrangThai.SelectedItem = "Đang học";
+                            cmbTrangThai.SelectedValue = 1;
+                        }
+                        if (stt == 2)
+                        {
+                            cmbTrangThai.SelectedItem = "Đình chỉ";
+                            cmbTrangThai.SelectedValue = 2;
+                        }
+                        if (stt == 0)
+                        {
+                            cmbTrangThai.SelectedItem = "Đã nghỉ";
+                            cmbTrangThai.SelectedValue = 0;
+                        }
                     }
                 }
             }

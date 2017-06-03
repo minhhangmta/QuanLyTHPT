@@ -85,7 +85,7 @@ namespace BUS
                     row["Năm học"] = year;
                     row["TB học kỳ 1"] = ConverScore(score.tbHocKy1.ToString());
                     row["HK học kì 1"] = conduct.hocKy1;
-                    row["TB học kỳ 2"] = ConverScore(score.tbHocKy2.ToString());
+                    row["TB học kỳ 2"] = ConverScore(score.tbHocKy2.ToString()); 
                     row["HK Học kỳ 2"] = conduct.hocKy2;
                     row["TB cả năm"] = ConverScore(score.tbNamHoc.ToString());
                     row["HK cả năm"] = conduct.caNam;
