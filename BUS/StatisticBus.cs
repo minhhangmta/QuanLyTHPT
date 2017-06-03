@@ -183,7 +183,7 @@ namespace BUS
                         for (int i = dataTale.Rows.Count - 1; i >= 0; i--)
                         {
                             DataRow dr = dataTale.Rows[i];
-                            if (float.Parse(dr["TB cả năm"].ToString()) < 5 || float.Parse(dr["TB cả năm"].ToString()) >= 5)
+                            if (float.Parse(dr["TB cả năm"].ToString()) >= 5)
                                 dr.Delete();
                         }
                         break;
