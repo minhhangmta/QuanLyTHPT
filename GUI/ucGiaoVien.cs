@@ -70,6 +70,41 @@ namespace GUI
 
         private string status = "";
 
+        public void tool_Enabled()
+        {
+            txtHoTen.Enabled = true;
+            txtDiaChi.Enabled = true;
+            txtEmail.Enabled = true;
+            cmbMaLuong.Enabled = true;
+            txtSDT.Enabled = true;
+            txtTrinhDo.Enabled = true;
+            cmbChucVu.Enabled = true;
+            cmbMonHoc.Enabled = true;
+            cmbTrangThai.Enabled = true;
+            dtNgaySinh.Enabled = true;
+            btnHuy.Enabled = true;
+            rdbNam.Enabled = true;
+            rdbNu.Enabled = true;
+            btnLuu.Enabled = true;
+        }
+
+        public void tool_Disenabled()
+        {
+            txtHoTen.Enabled = false;
+            txtDiaChi.Enabled = false;
+            txtEmail.Enabled = false;
+            cmbMaLuong.Enabled = false;
+            txtSDT.Enabled = false;
+            txtTrinhDo.Enabled = false;
+            cmbChucVu.Enabled = false;
+            cmbMonHoc.Enabled = false;
+            dtNgaySinh.Enabled = false;
+            rdbNu.Enabled = false;
+            rdbNam.Enabled = false;
+            cmbTrangThai.Enabled = false;
+            btnHuy.Enabled = false;
+            btnLuu.Enabled = false;
+        }
 
         public void clearText()
         {
@@ -94,6 +129,25 @@ namespace GUI
             btnCapNhat.Enabled = true;
             tool_Disenabled();
             LoadDB();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            status = "Them";
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnCapNhat.Enabled = false;
+            tool_Enabled();
+            clearText();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            status = "Sua";
+            btnThem.Enabled = false;
+            btnXoa.Enabled = false;
+            btnCapNhat.Enabled = false;
+            tool_Enabled();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
