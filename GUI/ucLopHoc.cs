@@ -47,7 +47,10 @@ namespace GUI
 
         public void LoadDB()
         {
-          
+           dgvLopHoc.DataSource = LHBUS.GetList();
+            LopHocBUS.Instance.GetTenBan(cmbPhanBan);
+            LopHocBUS.Instance.GetTenKhoi(cmbTenKhoi);
+            LopHocBUS.Instance.GetTenGV(cmbGVCN);
         }
 
         public void tool_Enabled()
