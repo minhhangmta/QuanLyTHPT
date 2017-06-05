@@ -64,7 +64,7 @@ namespace GUI
             btnHuy.Enabled = true;
         }
 
-        public void tool_Disenabled()
+		        public void tool_Disenabled()
         {
             txtSiSo.Enabled = false;
             txtTenLop.Enabled = false;
@@ -83,6 +83,7 @@ namespace GUI
             cmbPhanBan.Text = "";
             cmbTenKhoi.Text = "";
         }
+
 
         private void btnThem_Click(object sender, EventArgs e)
         {
