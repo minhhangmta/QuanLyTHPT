@@ -53,7 +53,16 @@ namespace GUI
             LopHocBUS.Instance.GetTenGV(cmbGVCN);
         }
 
-
+        public void tool_Enabled()
+        {
+            txtSiSo.Enabled = true;
+            txtTenLop.Enabled = true;
+            cmbGVCN.Enabled = true;
+            cmbPhanBan.Enabled = true;
+            cmbTenKhoi.Enabled = true;
+            btnLuu.Enabled = true;
+            btnHuy.Enabled = true;
+        }
 
         public void tool_Disenabled()
         {
